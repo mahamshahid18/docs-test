@@ -113,7 +113,7 @@ function getLong()
 ```javascript
 
     
-    responseTypes.getLong(function(error, response, context) {
+    controller.getLong(function(error, response, context) {
 
             
     });
@@ -134,7 +134,7 @@ function getModel()
 ```javascript
 
     
-    responseTypes.getModel(function(error, response, context) {
+    controller.getModel(function(error, response, context) {
 
             
     });
@@ -155,7 +155,7 @@ function getStringEnumArray()
 ```javascript
 
     
-    responseTypes.getStringEnumArray(function(error, response, context) {
+    controller.getStringEnumArray(function(error, response, context) {
 
             
     });
@@ -176,7 +176,7 @@ function getStringEnum()
 ```javascript
 
     
-    responseTypes.getStringEnum(function(error, response, context) {
+    controller.getStringEnum(function(error, response, context) {
 
             
     });
@@ -197,7 +197,7 @@ function getModelArray()
 ```javascript
 
     
-    responseTypes.getModelArray(function(error, response, context) {
+    controller.getModelArray(function(error, response, context) {
 
             
     });
@@ -218,7 +218,7 @@ function getIntEnum()
 ```javascript
 
     
-    responseTypes.getIntEnum(function(error, response, context) {
+    controller.getIntEnum(function(error, response, context) {
 
             
     });
@@ -239,7 +239,7 @@ function getIntEnumArray()
 ```javascript
 
     
-    responseTypes.getIntEnumArray(function(error, response, context) {
+    controller.getIntEnumArray(function(error, response, context) {
 
             
     });
@@ -260,7 +260,7 @@ function getPrecision()
 ```javascript
 
     
-    responseTypes.getPrecision(function(error, response, context) {
+    controller.getPrecision(function(error, response, context) {
 
             
     });
@@ -281,7 +281,7 @@ function getBinary()
 ```javascript
 
     
-    TestHelper.getFileContents("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {responseTypes.getBinary(function(error, response, context) {
+    TestHelper.getFileContents("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {controller.getBinary(function(error, response, context) {
 
             
     });
@@ -302,7 +302,7 @@ function getInteger()
 ```javascript
 
     
-    responseTypes.getInteger(function(error, response, context) {
+    controller.getInteger(function(error, response, context) {
 
             
     });
@@ -323,7 +323,7 @@ function getIntegerArray()
 ```javascript
 
     
-    responseTypes.getIntegerArray(function(error, response, context) {
+    controller.getIntegerArray(function(error, response, context) {
 
             
     });
@@ -344,7 +344,7 @@ function getDynamic()
 ```javascript
 
     
-    responseTypes.getDynamic(function(error, response, context) {
+    controller.getDynamic(function(error, response, context) {
 
             
     });
@@ -365,7 +365,7 @@ function getDynamicArray()
 ```javascript
 
     
-    responseTypes.getDynamicArray(function(error, response, context) {
+    controller.getDynamicArray(function(error, response, context) {
 
             
     });
@@ -386,7 +386,7 @@ function getDatetime()
 ```javascript
 
     
-    responseTypes.getDatetime(function(error, response, context) {
+    controller.getDatetime(function(error, response, context) {
 
             
     });
@@ -407,7 +407,7 @@ function getDatetimeArray()
 ```javascript
 
     
-    responseTypes.getDatetimeArray(function(error, response, context) {
+    controller.getDatetimeArray(function(error, response, context) {
 
             
     });
@@ -428,7 +428,7 @@ function getBoolean()
 ```javascript
 
     
-    responseTypes.getBoolean(function(error, response, context) {
+    controller.getBoolean(function(error, response, context) {
 
             
     });
@@ -449,7 +449,7 @@ function getBooleanArray()
 ```javascript
 
     
-    responseTypes.getBooleanArray(function(error, response, context) {
+    controller.getBooleanArray(function(error, response, context) {
 
             
     });
@@ -470,7 +470,7 @@ function getHeaders()
 ```javascript
 
     
-    responseTypes.getHeaders(function(error, response, context) {
+    controller.getHeaders(function(error, response, context) {
 
             
     });
@@ -503,7 +503,7 @@ function get400()
 ```javascript
 
     
-    errorCodes.get400(function(error, response, context) {
+    controller.get400(function(error, response, context) {
 
             
     });
@@ -524,7 +524,7 @@ function get500()
 ```javascript
 
     
-    errorCodes.get500(function(error, response, context) {
+    controller.get500(function(error, response, context) {
 
             
     });
@@ -545,7 +545,7 @@ function get401()
 ```javascript
 
     
-    errorCodes.get401(function(error, response, context) {
+    controller.get401(function(error, response, context) {
 
             
     });
@@ -597,7 +597,7 @@ function sendStringArray(// Parameters for the API call
     // Parameters for the API call
     var sarray = ["abc", "def"];
 
-    bodyParams.sendStringArray(sarray, function(error, response, context) {
+    controller.sendStringArray(sarray, function(error, response, context) {
 
             
     });
@@ -630,7 +630,7 @@ function sendIntegerArray(// Parameters for the API call
     // Parameters for the API call
     var integers = [1,2,3,4,5];
 
-    bodyParams.sendIntegerArray(integers, function(error, response, context) {
+    controller.sendIntegerArray(integers, function(error, response, context) {
 
             
     });
@@ -663,7 +663,7 @@ function sendModel(// Parameters for the API call
     // Parameters for the API call
     var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
 
-    bodyParams.sendModel(model, function(error, response, context) {
+    controller.sendModel(model, function(error, response, context) {
 
             
     });
@@ -700,7 +700,7 @@ function sendModelArray(// Parameters for the API call
         return new Employee(elem);
     });
 
-    bodyParams.sendModelArray(models, function(error, response, context) {
+    controller.sendModelArray(models, function(error, response, context) {
 
             
     });
@@ -733,7 +733,7 @@ function sendDynamic(// Parameters for the API call
     // Parameters for the API call
     var dynamic = {"uid": "1123213", "name": "Shahid"};
 
-    bodyParams.sendDynamic(dynamic, function(error, response, context) {
+    controller.sendDynamic(dynamic, function(error, response, context) {
 
             
     });
@@ -765,7 +765,7 @@ function sendString(// Parameters for the API call
     // Parameters for the API call
     var value = "TestString";
 
-    bodyParams.sendString(value, function(error, response, context) {
+    controller.sendString(value, function(error, response, context) {
 
             
     });
@@ -798,7 +798,7 @@ function sendStringEnumArray(// Parameters for the API call
     // Parameters for the API call
     var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
-    bodyParams.sendStringEnumArray(days, function(error, response, context) {
+    controller.sendStringEnumArray(days, function(error, response, context) {
 
             
     });
@@ -831,7 +831,7 @@ function sendIntegerEnumArray(// Parameters for the API call
     // Parameters for the API call
     var suites = [1, 3, 4, 2, 3];
 
-    bodyParams.sendIntegerEnumArray(suites, function(error, response, context) {
+    controller.sendIntegerEnumArray(suites, function(error, response, context) {
 
             
     });
@@ -875,7 +875,7 @@ function sendLong(// Parameters for the API call
     // Parameters for the API call
     var value = 5147483647;
 
-    formParams.sendLong(value, function(error, response, context) {
+    controller.sendLong(value, function(error, response, context) {
 
             
     });
@@ -908,7 +908,7 @@ function sendIntegerArray(// Parameters for the API call
     // Parameters for the API call
     var integers = [1,2,3,4,5];
 
-    formParams.sendIntegerArray(integers, function(error, response, context) {
+    controller.sendIntegerArray(integers, function(error, response, context) {
 
             
     });
@@ -941,7 +941,7 @@ function sendStringArray(// Parameters for the API call
     // Parameters for the API call
     var strings = ["abc", "def"];
 
-    formParams.sendStringArray(strings, function(error, response, context) {
+    controller.sendStringArray(strings, function(error, response, context) {
 
             
     });
@@ -974,7 +974,7 @@ function sendModel(// Parameters for the API call
     // Parameters for the API call
     var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
 
-    formParams.sendModel(model, function(error, response, context) {
+    controller.sendModel(model, function(error, response, context) {
 
             
     });
@@ -1011,7 +1011,7 @@ function sendModelArray(// Parameters for the API call
         return new Employee(elem);
     });
 
-    formParams.sendModelArray(models, function(error, response, context) {
+    controller.sendModelArray(models, function(error, response, context) {
 
             
     });
@@ -1044,7 +1044,7 @@ function sendFile(TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31
     TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {// Parameters for the API call
     var file = data;
 
-    formParams.sendFile(file, function(error, response, context) {
+    controller.sendFile(file, function(error, response, context) {
 
             
     });
@@ -1092,7 +1092,7 @@ function sendMixedArray(TestHelper.getFilePath("https://dl.dropboxusercontent.co
     });
     input["strings"] = ["abc", "def"];
 
-    formParams.sendMixedArray(input, function(error, response, context) {
+    controller.sendMixedArray(input, function(error, response, context) {
 
             
     });
@@ -1124,7 +1124,7 @@ function sendString(// Parameters for the API call
     // Parameters for the API call
     var value = "TestString";
 
-    formParams.sendString(value, function(error, response, context) {
+    controller.sendString(value, function(error, response, context) {
 
             
     });
@@ -1157,7 +1157,7 @@ function sendIntegerEnumArray(// Parameters for the API call
     // Parameters for the API call
     var suites = [1, 3, 4, 2, 3];
 
-    formParams.sendIntegerEnumArray(suites, function(error, response, context) {
+    controller.sendIntegerEnumArray(suites, function(error, response, context) {
 
             
     });
@@ -1190,7 +1190,7 @@ function sendStringEnumArray(// Parameters for the API call
     // Parameters for the API call
     var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
-    formParams.sendStringEnumArray(days, function(error, response, context) {
+    controller.sendStringEnumArray(days, function(error, response, context) {
 
             
     });
@@ -1235,7 +1235,7 @@ function jsonEcho(// Parameters for the API call
     // Parameters for the API call
     var input = {"uid": "1123213", "name": "Shahid"};
 
-    echo.jsonEcho(input, function(error, response, context) {
+    controller.jsonEcho(input, function(error, response, context) {
 
             
     });
@@ -1268,7 +1268,7 @@ function formEcho(// Parameters for the API call
     // Parameters for the API call
     var input = {"uid": "1123213", "name": "Shahid"};
 
-    echo.formEcho(input, function(error, response, context) {
+    controller.formEcho(input, function(error, response, context) {
 
             
     });
@@ -1301,7 +1301,7 @@ function queryEcho(// key-value map for optional query parameters
     // key-value map for optional query parameters
     var queryParams = [];
 
-    echo.queryEcho(queryParams, function(error, response, context) {
+    controller.queryEcho(queryParams, function(error, response, context) {
 
             
     });
@@ -1348,7 +1348,7 @@ function sendHeaders(// Parameters for the API call
     var customHeader = "TestString";
     var value = "TestString";
 
-    header.sendHeaders(customHeader, value, function(error, response, context) {
+    controller.sendHeaders(customHeader, value, function(error, response, context) {
 
             
     });
@@ -1405,7 +1405,7 @@ function simpleQuery(// Parameters for the API call
     // key-value map for optional query parameters
     var queryParams = [];
 
-    queryParam.simpleQuery(mboolean, number, string, queryParams, function(error, response, context) {
+    controller.simpleQuery(mboolean, number, string, queryParams, function(error, response, context) {
 
             
     });
@@ -1426,7 +1426,7 @@ function noParams()
 ```javascript
 
     
-    queryParam.noParams(function(error, response, context) {
+    controller.noParams(function(error, response, context) {
 
             
     });
@@ -1458,7 +1458,7 @@ function stringParam(// Parameters for the API call
     // Parameters for the API call
     var string = "l;asd;asdwe[2304&&;'.d??\\a\\\\\\;sd//";
 
-    queryParam.stringParam(string, function(error, response, context) {
+    controller.stringParam(string, function(error, response, context) {
 
             
     });
@@ -1490,7 +1490,7 @@ function urlParam(// Parameters for the API call
     // Parameters for the API call
     var url = "https://www.shahidisawesome.com/and/also/a/narcissist?thisis=aparameter&another=one";
 
-    queryParam.urlParam(url, function(error, response, context) {
+    controller.urlParam(url, function(error, response, context) {
 
             
     });
@@ -1531,7 +1531,7 @@ function multipleParams(// Parameters for the API call
     var string = "\"\"test./;\";12&&3asl\"\";\"qw1&34\"///..//.";
     var url = "http://www.abc.com/test?a=b&c=\"http://lolol.com?param=no&another=lol\"";
 
-    queryParam.multipleParams(number, precision, string, url, function(error, response, context) {
+    controller.multipleParams(number, precision, string, url, function(error, response, context) {
 
             
     });
@@ -1564,7 +1564,7 @@ function numberArray(// Parameters for the API call
     // Parameters for the API call
     var integers = [1,2,3,4,5];
 
-    queryParam.numberArray(integers, function(error, response, context) {
+    controller.numberArray(integers, function(error, response, context) {
 
             
     });
@@ -1597,7 +1597,7 @@ function stringArray(// Parameters for the API call
     // Parameters for the API call
     var strings = ["abc", "def"];
 
-    queryParam.stringArray(strings, function(error, response, context) {
+    controller.stringArray(strings, function(error, response, context) {
 
             
     });
@@ -1630,7 +1630,7 @@ function stringEnumArray(// Parameters for the API call
     // Parameters for the API call
     var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
-    queryParam.stringEnumArray(days, function(error, response, context) {
+    controller.stringEnumArray(days, function(error, response, context) {
 
             
     });
@@ -1663,7 +1663,7 @@ function integerEnumArray(// Parameters for the API call
     // Parameters for the API call
     var suites = [1, 3, 4, 2, 3];
 
-    queryParam.integerEnumArray(suites, function(error, response, context) {
+    controller.integerEnumArray(suites, function(error, response, context) {
 
             
     });
@@ -1708,7 +1708,7 @@ function sendStringArray(// Parameters for the API call
     // Parameters for the API call
     var strings = ["abc", "def"];
 
-    templateParams.sendStringArray(strings, function(error, response, context) {
+    controller.sendStringArray(strings, function(error, response, context) {
 
             
     });
@@ -1741,7 +1741,7 @@ function sendIntegerArray(// Parameters for the API call
     // Parameters for the API call
     var integers = [1,2,3,4,5];
 
-    templateParams.sendIntegerArray(integers, function(error, response, context) {
+    controller.sendIntegerArray(integers, function(error, response, context) {
 
             
     });
