@@ -105,10 +105,10 @@ var controller = lib.ResponseTypesController;
 
 
 ```javascript
-function getLong()
+function getLong(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -129,10 +129,10 @@ function getLong()
 
 
 ```javascript
-function getModel()
+function getModel(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -153,10 +153,10 @@ function getModel()
 
 
 ```javascript
-function getStringEnumArray()
+function getStringEnumArray(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -177,10 +177,10 @@ function getStringEnumArray()
 
 
 ```javascript
-function getStringEnum()
+function getStringEnum(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -201,10 +201,10 @@ function getStringEnum()
 
 
 ```javascript
-function getModelArray()
+function getModelArray(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -225,10 +225,10 @@ function getModelArray()
 
 
 ```javascript
-function getIntEnum()
+function getIntEnum(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -249,10 +249,10 @@ function getIntEnum()
 
 
 ```javascript
-function getIntEnumArray()
+function getIntEnumArray(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -273,10 +273,10 @@ function getIntEnumArray()
 
 
 ```javascript
-function getPrecision()
+function getPrecision(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -297,10 +297,10 @@ function getPrecision()
 
 
 ```javascript
-function getBinary()
+function getBinary(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -322,10 +322,10 @@ function getBinary()
 
 
 ```javascript
-function getInteger()
+function getInteger(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -346,10 +346,10 @@ function getInteger()
 
 
 ```javascript
-function getIntegerArray()
+function getIntegerArray(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -370,10 +370,10 @@ function getIntegerArray()
 
 
 ```javascript
-function getDynamic()
+function getDynamic(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -394,10 +394,10 @@ function getDynamic()
 
 
 ```javascript
-function getDynamicArray()
+function getDynamicArray(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -418,10 +418,10 @@ function getDynamicArray()
 
 
 ```javascript
-function getDatetime()
+function getDatetime(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -442,10 +442,10 @@ function getDatetime()
 
 
 ```javascript
-function getDatetimeArray()
+function getDatetimeArray(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -466,10 +466,10 @@ function getDatetimeArray()
 
 
 ```javascript
-function getBoolean()
+function getBoolean(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -490,10 +490,10 @@ function getBoolean()
 
 
 ```javascript
-function getBooleanArray()
+function getBooleanArray(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -526,10 +526,10 @@ var controller = lib.ErrorCodesController;
 
 
 ```javascript
-function get400()
+function get400(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -550,10 +550,10 @@ function get400()
 
 
 ```javascript
-function get500()
+function get500(callback)
 ```
-##### 
-##### 0
+##### callback
+##### 8
 
 #### Example Usage
 
@@ -586,10 +586,17 @@ var controller = lib.BodyParamsController;
 
 
 ```javascript
-function sendStringArray()
+function sendStringArray(sarray, callback)
 ```
-##### 
-##### 0
+##### sarray, callback
+##### 16
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| sarray |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -611,10 +618,17 @@ function sendStringArray()
 
 
 ```javascript
-function sendIntegerArray()
+function sendIntegerArray(integers, callback)
 ```
-##### 
-##### 0
+##### integers, callback
+##### 18
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| integers |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -636,10 +650,17 @@ function sendIntegerArray()
 
 
 ```javascript
-function sendModel()
+function sendModel(model, callback)
 ```
-##### 
-##### 0
+##### model, callback
+##### 15
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| model |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -661,10 +682,17 @@ function sendModel()
 
 
 ```javascript
-function sendModelArray()
+function sendModelArray(models, callback)
 ```
-##### 
-##### 0
+##### models, callback
+##### 16
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| models |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -686,10 +714,17 @@ function sendModelArray()
 
 
 ```javascript
-function sendDynamic()
+function sendDynamic(dynamic, callback)
 ```
-##### 
-##### 0
+##### dynamic, callback
+##### 17
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| dynamic |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -711,10 +746,17 @@ function sendDynamic()
 
 
 ```javascript
-function sendString()
+function sendString(value, callback)
 ```
-##### 
-##### 0
+##### value, callback
+##### 15
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| value |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -736,10 +778,17 @@ function sendString()
 
 
 ```javascript
-function sendStringEnumArray()
+function sendStringEnumArray(days, callback)
 ```
-##### 
-##### 0
+##### days, callback
+##### 14
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| days |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -761,10 +810,17 @@ function sendStringEnumArray()
 
 
 ```javascript
-function sendIntegerEnumArray()
+function sendIntegerEnumArray(suites, callback)
 ```
-##### 
-##### 0
+##### suites, callback
+##### 16
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| suites |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -798,10 +854,17 @@ var controller = lib.FormParamsController;
 
 
 ```javascript
-function sendLong()
+function sendLong(value, callback)
 ```
-##### 
-##### 0
+##### value, callback
+##### 15
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| value |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -823,10 +886,17 @@ function sendLong()
 
 
 ```javascript
-function sendIntegerArray()
+function sendIntegerArray(integers, callback)
 ```
-##### 
-##### 0
+##### integers, callback
+##### 18
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| integers |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -848,10 +918,17 @@ function sendIntegerArray()
 
 
 ```javascript
-function sendStringArray()
+function sendStringArray(strings, callback)
 ```
-##### 
-##### 0
+##### strings, callback
+##### 17
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| strings |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -873,10 +950,17 @@ function sendStringArray()
 
 
 ```javascript
-function sendModel()
+function sendModel(model, callback)
 ```
-##### 
-##### 0
+##### model, callback
+##### 15
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| model |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -898,10 +982,17 @@ function sendModel()
 
 
 ```javascript
-function sendModelArray()
+function sendModelArray(models, callback)
 ```
-##### 
-##### 0
+##### models, callback
+##### 16
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| models |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -923,10 +1014,17 @@ function sendModelArray()
 
 
 ```javascript
-function sendFile()
+function sendFile(file, callback)
 ```
-##### 
-##### 0
+##### file, callback
+##### 14
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| file |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -949,10 +1047,20 @@ function sendFile()
 
 
 ```javascript
-function sendMixedArray()
+function sendMixedArray(input, callback)
 ```
-##### 
-##### 0
+##### input, callback
+##### 15
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| file |  ``` Required ```  | TODO: Add a parameter description |
+| integers |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+| models |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+| strings |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -979,10 +1087,17 @@ function sendMixedArray()
 
 
 ```javascript
-function sendString()
+function sendString(value, callback)
 ```
-##### 
-##### 0
+##### value, callback
+##### 15
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| value |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1004,10 +1119,17 @@ function sendString()
 
 
 ```javascript
-function sendIntegerEnumArray()
+function sendIntegerEnumArray(suites, callback)
 ```
-##### 
-##### 0
+##### suites, callback
+##### 16
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| suites |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1029,10 +1151,17 @@ function sendIntegerEnumArray()
 
 
 ```javascript
-function sendStringEnumArray()
+function sendStringEnumArray(days, callback)
 ```
-##### 
-##### 0
+##### days, callback
+##### 14
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| days |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1066,10 +1195,17 @@ var controller = lib.EchoController;
 
 
 ```javascript
-function jsonEcho()
+function jsonEcho(input, callback)
 ```
-##### 
-##### 0
+##### input, callback
+##### 15
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| input |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1091,10 +1227,17 @@ function jsonEcho()
 
 
 ```javascript
-function formEcho()
+function formEcho(input, callback)
 ```
-##### 
-##### 0
+##### input, callback
+##### 15
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| input |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1116,10 +1259,17 @@ function formEcho()
 
 
 ```javascript
-function queryEcho()
+function queryEcho(queryParams, callback)
 ```
-##### 
-##### 0
+##### queryParams, callback
+##### 21
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| queryParameters | ``` Optional ``` | Additional optional query parameters are supported by this method |
+
+
 
 #### Example Usage
 
@@ -1155,10 +1305,18 @@ var controller = lib.HeaderController;
 
 
 ```javascript
-function sendHeaders()
+function sendHeaders(customHeader, value, callback)
 ```
-##### 
-##### 0
+##### customHeader, value, callback
+##### 29
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customHeader |  ``` Required ```  | TODO: Add a parameter description |
+| value |  ``` Required ```  | Represents the value of the custom header |
+
+
 
 #### Example Usage
 
@@ -1193,10 +1351,20 @@ var controller = lib.QueryParamController;
 
 
 ```javascript
-function simpleQuery()
+function simpleQuery(mboolean, number, string, queryParams, callback)
 ```
-##### 
-##### 0
+##### mboolean, number, string, queryParams, callback
+##### 47
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| mboolean |  ``` Required ```  | TODO: Add a parameter description |
+| number |  ``` Required ```  | TODO: Add a parameter description |
+| string |  ``` Required ```  | TODO: Add a parameter description |
+| queryParameters | ``` Optional ``` | Additional optional query parameters are supported by this method |
+
+
 
 #### Example Usage
 
@@ -1223,10 +1391,17 @@ function simpleQuery()
 
 
 ```javascript
-function numberArray()
+function numberArray(integers, callback)
 ```
-##### 
-##### 0
+##### integers, callback
+##### 18
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| integers |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1248,10 +1423,17 @@ function numberArray()
 
 
 ```javascript
-function stringArray()
+function stringArray(strings, callback)
 ```
-##### 
-##### 0
+##### strings, callback
+##### 17
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| strings |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1273,10 +1455,17 @@ function stringArray()
 
 
 ```javascript
-function stringEnumArray()
+function stringEnumArray(days, callback)
 ```
-##### 
-##### 0
+##### days, callback
+##### 14
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| days |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1298,10 +1487,17 @@ function stringEnumArray()
 
 
 ```javascript
-function integerEnumArray()
+function integerEnumArray(suites, callback)
 ```
-##### 
-##### 0
+##### suites, callback
+##### 16
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| suites |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1335,10 +1531,17 @@ var controller = lib.TemplateParamsController;
 
 
 ```javascript
-function sendStringArray()
+function sendStringArray(strings, callback)
 ```
-##### 
-##### 0
+##### strings, callback
+##### 17
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| strings |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1360,10 +1563,17 @@ function sendStringArray()
 
 
 ```javascript
-function sendIntegerArray()
+function sendIntegerArray(integers, callback)
 ```
-##### 
-##### 0
+##### integers, callback
+##### 18
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| integers |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
