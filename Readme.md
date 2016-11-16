@@ -1149,7 +1149,7 @@ function sendFile(file, callback)
     TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
         var file = data;
 
-            controller.sendFile(file, function(error, response, context) {
+        controller.sendFile(file, function(error, response, context) {
 
         });
 	});
@@ -1189,7 +1189,7 @@ function sendMixedArray(input, callback)
     });
     input["strings"] = ["abc", "def"];
 
-            controller.sendMixedArray(input, function(error, response, context) {
+        controller.sendMixedArray(input, function(error, response, context) {
 
         });
 	});
