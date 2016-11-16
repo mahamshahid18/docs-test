@@ -127,6 +127,7 @@ function getLong(callback)
 ```
 
 
+
 #### <a name="get_model"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getModel") getModel
 
 > TODO: Add a method description
@@ -153,6 +154,7 @@ function getModel(callback)
     
 	});
 ```
+
 
 
 #### <a name="get_string_enum_array"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getStringEnumArray") getStringEnumArray
@@ -183,6 +185,7 @@ function getStringEnumArray(callback)
 ```
 
 
+
 #### <a name="get_string_enum"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getStringEnum") getStringEnum
 
 > TODO: Add a method description
@@ -209,6 +212,7 @@ function getStringEnum(callback)
     
 	});
 ```
+
 
 
 #### <a name="get_model_array"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getModelArray") getModelArray
@@ -239,6 +243,7 @@ function getModelArray(callback)
 ```
 
 
+
 #### <a name="get_int_enum"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getIntEnum") getIntEnum
 
 > TODO: Add a method description
@@ -265,6 +270,7 @@ function getIntEnum(callback)
     
 	});
 ```
+
 
 
 #### <a name="get_int_enum_array"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getIntEnumArray") getIntEnumArray
@@ -295,6 +301,7 @@ function getIntEnumArray(callback)
 ```
 
 
+
 #### <a name="get_precision"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getPrecision") getPrecision
 
 > TODO: Add a method description
@@ -321,6 +328,7 @@ function getPrecision(callback)
     
 	});
 ```
+
 
 
 #### <a name="get_binary"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getBinary") getBinary
@@ -352,6 +360,7 @@ function getBinary(callback)
 ```
 
 
+
 #### <a name="get_integer"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getInteger") getInteger
 
 > Gets a integer response
@@ -378,6 +387,7 @@ function getInteger(callback)
     
 	});
 ```
+
 
 
 #### <a name="get_integer_array"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getIntegerArray") getIntegerArray
@@ -408,6 +418,7 @@ function getIntegerArray(callback)
 ```
 
 
+
 #### <a name="get_dynamic"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getDynamic") getDynamic
 
 > TODO: Add a method description
@@ -434,6 +445,7 @@ function getDynamic(callback)
     
 	});
 ```
+
 
 
 #### <a name="get_dynamic_array"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getDynamicArray") getDynamicArray
@@ -464,6 +476,7 @@ function getDynamicArray(callback)
 ```
 
 
+
 #### <a name="get_datetime"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getDatetime") getDatetime
 
 > TODO: Add a method description
@@ -490,6 +503,7 @@ function getDatetime(callback)
     
 	});
 ```
+
 
 
 #### <a name="get_datetime_array"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getDatetimeArray") getDatetimeArray
@@ -520,6 +534,7 @@ function getDatetimeArray(callback)
 ```
 
 
+
 #### <a name="get_boolean"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getBoolean") getBoolean
 
 > TODO: Add a method description
@@ -548,6 +563,7 @@ function getBoolean(callback)
 ```
 
 
+
 #### <a name="get_boolean_array"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getBooleanArray") getBooleanArray
 
 > TODO: Add a method description
@@ -574,6 +590,7 @@ function getBooleanArray(callback)
     
 	});
 ```
+
 
 
 [Back to List of Controllers](#list_of_controllers)
@@ -616,6 +633,7 @@ function get400(callback)
 ```
 
 
+
 #### <a name="get500"></a>![Method: ](http://apidocs.io/img/method.png ".ErrorCodesController.get500") get500
 
 > TODO: Add a method description
@@ -642,6 +660,7 @@ function get500(callback)
     
 	});
 ```
+
 
 
 [Back to List of Controllers](#list_of_controllers)
@@ -686,6 +705,7 @@ function sendStringArray(sarray, callback)
 ```
 
 
+
 #### <a name="send_integer_array"></a>![Method: ](http://apidocs.io/img/method.png ".BodyParamsController.sendIntegerArray") sendIntegerArray
 
 > TODO: Add a method description
@@ -714,6 +734,7 @@ function sendIntegerArray(integers, callback)
     
 	});
 ```
+
 
 
 #### <a name="send_model"></a>![Method: ](http://apidocs.io/img/method.png ".BodyParamsController.sendModel") sendModel
@@ -746,6 +767,7 @@ function sendModel(model, callback)
 ```
 
 
+
 #### <a name="send_model_array"></a>![Method: ](http://apidocs.io/img/method.png ".BodyParamsController.sendModelArray") sendModelArray
 
 > TODO: Add a method description
@@ -774,6 +796,7 @@ function sendModelArray(models, callback)
     
 	});
 ```
+
 
 
 #### <a name="send_dynamic"></a>![Method: ](http://apidocs.io/img/method.png ".BodyParamsController.sendDynamic") sendDynamic
@@ -806,6 +829,7 @@ function sendDynamic(dynamic, callback)
 ```
 
 
+
 #### <a name="send_string"></a>![Method: ](http://apidocs.io/img/method.png ".BodyParamsController.sendString") sendString
 
 > TODO: Add a method description
@@ -834,6 +858,7 @@ function sendString(value, callback)
     
 	});
 ```
+
 
 
 #### <a name="send_string_enum_array"></a>![Method: ](http://apidocs.io/img/method.png ".BodyParamsController.sendStringEnumArray") sendStringEnumArray
@@ -866,6 +891,7 @@ function sendStringEnumArray(days, callback)
 ```
 
 
+
 #### <a name="send_integer_enum_array"></a>![Method: ](http://apidocs.io/img/method.png ".BodyParamsController.sendIntegerEnumArray") sendIntegerEnumArray
 
 > TODO: Add a method description
@@ -894,6 +920,7 @@ function sendIntegerEnumArray(suites, callback)
     
 	});
 ```
+
 
 
 [Back to List of Controllers](#list_of_controllers)
@@ -938,6 +965,7 @@ function sendLong(value, callback)
 ```
 
 
+
 #### <a name="send_integer_array"></a>![Method: ](http://apidocs.io/img/method.png ".FormParamsController.sendIntegerArray") sendIntegerArray
 
 > TODO: Add a method description
@@ -966,6 +994,7 @@ function sendIntegerArray(integers, callback)
     
 	});
 ```
+
 
 
 #### <a name="send_string_array"></a>![Method: ](http://apidocs.io/img/method.png ".FormParamsController.sendStringArray") sendStringArray
@@ -998,6 +1027,7 @@ function sendStringArray(strings, callback)
 ```
 
 
+
 #### <a name="send_model"></a>![Method: ](http://apidocs.io/img/method.png ".FormParamsController.sendModel") sendModel
 
 > TODO: Add a method description
@@ -1026,6 +1056,7 @@ function sendModel(model, callback)
     
 	});
 ```
+
 
 
 #### <a name="send_model_array"></a>![Method: ](http://apidocs.io/img/method.png ".FormParamsController.sendModelArray") sendModelArray
@@ -1058,6 +1089,7 @@ function sendModelArray(models, callback)
 ```
 
 
+
 #### <a name="send_file"></a>![Method: ](http://apidocs.io/img/method.png ".FormParamsController.sendFile") sendFile
 
 > TODO: Add a method description
@@ -1087,6 +1119,7 @@ function sendFile(file, callback)
         });
 	});
 ```
+
 
 
 #### <a name="send_mixed_array"></a>![Method: ](http://apidocs.io/img/method.png ".FormParamsController.sendMixedArray") sendMixedArray
@@ -1127,6 +1160,7 @@ function sendMixedArray(input, callback)
 ```
 
 
+
 #### <a name="send_string"></a>![Method: ](http://apidocs.io/img/method.png ".FormParamsController.sendString") sendString
 
 > TODO: Add a method description
@@ -1155,6 +1189,7 @@ function sendString(value, callback)
     
 	});
 ```
+
 
 
 #### <a name="send_integer_enum_array"></a>![Method: ](http://apidocs.io/img/method.png ".FormParamsController.sendIntegerEnumArray") sendIntegerEnumArray
@@ -1187,6 +1222,7 @@ function sendIntegerEnumArray(suites, callback)
 ```
 
 
+
 #### <a name="send_string_enum_array"></a>![Method: ](http://apidocs.io/img/method.png ".FormParamsController.sendStringEnumArray") sendStringEnumArray
 
 > TODO: Add a method description
@@ -1215,6 +1251,7 @@ function sendStringEnumArray(days, callback)
     
 	});
 ```
+
 
 
 [Back to List of Controllers](#list_of_controllers)
@@ -1259,6 +1296,7 @@ function jsonEcho(input, callback)
 ```
 
 
+
 #### <a name="form_echo"></a>![Method: ](http://apidocs.io/img/method.png ".EchoController.formEcho") formEcho
 
 > Sends the request including any form params as JSON
@@ -1287,6 +1325,7 @@ function formEcho(input, callback)
     
 	});
 ```
+
 
 
 #### <a name="query_echo"></a>![Method: ](http://apidocs.io/img/method.png ".EchoController.queryEcho") queryEcho
@@ -1319,6 +1358,7 @@ function queryEcho(queryParams, callback)
     
 	});
 ```
+
 
 
 [Back to List of Controllers](#list_of_controllers)
@@ -1363,6 +1403,7 @@ function sendHeaders(customHeader, value, callback)
     
 	});
 ```
+
 
 
 [Back to List of Controllers](#list_of_controllers)
@@ -1415,6 +1456,7 @@ function simpleQuery(mboolean, number, string, queryParams, callback)
 ```
 
 
+
 #### <a name="number_array"></a>![Method: ](http://apidocs.io/img/method.png ".QueryParamController.numberArray") numberArray
 
 > TODO: Add a method description
@@ -1443,6 +1485,7 @@ function numberArray(integers, callback)
     
 	});
 ```
+
 
 
 #### <a name="string_array"></a>![Method: ](http://apidocs.io/img/method.png ".QueryParamController.stringArray") stringArray
@@ -1475,6 +1518,7 @@ function stringArray(strings, callback)
 ```
 
 
+
 #### <a name="string_enum_array"></a>![Method: ](http://apidocs.io/img/method.png ".QueryParamController.stringEnumArray") stringEnumArray
 
 > TODO: Add a method description
@@ -1505,6 +1549,7 @@ function stringEnumArray(days, callback)
 ```
 
 
+
 #### <a name="integer_enum_array"></a>![Method: ](http://apidocs.io/img/method.png ".QueryParamController.integerEnumArray") integerEnumArray
 
 > TODO: Add a method description
@@ -1533,6 +1578,7 @@ function integerEnumArray(suites, callback)
     
 	});
 ```
+
 
 
 [Back to List of Controllers](#list_of_controllers)
@@ -1577,6 +1623,7 @@ function sendStringArray(strings, callback)
 ```
 
 
+
 #### <a name="send_integer_array"></a>![Method: ](http://apidocs.io/img/method.png ".TemplateParamsController.sendIntegerArray") sendIntegerArray
 
 > TODO: Add a method description
@@ -1605,6 +1652,7 @@ function sendIntegerArray(integers, callback)
     
 	});
 ```
+
 
 
 [Back to List of Controllers](#list_of_controllers)
