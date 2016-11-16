@@ -374,7 +374,7 @@ function getBinary(callback)
 
          
    
-    });
+        });
 	});
 ```
 
