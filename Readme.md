@@ -107,8 +107,6 @@ var controller = lib.ResponseTypesController;
 ```javascript
 function getLong(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -131,8 +129,6 @@ function getLong(callback)
 ```javascript
 function getModel(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -155,8 +151,6 @@ function getModel(callback)
 ```javascript
 function getStringEnumArray(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -179,8 +173,6 @@ function getStringEnumArray(callback)
 ```javascript
 function getStringEnum(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -203,8 +195,6 @@ function getStringEnum(callback)
 ```javascript
 function getModelArray(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -227,8 +217,6 @@ function getModelArray(callback)
 ```javascript
 function getIntEnum(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -251,8 +239,6 @@ function getIntEnum(callback)
 ```javascript
 function getIntEnumArray(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -275,8 +261,6 @@ function getIntEnumArray(callback)
 ```javascript
 function getPrecision(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -299,8 +283,6 @@ function getPrecision(callback)
 ```javascript
 function getBinary(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -324,8 +306,6 @@ function getBinary(callback)
 ```javascript
 function getInteger(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -348,8 +328,6 @@ function getInteger(callback)
 ```javascript
 function getIntegerArray(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -372,8 +350,6 @@ function getIntegerArray(callback)
 ```javascript
 function getDynamic(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -396,8 +372,6 @@ function getDynamic(callback)
 ```javascript
 function getDynamicArray(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -420,8 +394,6 @@ function getDynamicArray(callback)
 ```javascript
 function getDatetime(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -444,8 +416,6 @@ function getDatetime(callback)
 ```javascript
 function getDatetimeArray(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -468,8 +438,6 @@ function getDatetimeArray(callback)
 ```javascript
 function getBoolean(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -492,8 +460,6 @@ function getBoolean(callback)
 ```javascript
 function getBooleanArray(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -528,8 +494,6 @@ var controller = lib.ErrorCodesController;
 ```javascript
 function get400(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -552,8 +516,6 @@ function get400(callback)
 ```javascript
 function get500(callback)
 ```
-##### callback
-##### 8
 
 #### Example Usage
 
@@ -588,8 +550,6 @@ var controller = lib.BodyParamsController;
 ```javascript
 function sendStringArray(sarray, callback)
 ```
-##### sarray, callback
-##### 16
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -620,8 +580,6 @@ function sendStringArray(sarray, callback)
 ```javascript
 function sendIntegerArray(integers, callback)
 ```
-##### integers, callback
-##### 18
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -652,8 +610,6 @@ function sendIntegerArray(integers, callback)
 ```javascript
 function sendModel(model, callback)
 ```
-##### model, callback
-##### 15
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -684,8 +640,6 @@ function sendModel(model, callback)
 ```javascript
 function sendModelArray(models, callback)
 ```
-##### models, callback
-##### 16
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -716,8 +670,6 @@ function sendModelArray(models, callback)
 ```javascript
 function sendDynamic(dynamic, callback)
 ```
-##### dynamic, callback
-##### 17
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -748,8 +700,6 @@ function sendDynamic(dynamic, callback)
 ```javascript
 function sendString(value, callback)
 ```
-##### value, callback
-##### 15
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -780,8 +730,6 @@ function sendString(value, callback)
 ```javascript
 function sendStringEnumArray(days, callback)
 ```
-##### days, callback
-##### 14
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -812,8 +760,6 @@ function sendStringEnumArray(days, callback)
 ```javascript
 function sendIntegerEnumArray(suites, callback)
 ```
-##### suites, callback
-##### 16
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -856,8 +802,6 @@ var controller = lib.FormParamsController;
 ```javascript
 function sendLong(value, callback)
 ```
-##### value, callback
-##### 15
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -888,8 +832,6 @@ function sendLong(value, callback)
 ```javascript
 function sendIntegerArray(integers, callback)
 ```
-##### integers, callback
-##### 18
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -920,8 +862,6 @@ function sendIntegerArray(integers, callback)
 ```javascript
 function sendStringArray(strings, callback)
 ```
-##### strings, callback
-##### 17
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -952,8 +892,6 @@ function sendStringArray(strings, callback)
 ```javascript
 function sendModel(model, callback)
 ```
-##### model, callback
-##### 15
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -984,8 +922,6 @@ function sendModel(model, callback)
 ```javascript
 function sendModelArray(models, callback)
 ```
-##### models, callback
-##### 16
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1016,8 +952,6 @@ function sendModelArray(models, callback)
 ```javascript
 function sendFile(file, callback)
 ```
-##### file, callback
-##### 14
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1049,8 +983,6 @@ function sendFile(file, callback)
 ```javascript
 function sendMixedArray(input, callback)
 ```
-##### input, callback
-##### 15
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1089,8 +1021,6 @@ function sendMixedArray(input, callback)
 ```javascript
 function sendString(value, callback)
 ```
-##### value, callback
-##### 15
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1121,8 +1051,6 @@ function sendString(value, callback)
 ```javascript
 function sendIntegerEnumArray(suites, callback)
 ```
-##### suites, callback
-##### 16
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1153,8 +1081,6 @@ function sendIntegerEnumArray(suites, callback)
 ```javascript
 function sendStringEnumArray(days, callback)
 ```
-##### days, callback
-##### 14
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1197,8 +1123,6 @@ var controller = lib.EchoController;
 ```javascript
 function jsonEcho(input, callback)
 ```
-##### input, callback
-##### 15
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1229,8 +1153,6 @@ function jsonEcho(input, callback)
 ```javascript
 function formEcho(input, callback)
 ```
-##### input, callback
-##### 15
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1261,8 +1183,6 @@ function formEcho(input, callback)
 ```javascript
 function queryEcho(queryParams, callback)
 ```
-##### queryParams, callback
-##### 21
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1307,8 +1227,6 @@ var controller = lib.HeaderController;
 ```javascript
 function sendHeaders(customHeader, value, callback)
 ```
-##### customHeader, value, callback
-##### 29
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1353,8 +1271,6 @@ var controller = lib.QueryParamController;
 ```javascript
 function simpleQuery(mboolean, number, string, queryParams, callback)
 ```
-##### mboolean, number, string, queryParams, callback
-##### 47
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1393,8 +1309,6 @@ function simpleQuery(mboolean, number, string, queryParams, callback)
 ```javascript
 function numberArray(integers, callback)
 ```
-##### integers, callback
-##### 18
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1425,8 +1339,6 @@ function numberArray(integers, callback)
 ```javascript
 function stringArray(strings, callback)
 ```
-##### strings, callback
-##### 17
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1457,8 +1369,6 @@ function stringArray(strings, callback)
 ```javascript
 function stringEnumArray(days, callback)
 ```
-##### days, callback
-##### 14
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1489,8 +1399,6 @@ function stringEnumArray(days, callback)
 ```javascript
 function integerEnumArray(suites, callback)
 ```
-##### suites, callback
-##### 16
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1533,8 +1441,6 @@ var controller = lib.TemplateParamsController;
 ```javascript
 function sendStringArray(strings, callback)
 ```
-##### strings, callback
-##### 17
 #### Parameters
 
 | Parameter | Tags | Description |
@@ -1565,8 +1471,6 @@ function sendStringArray(strings, callback)
 ```javascript
 function sendIntegerArray(integers, callback)
 ```
-##### integers, callback
-##### 18
 #### Parameters
 
 | Parameter | Tags | Description |
