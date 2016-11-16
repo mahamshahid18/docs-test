@@ -1,5 +1,5 @@
 #Getting started
-test
+
 ## How to Build
 
 The generated SDK relies on [Node Package Manager](https://www.npmjs.com/) (NPM) being available to resolve dependencies. If you don't already have NPM installed, please go ahead and follow instructions to install NPM from [here](https://nodejs.org/en/download/).
@@ -360,7 +360,8 @@ function getBinary(callback)
 ```javascript
 
     
-    TestHelper.getFileContents("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {controller.getBinary(function(error, response, context) {
+    TestHelper.getFileContents("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
+controller.getBinary(function(error, response, context) {
 
 
          
