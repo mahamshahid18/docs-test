@@ -577,7 +577,7 @@ var controller = lib.BodyParamsController;
 
 
 ```javascript
-function sendStringArray(sarray, )
+function sendStringArray(sarray)
 ```
 
 #### Parameters
@@ -608,7 +608,7 @@ function sendStringArray(sarray, )
 
 
 ```javascript
-function sendIntegerArray(integers, )
+function sendIntegerArray(integers)
 ```
 
 #### Parameters
@@ -639,7 +639,7 @@ function sendIntegerArray(integers, )
 
 
 ```javascript
-function sendModel(model, )
+function sendModel(model)
 ```
 
 #### Parameters
@@ -670,7 +670,7 @@ function sendModel(model, )
 
 
 ```javascript
-function sendModelArray(models, )
+function sendModelArray(models)
 ```
 
 #### Parameters
@@ -703,7 +703,7 @@ function sendModelArray(models, )
 
 
 ```javascript
-function sendDynamic(dynamic, )
+function sendDynamic(dynamic)
 ```
 
 #### Parameters
@@ -734,7 +734,7 @@ function sendDynamic(dynamic, )
 
 
 ```javascript
-function sendString(value, )
+function sendString(value)
 ```
 
 #### Parameters
@@ -765,7 +765,7 @@ function sendString(value, )
 
 
 ```javascript
-function sendStringEnumArray(days, )
+function sendStringEnumArray(days)
 ```
 
 #### Parameters
@@ -796,7 +796,7 @@ function sendStringEnumArray(days, )
 
 
 ```javascript
-function sendIntegerEnumArray(suites, )
+function sendIntegerEnumArray(suites)
 ```
 
 #### Parameters
@@ -839,7 +839,7 @@ var controller = lib.FormParamsController;
 
 
 ```javascript
-function sendLong(value, )
+function sendLong(value)
 ```
 
 #### Parameters
@@ -870,7 +870,7 @@ function sendLong(value, )
 
 
 ```javascript
-function sendIntegerArray(integers, )
+function sendIntegerArray(integers)
 ```
 
 #### Parameters
@@ -901,7 +901,7 @@ function sendIntegerArray(integers, )
 
 
 ```javascript
-function sendStringArray(strings, )
+function sendStringArray(strings)
 ```
 
 #### Parameters
@@ -932,7 +932,7 @@ function sendStringArray(strings, )
 
 
 ```javascript
-function sendModel(model, )
+function sendModel(model)
 ```
 
 #### Parameters
@@ -963,7 +963,7 @@ function sendModel(model, )
 
 
 ```javascript
-function sendModelArray(models, )
+function sendModelArray(models)
 ```
 
 #### Parameters
@@ -996,7 +996,7 @@ function sendModelArray(models, )
 
 
 ```javascript
-function sendFile(file, )
+function sendFile(file)
 ```
 
 #### Parameters
@@ -1067,7 +1067,7 @@ function sendMixedArray(input)
 
 
 ```javascript
-function sendString(value, )
+function sendString(value)
 ```
 
 #### Parameters
@@ -1098,7 +1098,7 @@ function sendString(value, )
 
 
 ```javascript
-function sendIntegerEnumArray(suites, )
+function sendIntegerEnumArray(suites)
 ```
 
 #### Parameters
@@ -1129,7 +1129,7 @@ function sendIntegerEnumArray(suites, )
 
 
 ```javascript
-function sendStringEnumArray(days, )
+function sendStringEnumArray(days)
 ```
 
 #### Parameters
@@ -1172,7 +1172,7 @@ var controller = lib.EchoController;
 
 
 ```javascript
-function jsonEcho(input, )
+function jsonEcho(input)
 ```
 
 #### Parameters
@@ -1203,7 +1203,7 @@ function jsonEcho(input, )
 
 
 ```javascript
-function formEcho(input, )
+function formEcho(input)
 ```
 
 #### Parameters
@@ -1234,7 +1234,7 @@ function formEcho(input, )
 
 
 ```javascript
-function queryEcho(, queryParams)
+function queryEcho(queryParams)
 ```
 
 #### Parameters
@@ -1278,7 +1278,7 @@ var controller = lib.HeaderController;
 
 
 ```javascript
-function sendHeaders(customHeader, value, )
+function sendHeaders(customHeader, value)
 ```
 
 #### Parameters
@@ -1323,7 +1323,7 @@ var controller = lib.QueryParamController;
 
 
 ```javascript
-function simpleQuery(mboolean, number, string, , queryParams)
+function simpleQuery(mboolean, number, stringqueryParams)
 ```
 
 #### Parameters
@@ -1383,7 +1383,7 @@ function noParams()
 
 
 ```javascript
-function stringParam(string, )
+function stringParam(string)
 ```
 
 #### Parameters
@@ -1414,7 +1414,7 @@ function stringParam(string, )
 
 
 ```javascript
-function urlParam(url, )
+function urlParam(url)
 ```
 
 #### Parameters
@@ -1445,7 +1445,7 @@ function urlParam(url, )
 
 
 ```javascript
-function multipleParams(number, precision, string, url, )
+function multipleParams(number, precision, string, url)
 ```
 
 #### Parameters
@@ -1482,7 +1482,7 @@ function multipleParams(number, precision, string, url, )
 
 
 ```javascript
-function numberArray(integers, )
+function numberArray(integers)
 ```
 
 #### Parameters
@@ -1513,7 +1513,7 @@ function numberArray(integers, )
 
 
 ```javascript
-function stringArray(strings, )
+function stringArray(strings)
 ```
 
 #### Parameters
@@ -1544,7 +1544,7 @@ function stringArray(strings, )
 
 
 ```javascript
-function stringEnumArray(days, )
+function stringEnumArray(days)
 ```
 
 #### Parameters
@@ -1575,7 +1575,7 @@ function stringEnumArray(days, )
 
 
 ```javascript
-function integerEnumArray(suites, )
+function integerEnumArray(suites)
 ```
 
 #### Parameters
@@ -1618,7 +1618,7 @@ var controller = lib.TemplateParamsController;
 
 
 ```javascript
-function sendStringArray(strings, )
+function sendStringArray(strings)
 ```
 
 #### Parameters
@@ -1649,7 +1649,7 @@ function sendStringArray(strings, )
 
 
 ```javascript
-function sendIntegerArray(integers, )
+function sendIntegerArray(integers)
 ```
 
 #### Parameters
