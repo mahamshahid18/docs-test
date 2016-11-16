@@ -360,9 +360,7 @@ function getBinary(callback)
 ```javascript
 
     
-    
-    TestHelper.getFileContents("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
-    controller.getBinary(function(error, response, context) {
+    TestHelper.getFileContents("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {controller.getBinary(function(error, response, context) {
 
 
          
@@ -1215,10 +1213,8 @@ function sendFile(file, callback)
 
 ```javascript
 
-    TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
-        var file = data;
+    TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {    var file = data;
 
-    
     controller.sendFile(file, function(error, response, context) {
 
 
@@ -1252,8 +1248,7 @@ function sendMixedArray(input, callback)
 
 ```javascript
 
-    TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
-        var input = [];
+    TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {    var input = [];
     input["file"] = data;
     input["integers"] = [1,2,3,4,5];
     input["models"] = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
@@ -1261,7 +1256,6 @@ function sendMixedArray(input, callback)
     });
     input["strings"] = ["abc", "def"];
 
-    
     controller.sendMixedArray(input, function(error, response, context) {
 
 
