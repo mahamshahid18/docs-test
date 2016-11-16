@@ -361,7 +361,7 @@ function getBinary(callback)
 
     
     TestHelper.getFileContents("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
-    controller.getBinary(function(error, response, context) {
+        controller.getBinary(function(error, response, context) {
 
 
          
