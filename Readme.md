@@ -344,7 +344,8 @@ function getBinary(callback)
 ```javascript
 
     
-    TestHelper.getFileContents("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {controller.getBinary(function(error, response, context) {
+    TestHelper.getFileContents("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
+    controller.getBinary(function(error, response, context) {
 
             
     });
@@ -739,8 +740,7 @@ function sendStringArray(sarray, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var sarray = ["abc", "def"];
+        var sarray = ["abc", "def"];
 
     controller.sendStringArray(sarray, function(error, response, context) {
 
@@ -770,8 +770,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var integers = [1,2,3,4,5];
+        var integers = [1,2,3,4,5];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -801,8 +800,7 @@ function sendModel(model, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
+        var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
 
     controller.sendModel(model, function(error, response, context) {
 
@@ -832,8 +830,7 @@ function sendModelArray(models, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
+        var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
         return new Employee(elem);
     });
 
@@ -865,8 +862,7 @@ function sendDynamic(dynamic, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var dynamic = {"uid": "1123213", "name": "Shahid"};
+        var dynamic = {"uid": "1123213", "name": "Shahid"};
 
     controller.sendDynamic(dynamic, function(error, response, context) {
 
@@ -896,8 +892,7 @@ function sendString(value, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var value = "TestString";
+        var value = "TestString";
 
     controller.sendString(value, function(error, response, context) {
 
@@ -927,8 +922,7 @@ function sendStringEnumArray(days, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
+        var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
     controller.sendStringEnumArray(days, function(error, response, context) {
 
@@ -958,8 +952,7 @@ function sendIntegerEnumArray(suites, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var suites = [1, 3, 4, 2, 3];
+        var suites = [1, 3, 4, 2, 3];
 
     controller.sendIntegerEnumArray(suites, function(error, response, context) {
 
@@ -1001,8 +994,7 @@ function sendLong(value, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var value = 5147483647;
+        var value = 5147483647;
 
     controller.sendLong(value, function(error, response, context) {
 
@@ -1032,8 +1024,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var integers = [1,2,3,4,5];
+        var integers = [1,2,3,4,5];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -1063,8 +1054,7 @@ function sendStringArray(strings, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var strings = ["abc", "def"];
+        var strings = ["abc", "def"];
 
     controller.sendStringArray(strings, function(error, response, context) {
 
@@ -1094,8 +1084,7 @@ function sendModel(model, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
+        var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
 
     controller.sendModel(model, function(error, response, context) {
 
@@ -1125,8 +1114,7 @@ function sendModelArray(models, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
+        var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
         return new Employee(elem);
     });
 
@@ -1158,9 +1146,9 @@ function sendFile(file, callback)
 
 ```javascript
 
-    TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {// Parameters for the API call
-    var file = data;
+    TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {    var file = data;
 
+    
     controller.sendFile(file, function(error, response, context) {
 
             
@@ -1192,8 +1180,7 @@ function sendMixedArray(input, callback)
 
 ```javascript
 
-    TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {// Parameters for the API call
-    var input = [];
+    TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {    var input = [];
     input["file"] = data;
     input["integers"] = [1,2,3,4,5];
     input["models"] = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
@@ -1201,6 +1188,7 @@ function sendMixedArray(input, callback)
     });
     input["strings"] = ["abc", "def"];
 
+    
     controller.sendMixedArray(input, function(error, response, context) {
 
             
@@ -1229,8 +1217,7 @@ function sendString(value, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var value = "TestString";
+        var value = "TestString";
 
     controller.sendString(value, function(error, response, context) {
 
@@ -1260,8 +1247,7 @@ function sendIntegerEnumArray(suites, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var suites = [1, 3, 4, 2, 3];
+        var suites = [1, 3, 4, 2, 3];
 
     controller.sendIntegerEnumArray(suites, function(error, response, context) {
 
@@ -1291,8 +1277,7 @@ function sendStringEnumArray(days, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
+        var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
     controller.sendStringEnumArray(days, function(error, response, context) {
 
@@ -1334,8 +1319,7 @@ function jsonEcho(input, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var input = {"uid": "1123213", "name": "Shahid"};
+        var input = {"uid": "1123213", "name": "Shahid"};
 
     controller.jsonEcho(input, function(error, response, context) {
 
@@ -1365,8 +1349,7 @@ function formEcho(input, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var input = {"uid": "1123213", "name": "Shahid"};
+        var input = {"uid": "1123213", "name": "Shahid"};
 
     controller.formEcho(input, function(error, response, context) {
 
@@ -1441,8 +1424,7 @@ function sendHeaders(customHeader, value, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var customHeader = "TestString";
+        var customHeader = "TestString";
     var value = "TestString";
 
     controller.sendHeaders(customHeader, value, function(error, response, context) {
@@ -1488,8 +1470,7 @@ function simpleQuery(mboolean, number, string, queryParams, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var mboolean = true;
+        var mboolean = true;
     var number = 4;
     var string = "TestString";
 
@@ -1552,8 +1533,7 @@ function stringParam(string, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var string = "l;asd;asdwe[2304&&;'.d??\\a\\\\\\;sd//";
+        var string = "l;asd;asdwe[2304&&;'.d??\\a\\\\\\;sd//";
 
     controller.stringParam(string, function(error, response, context) {
 
@@ -1583,8 +1563,7 @@ function urlParam(url, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var url = "https://www.shahidisawesome.com/and/also/a/narcissist?thisis=aparameter&another=one";
+        var url = "https://www.shahidisawesome.com/and/also/a/narcissist?thisis=aparameter&another=one";
 
     controller.urlParam(url, function(error, response, context) {
 
@@ -1617,8 +1596,7 @@ function multipleParams(number, precision, string, url, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var number = 123412312;
+        var number = 123412312;
     var precision = 1112.34;
     var string = "\"\"test./;\";12&&3asl\"\";\"qw1&34\"///..//.";
     var url = "http://www.abc.com/test?a=b&c=\"http://lolol.com?param=no&another=lol\"";
@@ -1651,8 +1629,7 @@ function numberArray(integers, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var integers = [1,2,3,4,5];
+        var integers = [1,2,3,4,5];
 
     controller.numberArray(integers, function(error, response, context) {
 
@@ -1682,8 +1659,7 @@ function stringArray(strings, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var strings = ["abc", "def"];
+        var strings = ["abc", "def"];
 
     controller.stringArray(strings, function(error, response, context) {
 
@@ -1713,8 +1689,7 @@ function stringEnumArray(days, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
+        var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
     controller.stringEnumArray(days, function(error, response, context) {
 
@@ -1744,8 +1719,7 @@ function integerEnumArray(suites, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var suites = [1, 3, 4, 2, 3];
+        var suites = [1, 3, 4, 2, 3];
 
     controller.integerEnumArray(suites, function(error, response, context) {
 
@@ -1787,8 +1761,7 @@ function sendStringArray(strings, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var strings = ["abc", "def"];
+        var strings = ["abc", "def"];
 
     controller.sendStringArray(strings, function(error, response, context) {
 
@@ -1818,8 +1791,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    // Parameters for the API call
-    var integers = [1,2,3,4,5];
+        var integers = [1,2,3,4,5];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
