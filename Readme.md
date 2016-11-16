@@ -344,7 +344,7 @@ function getBinary(callback)
 ```javascript
 
 
-    TestHelper.getFileContents(Path\To\File, function(data) {
+    TestHelper.getFileContents("Path\\To\\File", function(data) {
         controller.getBinary(function(error, response, context) {
 
         });
