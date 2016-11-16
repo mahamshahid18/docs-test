@@ -107,6 +107,7 @@ var controller = lib.ResponseTypesController;
 ```javascript
 function getLong()
 ```
+##### 8
 
 #### Example Usage
 
@@ -129,6 +130,7 @@ function getLong()
 ```javascript
 function getModel()
 ```
+##### 8
 
 #### Example Usage
 
@@ -151,6 +153,7 @@ function getModel()
 ```javascript
 function getStringEnumArray()
 ```
+##### 8
 
 #### Example Usage
 
@@ -173,6 +176,7 @@ function getStringEnumArray()
 ```javascript
 function getStringEnum()
 ```
+##### 8
 
 #### Example Usage
 
@@ -195,6 +199,7 @@ function getStringEnum()
 ```javascript
 function getModelArray()
 ```
+##### 8
 
 #### Example Usage
 
@@ -217,6 +222,7 @@ function getModelArray()
 ```javascript
 function getIntEnum()
 ```
+##### 8
 
 #### Example Usage
 
@@ -239,6 +245,7 @@ function getIntEnum()
 ```javascript
 function getIntEnumArray()
 ```
+##### 8
 
 #### Example Usage
 
@@ -261,6 +268,7 @@ function getIntEnumArray()
 ```javascript
 function getPrecision()
 ```
+##### 8
 
 #### Example Usage
 
@@ -283,6 +291,7 @@ function getPrecision()
 ```javascript
 function getBinary()
 ```
+##### 8
 
 #### Example Usage
 
@@ -306,6 +315,7 @@ function getBinary()
 ```javascript
 function getInteger()
 ```
+##### 8
 
 #### Example Usage
 
@@ -328,6 +338,7 @@ function getInteger()
 ```javascript
 function getIntegerArray()
 ```
+##### 8
 
 #### Example Usage
 
@@ -350,6 +361,7 @@ function getIntegerArray()
 ```javascript
 function getDynamic()
 ```
+##### 8
 
 #### Example Usage
 
@@ -372,6 +384,7 @@ function getDynamic()
 ```javascript
 function getDynamicArray()
 ```
+##### 8
 
 #### Example Usage
 
@@ -394,6 +407,7 @@ function getDynamicArray()
 ```javascript
 function getDatetime()
 ```
+##### 8
 
 #### Example Usage
 
@@ -416,6 +430,7 @@ function getDatetime()
 ```javascript
 function getDatetimeArray()
 ```
+##### 8
 
 #### Example Usage
 
@@ -438,6 +453,7 @@ function getDatetimeArray()
 ```javascript
 function getBoolean()
 ```
+##### 8
 
 #### Example Usage
 
@@ -460,6 +476,7 @@ function getBoolean()
 ```javascript
 function getBooleanArray()
 ```
+##### 8
 
 #### Example Usage
 
@@ -494,6 +511,7 @@ var controller = lib.ErrorCodesController;
 ```javascript
 function get400()
 ```
+##### 8
 
 #### Example Usage
 
@@ -516,6 +534,7 @@ function get400()
 ```javascript
 function get500()
 ```
+##### 8
 
 #### Example Usage
 
@@ -550,6 +569,7 @@ var controller = lib.BodyParamsController;
 ```javascript
 function sendStringArray()
 ```
+##### 16
 
 #### Example Usage
 
@@ -573,6 +593,7 @@ function sendStringArray()
 ```javascript
 function sendIntegerArray()
 ```
+##### 18
 
 #### Example Usage
 
@@ -596,6 +617,7 @@ function sendIntegerArray()
 ```javascript
 function sendModel()
 ```
+##### 15
 
 #### Example Usage
 
@@ -619,6 +641,7 @@ function sendModel()
 ```javascript
 function sendModelArray()
 ```
+##### 16
 
 #### Example Usage
 
@@ -642,6 +665,7 @@ function sendModelArray()
 ```javascript
 function sendDynamic()
 ```
+##### 17
 
 #### Example Usage
 
@@ -665,6 +689,7 @@ function sendDynamic()
 ```javascript
 function sendString()
 ```
+##### 15
 
 #### Example Usage
 
@@ -688,6 +713,7 @@ function sendString()
 ```javascript
 function sendStringEnumArray()
 ```
+##### 14
 
 #### Example Usage
 
@@ -711,6 +737,7 @@ function sendStringEnumArray()
 ```javascript
 function sendIntegerEnumArray()
 ```
+##### 16
 
 #### Example Usage
 
@@ -746,6 +773,7 @@ var controller = lib.FormParamsController;
 ```javascript
 function sendLong()
 ```
+##### 15
 
 #### Example Usage
 
@@ -769,6 +797,7 @@ function sendLong()
 ```javascript
 function sendIntegerArray()
 ```
+##### 18
 
 #### Example Usage
 
@@ -792,6 +821,7 @@ function sendIntegerArray()
 ```javascript
 function sendStringArray()
 ```
+##### 17
 
 #### Example Usage
 
@@ -815,6 +845,7 @@ function sendStringArray()
 ```javascript
 function sendModel()
 ```
+##### 15
 
 #### Example Usage
 
@@ -838,6 +869,7 @@ function sendModel()
 ```javascript
 function sendModelArray()
 ```
+##### 16
 
 #### Example Usage
 
@@ -861,6 +893,7 @@ function sendModelArray()
 ```javascript
 function sendFile()
 ```
+##### 14
 
 #### Example Usage
 
@@ -885,6 +918,7 @@ function sendFile()
 ```javascript
 function sendMixedArray()
 ```
+##### 15
 
 #### Example Usage
 
@@ -913,6 +947,7 @@ function sendMixedArray()
 ```javascript
 function sendString()
 ```
+##### 15
 
 #### Example Usage
 
@@ -936,6 +971,7 @@ function sendString()
 ```javascript
 function sendIntegerEnumArray()
 ```
+##### 16
 
 #### Example Usage
 
@@ -959,6 +995,7 @@ function sendIntegerEnumArray()
 ```javascript
 function sendStringEnumArray()
 ```
+##### 14
 
 #### Example Usage
 
@@ -994,6 +1031,7 @@ var controller = lib.EchoController;
 ```javascript
 function jsonEcho()
 ```
+##### 15
 
 #### Example Usage
 
@@ -1017,6 +1055,7 @@ function jsonEcho()
 ```javascript
 function formEcho()
 ```
+##### 15
 
 #### Example Usage
 
@@ -1040,6 +1079,7 @@ function formEcho()
 ```javascript
 function queryEcho()
 ```
+##### 21
 
 #### Example Usage
 
@@ -1077,6 +1117,7 @@ var controller = lib.HeaderController;
 ```javascript
 function sendHeaders()
 ```
+##### 29
 
 #### Example Usage
 
@@ -1113,6 +1154,7 @@ var controller = lib.QueryParamController;
 ```javascript
 function simpleQuery()
 ```
+##### 47
 
 #### Example Usage
 
@@ -1141,6 +1183,7 @@ function simpleQuery()
 ```javascript
 function numberArray()
 ```
+##### 18
 
 #### Example Usage
 
@@ -1164,6 +1207,7 @@ function numberArray()
 ```javascript
 function stringArray()
 ```
+##### 17
 
 #### Example Usage
 
@@ -1187,6 +1231,7 @@ function stringArray()
 ```javascript
 function stringEnumArray()
 ```
+##### 14
 
 #### Example Usage
 
@@ -1210,6 +1255,7 @@ function stringEnumArray()
 ```javascript
 function integerEnumArray()
 ```
+##### 16
 
 #### Example Usage
 
@@ -1245,6 +1291,7 @@ var controller = lib.TemplateParamsController;
 ```javascript
 function sendStringArray()
 ```
+##### 17
 
 #### Example Usage
 
@@ -1268,6 +1315,7 @@ function sendStringArray()
 ```javascript
 function sendIntegerArray()
 ```
+##### 18
 
 #### Example Usage
 
