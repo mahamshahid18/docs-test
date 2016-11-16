@@ -1323,7 +1323,7 @@ var controller = lib.QueryParamController;
 
 
 ```javascript
-function simpleQuery(mboolean, number, stringqueryParams)
+function simpleQuery(mboolean, number, string, queryParams)
 ```
 
 #### Parameters
