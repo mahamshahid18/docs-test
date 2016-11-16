@@ -1146,7 +1146,7 @@ function sendFile(file, callback)
 
 ```javascript
 
-    TestHelper.getFilePath(    , function(data) {
+    TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
         var file = data;
 
         controller.sendFile(file, function(error, response, context) {
@@ -1180,7 +1180,7 @@ function sendMixedArray(input, callback)
 
 ```javascript
 
-    TestHelper.getFilePath(    , function(data) {
+    TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
         var input = [];
         input["file"] = data;
         input["integers"] = [1,2,3,4,5];
