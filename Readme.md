@@ -591,7 +591,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [205];
+    var integers = [185];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -745,7 +745,7 @@ function sendStringEnumArray(days, callback)
 
 ```javascript
 
-    var days = [ Days[0] ];
+    var days = [ Object.keys(Days)[0] ];
 
     controller.sendStringEnumArray(days, function(error, response, context) {
 
@@ -775,7 +775,7 @@ function sendIntegerEnumArray(suites, callback)
 
 ```javascript
 
-    var suites = [ SuiteCode[0] ];
+    var suites = [ Object.keys(SuiteCode)[0] ];
 
     controller.sendIntegerEnumArray(suites, function(error, response, context) {
 
@@ -817,7 +817,7 @@ function sendLong(value, callback)
 
 ```javascript
 
-    var value = 205;
+    var value = 185;
 
     controller.sendLong(value, function(error, response, context) {
 
@@ -847,7 +847,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [205];
+    var integers = [185];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -1006,7 +1006,7 @@ function sendMixedArray(input, callback)
     TestHelper.getFilePath("url", function(data) {
         var input = [];
         input["file"] = data;
-        input["integers"] = [205];
+        input["integers"] = [185];
         input["models"] = [{"key":"value"}].map(function(elem) {
         return new Employee(elem);
     });
@@ -1070,7 +1070,7 @@ function sendIntegerEnumArray(suites, callback)
 
 ```javascript
 
-    var suites = [ SuiteCode[0] ];
+    var suites = [ Object.keys(SuiteCode)[0] ];
 
     controller.sendIntegerEnumArray(suites, function(error, response, context) {
 
@@ -1100,7 +1100,7 @@ function sendStringEnumArray(days, callback)
 
 ```javascript
 
-    var days = [ Days[0] ];
+    var days = [ Object.keys(Days)[0] ];
 
     controller.sendStringEnumArray(days, function(error, response, context) {
 
@@ -1298,7 +1298,7 @@ function simpleQuery(mboolean, number, string, queryParams, callback)
 ```javascript
 
     var mboolean = true;
-    var number = 205;
+    var number = 185;
     var string = "string";
 
     // key-value map for optional query parameters
@@ -1332,7 +1332,7 @@ function numberArray(integers, callback)
 
 ```javascript
 
-    var integers = [205];
+    var integers = [185];
 
     controller.numberArray(integers, function(error, response, context) {
 
@@ -1392,7 +1392,7 @@ function stringEnumArray(days, callback)
 
 ```javascript
 
-    var days = [ Days[0] ];
+    var days = [ Object.keys(Days)[0] ];
 
     controller.stringEnumArray(days, function(error, response, context) {
 
@@ -1422,7 +1422,7 @@ function integerEnumArray(suites, callback)
 
 ```javascript
 
-    var suites = [ SuiteCode[0] ];
+    var suites = [ Object.keys(SuiteCode)[0] ];
 
     controller.integerEnumArray(suites, function(error, response, context) {
 
@@ -1494,7 +1494,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [205];
+    var integers = [185];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
