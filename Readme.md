@@ -591,7 +591,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [148];
+    var integers = [205];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -817,7 +817,7 @@ function sendLong(value, callback)
 
 ```javascript
 
-    var value = 148;
+    var value = 205;
 
     controller.sendLong(value, function(error, response, context) {
 
@@ -847,7 +847,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [148];
+    var integers = [205];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -969,7 +969,7 @@ function sendFile(file, callback)
 
 ```javascript
 
-    TestHelper.getFilePath("", function(data) {
+    TestHelper.getFilePath("url", function(data) {
         var file = data;
 
         controller.sendFile(file, function(error, response, context) {
@@ -1003,10 +1003,10 @@ function sendMixedArray(input, callback)
 
 ```javascript
 
-    TestHelper.getFilePath("", function(data) {
+    TestHelper.getFilePath("url", function(data) {
         var input = [];
         input["file"] = data;
-        input["integers"] = [148];
+        input["integers"] = [205];
         input["models"] = [{"key":"value"}].map(function(elem) {
         return new Employee(elem);
     });
@@ -1298,7 +1298,7 @@ function simpleQuery(mboolean, number, string, queryParams, callback)
 ```javascript
 
     var mboolean = true;
-    var number = 148;
+    var number = 205;
     var string = "string";
 
     // key-value map for optional query parameters
@@ -1332,7 +1332,7 @@ function numberArray(integers, callback)
 
 ```javascript
 
-    var integers = [107];
+    var integers = [205];
 
     controller.numberArray(integers, function(error, response, context) {
 
@@ -1494,7 +1494,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [107];
+    var integers = [205];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
