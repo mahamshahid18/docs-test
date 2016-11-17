@@ -561,7 +561,7 @@ function sendStringArray(sarray, callback)
 
 ```javascript
 
-    var sarray = "sarray";
+    var sarray = ["sarray"];
 
     controller.sendStringArray(sarray, function(error, response, context) {
 
@@ -591,7 +591,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = 229;
+    var integers = [36];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -682,8 +682,8 @@ function sendDynamic(dynamic, callback)
 ```javascript
 
     var dynamic = {
-id : 21
-};
+        id : 21
+    };
 
     controller.sendDynamic(dynamic, function(error, response, context) {
 
@@ -713,7 +713,7 @@ function sendString(value, callback)
 
 ```javascript
 
-    var value = "\"value\"";
+    var value = "value";
 
     controller.sendString(value, function(error, response, context) {
 
@@ -815,7 +815,7 @@ function sendLong(value, callback)
 
 ```javascript
 
-    var value = 229;
+    var value = 36;
 
     controller.sendLong(value, function(error, response, context) {
 
@@ -845,7 +845,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = 229;
+    var integers = [36];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -875,7 +875,7 @@ function sendStringArray(strings, callback)
 
 ```javascript
 
-    var strings = "strings";
+    var strings = ["strings"];
 
     controller.sendStringArray(strings, function(error, response, context) {
 
@@ -1002,9 +1002,9 @@ function sendMixedArray(input, callback)
     TestHelper.getFilePath("", function(data) {
         var input = [];
         input["file"] = PathToFile;
-        input["integers"] = 229;
+        input["integers"] = [36];
         input["models"] = 0;
-        input["strings"] = "strings";
+        input["strings"] = ["strings"];
 
         controller.sendMixedArray(input, function(error, response, context) {
 
@@ -1034,7 +1034,7 @@ function sendString(value, callback)
 
 ```javascript
 
-    var value = "\"value\"";
+    var value = "value";
 
     controller.sendString(value, function(error, response, context) {
 
@@ -1137,8 +1137,8 @@ function jsonEcho(input, callback)
 ```javascript
 
     var input = {
-id : 21
-};
+        id : 21
+    };
 
     controller.jsonEcho(input, function(error, response, context) {
 
@@ -1169,8 +1169,8 @@ function formEcho(input, callback)
 ```javascript
 
     var input = {
-id : 21
-};
+        id : 21
+    };
 
     controller.formEcho(input, function(error, response, context) {
 
@@ -1245,8 +1245,8 @@ function sendHeaders(customHeader, value, callback)
 
 ```javascript
 
-    var customHeader = "\"custom-header\"";
-    var value = "\"value\"";
+    var customHeader = "custom-header";
+    var value = "value";
 
     controller.sendHeaders(customHeader, value, function(error, response, context) {
 
@@ -1291,9 +1291,9 @@ function simpleQuery(mboolean, number, string, queryParams, callback)
 
 ```javascript
 
-    var mboolean = true;
-    var number = 229;
-    var string = "\"string\"";
+    var mboolean = false;
+    var number = 36;
+    var string = "string";
 
     // key-value map for optional query parameters
     var queryParams = [];
@@ -1326,7 +1326,7 @@ function numberArray(integers, callback)
 
 ```javascript
 
-    var integers = 229;
+    var integers = [36];
 
     controller.numberArray(integers, function(error, response, context) {
 
@@ -1356,7 +1356,7 @@ function stringArray(strings, callback)
 
 ```javascript
 
-    var strings = "strings";
+    var strings = ["strings"];
 
     controller.stringArray(strings, function(error, response, context) {
 
@@ -1458,7 +1458,7 @@ function sendStringArray(strings, callback)
 
 ```javascript
 
-    var strings = "strings";
+    var strings = ["strings"];
 
     controller.sendStringArray(strings, function(error, response, context) {
 
@@ -1488,7 +1488,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = 229;
+    var integers = [36];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
