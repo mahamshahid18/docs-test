@@ -591,7 +591,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [84];
+    var integers = [162];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -621,7 +621,9 @@ function sendModel(model, callback)
 
 ```javascript
 
-    var model = ;
+    var model = {{"key":"value"}}.map(function(elem) {
+        return new Employee(elem);
+    });
 
     controller.sendModel(model, function(error, response, context) {
 
@@ -651,7 +653,7 @@ function sendModelArray(models, callback)
 
 ```javascript
 
-    var models = ;
+    var models = new array();
 
     controller.sendModelArray(models, function(error, response, context) {
 
@@ -815,7 +817,7 @@ function sendLong(value, callback)
 
 ```javascript
 
-    var value = 84;
+    var value = 162;
 
     controller.sendLong(value, function(error, response, context) {
 
@@ -845,7 +847,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [84];
+    var integers = [162];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -905,7 +907,9 @@ function sendModel(model, callback)
 
 ```javascript
 
-    var model = ;
+    var model = {{"key":"value"}}.map(function(elem) {
+        return new Employee(elem);
+    });
 
     controller.sendModel(model, function(error, response, context) {
 
@@ -935,7 +939,7 @@ function sendModelArray(models, callback)
 
 ```javascript
 
-    var models = ;
+    var models = new array();
 
     controller.sendModelArray(models, function(error, response, context) {
 
@@ -1002,8 +1006,8 @@ function sendMixedArray(input, callback)
     TestHelper.getFilePath("", function(data) {
         var input = [];
         input["file"] = data;
-        input["integers"] = [84];
-        input["models"] = ;
+        input["integers"] = [162];
+        input["models"] = new array();
         input["strings"] = ["strings"];
 
         controller.sendMixedArray(input, function(error, response, context) {
@@ -1291,8 +1295,8 @@ function simpleQuery(mboolean, number, string, queryParams, callback)
 
 ```javascript
 
-    var mboolean = false;
-    var number = 84;
+    var mboolean = true;
+    var number = 162;
     var string = "string";
 
     // key-value map for optional query parameters
@@ -1326,7 +1330,7 @@ function numberArray(integers, callback)
 
 ```javascript
 
-    var integers = [84];
+    var integers = [162];
 
     controller.numberArray(integers, function(error, response, context) {
 
@@ -1488,7 +1492,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [84];
+    var integers = [162];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
