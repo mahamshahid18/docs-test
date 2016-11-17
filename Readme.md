@@ -1,5 +1,5 @@
 #Getting started
-test
+
 ## How to Build
 
 The generated SDK relies on [Node Package Manager](https://www.npmjs.com/) (NPM) being available to resolve dependencies. If you don't already have NPM installed, please go ahead and follow instructions to install NPM from [here](https://nodejs.org/en/download/).
@@ -561,7 +561,7 @@ function sendStringArray(sarray, callback)
 
 ```javascript
 
-    var sarray = null;
+    var sarray = "sarray";
 
     controller.sendStringArray(sarray, function(error, response, context) {
 
@@ -591,7 +591,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = null;
+    var integers = 229;
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -621,7 +621,7 @@ function sendModel(model, callback)
 
 ```javascript
 
-    var model = null;
+    var model = 0;
 
     controller.sendModel(model, function(error, response, context) {
 
@@ -651,7 +651,7 @@ function sendModelArray(models, callback)
 
 ```javascript
 
-    var models = null;
+    var models = 0;
 
     controller.sendModelArray(models, function(error, response, context) {
 
@@ -681,7 +681,9 @@ function sendDynamic(dynamic, callback)
 
 ```javascript
 
-    var dynamic = null;
+    var dynamic = {
+id : 21
+};
 
     controller.sendDynamic(dynamic, function(error, response, context) {
 
@@ -711,7 +713,7 @@ function sendString(value, callback)
 
 ```javascript
 
-    var value = "null";
+    var value = "\"value\"";
 
     controller.sendString(value, function(error, response, context) {
 
@@ -741,7 +743,7 @@ function sendStringEnumArray(days, callback)
 
 ```javascript
 
-    var days = null;
+    var days = 0;
 
     controller.sendStringEnumArray(days, function(error, response, context) {
 
@@ -771,7 +773,7 @@ function sendIntegerEnumArray(suites, callback)
 
 ```javascript
 
-    var suites = null;
+    var suites = 0;
 
     controller.sendIntegerEnumArray(suites, function(error, response, context) {
 
@@ -813,7 +815,7 @@ function sendLong(value, callback)
 
 ```javascript
 
-    var value = null;
+    var value = 229;
 
     controller.sendLong(value, function(error, response, context) {
 
@@ -843,7 +845,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = null;
+    var integers = 229;
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -873,7 +875,7 @@ function sendStringArray(strings, callback)
 
 ```javascript
 
-    var strings = null;
+    var strings = "strings";
 
     controller.sendStringArray(strings, function(error, response, context) {
 
@@ -903,7 +905,7 @@ function sendModel(model, callback)
 
 ```javascript
 
-    var model = null;
+    var model = 0;
 
     controller.sendModel(model, function(error, response, context) {
 
@@ -933,7 +935,7 @@ function sendModelArray(models, callback)
 
 ```javascript
 
-    var models = null;
+    var models = 0;
 
     controller.sendModelArray(models, function(error, response, context) {
 
@@ -964,7 +966,7 @@ function sendFile(file, callback)
 ```javascript
 
     TestHelper.getFilePath("", function(data) {
-        var file = null;
+        var file = PathToFile;
 
         controller.sendFile(file, function(error, response, context) {
 
@@ -999,10 +1001,10 @@ function sendMixedArray(input, callback)
 
     TestHelper.getFilePath("", function(data) {
         var input = [];
-        input["file"] = null;
-        input["integers"] = null;
-        input["models"] = null;
-        input["strings"] = null;
+        input["file"] = PathToFile;
+        input["integers"] = 229;
+        input["models"] = 0;
+        input["strings"] = "strings";
 
         controller.sendMixedArray(input, function(error, response, context) {
 
@@ -1032,7 +1034,7 @@ function sendString(value, callback)
 
 ```javascript
 
-    var value = "null";
+    var value = "\"value\"";
 
     controller.sendString(value, function(error, response, context) {
 
@@ -1062,7 +1064,7 @@ function sendIntegerEnumArray(suites, callback)
 
 ```javascript
 
-    var suites = null;
+    var suites = 0;
 
     controller.sendIntegerEnumArray(suites, function(error, response, context) {
 
@@ -1092,7 +1094,7 @@ function sendStringEnumArray(days, callback)
 
 ```javascript
 
-    var days = null;
+    var days = 0;
 
     controller.sendStringEnumArray(days, function(error, response, context) {
 
@@ -1134,7 +1136,9 @@ function jsonEcho(input, callback)
 
 ```javascript
 
-    var input = null;
+    var input = {
+id : 21
+};
 
     controller.jsonEcho(input, function(error, response, context) {
 
@@ -1164,7 +1168,9 @@ function formEcho(input, callback)
 
 ```javascript
 
-    var input = null;
+    var input = {
+id : 21
+};
 
     controller.formEcho(input, function(error, response, context) {
 
@@ -1239,8 +1245,8 @@ function sendHeaders(customHeader, value, callback)
 
 ```javascript
 
-    var customHeader = "null";
-    var value = "null";
+    var customHeader = "\"custom-header\"";
+    var value = "\"value\"";
 
     controller.sendHeaders(customHeader, value, function(error, response, context) {
 
@@ -1285,9 +1291,9 @@ function simpleQuery(mboolean, number, string, queryParams, callback)
 
 ```javascript
 
-    var mboolean = null;
-    var number = null;
-    var string = "null";
+    var mboolean = true;
+    var number = 229;
+    var string = "\"string\"";
 
     // key-value map for optional query parameters
     var queryParams = [];
@@ -1320,7 +1326,7 @@ function numberArray(integers, callback)
 
 ```javascript
 
-    var integers = null;
+    var integers = 229;
 
     controller.numberArray(integers, function(error, response, context) {
 
@@ -1350,7 +1356,7 @@ function stringArray(strings, callback)
 
 ```javascript
 
-    var strings = null;
+    var strings = "strings";
 
     controller.stringArray(strings, function(error, response, context) {
 
@@ -1380,7 +1386,7 @@ function stringEnumArray(days, callback)
 
 ```javascript
 
-    var days = null;
+    var days = 0;
 
     controller.stringEnumArray(days, function(error, response, context) {
 
@@ -1410,7 +1416,7 @@ function integerEnumArray(suites, callback)
 
 ```javascript
 
-    var suites = null;
+    var suites = 0;
 
     controller.integerEnumArray(suites, function(error, response, context) {
 
@@ -1452,7 +1458,7 @@ function sendStringArray(strings, callback)
 
 ```javascript
 
-    var strings = null;
+    var strings = "strings";
 
     controller.sendStringArray(strings, function(error, response, context) {
 
@@ -1482,7 +1488,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = null;
+    var integers = 229;
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
