@@ -591,7 +591,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [78];
+    var integers = [148];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -652,7 +652,7 @@ function sendModelArray(models, callback)
 ```javascript
 
     var models = [{"key":"value"}].map(function(elem) {
-        return new array(elem);
+        return new Employee(elem);
     });
 
     controller.sendModelArray(models, function(error, response, context) {
@@ -817,7 +817,7 @@ function sendLong(value, callback)
 
 ```javascript
 
-    var value = 78;
+    var value = 148;
 
     controller.sendLong(value, function(error, response, context) {
 
@@ -847,7 +847,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [78];
+    var integers = [148];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
@@ -938,7 +938,7 @@ function sendModelArray(models, callback)
 ```javascript
 
     var models = [{"key":"value"}].map(function(elem) {
-        return new array(elem);
+        return new Employee(elem);
     });
 
     controller.sendModelArray(models, function(error, response, context) {
@@ -1006,9 +1006,9 @@ function sendMixedArray(input, callback)
     TestHelper.getFilePath("", function(data) {
         var input = [];
         input["file"] = data;
-        input["integers"] = [78];
+        input["integers"] = [148];
         input["models"] = [{"key":"value"}].map(function(elem) {
-        return new array(elem);
+        return new Employee(elem);
     });
         input["strings"] = ["strings"];
 
@@ -1298,7 +1298,7 @@ function simpleQuery(mboolean, number, string, queryParams, callback)
 ```javascript
 
     var mboolean = true;
-    var number = 169;
+    var number = 148;
     var string = "string";
 
     // key-value map for optional query parameters
@@ -1332,7 +1332,7 @@ function numberArray(integers, callback)
 
 ```javascript
 
-    var integers = [169];
+    var integers = [107];
 
     controller.numberArray(integers, function(error, response, context) {
 
@@ -1494,7 +1494,7 @@ function sendIntegerArray(integers, callback)
 
 ```javascript
 
-    var integers = [169];
+    var integers = [107];
 
     controller.sendIntegerArray(integers, function(error, response, context) {
 
