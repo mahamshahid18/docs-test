@@ -55,10 +55,13 @@ Save it with an appropriate name such as `index.html`. Import the reference to t
     <!-- Models -->
     <script src="scripts/TesterLib/Models/ServerResponse.js"></script>
     <script src="scripts/TesterLib/Models/EchoResponse.js"></script>
+    <script src="scripts/TesterLib/Models/QueryParameter.js"></script>
     <script src="scripts/TesterLib/Models/Person.js"></script>
     <script src="scripts/TesterLib/Models/Days.js"></script>
     <script src="scripts/TesterLib/Models/SuiteCode.js"></script>
     <script src="scripts/TesterLib/Models/Employee.js"></script>
+    <script src="scripts/TesterLib/Models/GlobalTestException.js"></script>
+    <script src="scripts/TesterLib/Models/LocalTestException.js"></script>
 
     ```
 > The Configuration.js file should be imported before the other files.
@@ -130,6 +133,7 @@ function getLong()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -160,6 +164,7 @@ function getModel()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -190,6 +195,7 @@ function getStringEnumArray()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -220,6 +226,7 @@ function getStringEnum()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -250,6 +257,7 @@ function getModelArray()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -280,6 +288,7 @@ function getIntEnum()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -310,6 +319,7 @@ function getIntEnumArray()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -340,6 +350,7 @@ function getPrecision()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -370,6 +381,7 @@ function getBinary()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -400,6 +412,7 @@ function getInteger()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -430,6 +443,7 @@ function getIntegerArray()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -460,6 +474,7 @@ function getDynamic()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -490,6 +505,7 @@ function getDynamicArray()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -520,6 +536,7 @@ function getDatetime()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -550,6 +567,7 @@ function getDatetimeArray()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -580,6 +598,7 @@ function getBoolean()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -610,6 +629,38 @@ function getBooleanArray()
 		},function(err){
 			//failure case
 		});
+
+	});
+```
+
+
+
+#### <a name="get_headers"></a>![Method: ](http://apidocs.io/img/method.png ".ResponseTypesController.getHeaders") getHeaders
+
+> TODO: Add a method description
+
+
+```javascript
+function getHeaders()
+```
+
+#### Example Usage
+
+```javascript
+
+
+
+	app.controller("testController", function($scope, ResponseTypesController){
+		var result = ResponseTypesController.getHeaders();
+        //Function call returns a promise
+        result.then(function(resp){
+			//success case
+			//getting context of response
+			console.log(resp.getContext());
+		},function(err){
+			//failure case
+		});
+
 	});
 ```
 
@@ -653,6 +704,7 @@ function get400()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -683,8 +735,47 @@ function get500()
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
+
+
+
+#### <a name="get401"></a>![Method: ](http://apidocs.io/img/method.png ".ErrorCodesController.get401") get401
+
+> TODO: Add a method description
+
+
+```javascript
+function get401()
+```
+
+#### Example Usage
+
+```javascript
+
+
+
+	app.controller("testController", function($scope, ErrorCodesController){
+		var result = ErrorCodesController.get401();
+        //Function call returns a promise
+        result.then(function(resp){
+			//success case
+			//getting context of response
+			console.log(resp.getContext());
+		},function(err){
+			//failure case
+		});
+
+	});
+```
+
+#### Errors
+
+| Error Code | Error Description |
+|------------|-------------------|
+| 401 | 401 Local |
+
 
 
 
@@ -714,7 +805,7 @@ function sendStringArray(sarray)
 
 ```javascript
 
-    var sarray = ["sarray"];
+    var sarray = ["abc", "def"];
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -727,6 +818,7 @@ function sendStringArray(sarray)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -745,7 +837,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [37];
+    var integers = [1,2,3,4,5];
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -758,6 +850,7 @@ function sendIntegerArray(integers)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -776,7 +869,7 @@ function sendModel(model)
 
 ```javascript
 
-    var model = new Employee({"key":"value"});
+    var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -789,6 +882,7 @@ function sendModel(model)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -807,7 +901,7 @@ function sendModelArray(models)
 
 ```javascript
 
-    var models = [{"key":"value"}].map(function(elem) {
+    var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
         return new Employee(elem);
     });
 
@@ -822,6 +916,7 @@ function sendModelArray(models)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -840,9 +935,7 @@ function sendDynamic(dynamic)
 
 ```javascript
 
-    var dynamic = {
-        id : 21
-    };
+    var dynamic = {"uid": "1123213", "name": "Shahid"};
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -855,6 +948,7 @@ function sendDynamic(dynamic)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -873,7 +967,7 @@ function sendString(value)
 
 ```javascript
 
-    var value = "value";
+    var value = "TestString";
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -886,6 +980,7 @@ function sendString(value)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -904,7 +999,7 @@ function sendStringEnumArray(days)
 
 ```javascript
 
-    var days = [ Object.keys(Days)[0] ];
+    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -917,6 +1012,7 @@ function sendStringEnumArray(days)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -935,7 +1031,7 @@ function sendIntegerEnumArray(suites)
 
 ```javascript
 
-    var suites = [ Object.keys(SuiteCode)[0] ];
+    var suites = [1, 3, 4, 2, 3];
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -948,6 +1044,7 @@ function sendIntegerEnumArray(suites)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -979,7 +1076,7 @@ function sendLong(value)
 
 ```javascript
 
-    var value = 37;
+    var value = 5147483647;
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -992,6 +1089,7 @@ function sendLong(value)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1010,7 +1108,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [37];
+    var integers = [1,2,3,4,5];
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1023,6 +1121,7 @@ function sendIntegerArray(integers)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1041,7 +1140,7 @@ function sendStringArray(strings)
 
 ```javascript
 
-    var strings = ["strings"];
+    var strings = ["abc", "def"];
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1054,6 +1153,7 @@ function sendStringArray(strings)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1072,7 +1172,7 @@ function sendModel(model)
 
 ```javascript
 
-    var model = new Employee({"key":"value"});
+    var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1085,6 +1185,7 @@ function sendModel(model)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1103,7 +1204,7 @@ function sendModelArray(models)
 
 ```javascript
 
-    var models = [{"key":"value"}].map(function(elem) {
+    var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
         return new Employee(elem);
     });
 
@@ -1118,6 +1219,7 @@ function sendModelArray(models)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1139,16 +1241,22 @@ function sendFile(file)
     var file = data;
 
 
-	app.controller("testController", function($scope, FormParamsController){
-		var result = FormParamsController.sendFile(file);
+	app.controller("testController", function($scope, FormParamsController, $http){
+		$http.get("https://dl.dropboxusercontent.com/u/31838656/binary.png").then(function(successData){
+            file = successData;
+            var result = FormParamsController.sendFile(file);
         //Function call returns a promise
-        result.then(function(resp){
-			//success case
-			//getting context of response
-			console.log(resp.getContext());
-		},function(err){
-			//failure case
-		});
+            result.then(function(resp){
+    			//success case
+    			//getting context of response
+    			console.log(resp.getContext());
+    		},function(err){
+    			//failure case
+    		});
+    
+    	}, function(errorData){
+    
+    	});
 	});
 ```
 
@@ -1169,23 +1277,29 @@ function sendMixedArray(input)
 
     var input = [];
         input["file"] = data;
-        input["integers"] = [37];
-        input["models"] = [{"key":"value"}].map(function(elem) {
+        input["integers"] = [1,2,3,4,5];
+        input["models"] = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
         return new Employee(elem);
     });
-        input["strings"] = ["strings"];
+        input["strings"] = ["abc", "def"];
 
 
-	app.controller("testController", function($scope, FormParamsController){
-		var result = FormParamsController.sendMixedArray(input);
+	app.controller("testController", function($scope, FormParamsController, $http){
+		$http.get("https://dl.dropboxusercontent.com/u/31838656/binary.png").then(function(successData){
+            file = successData;
+            var result = FormParamsController.sendMixedArray(input);
         //Function call returns a promise
-        result.then(function(resp){
-			//success case
-			//getting context of response
-			console.log(resp.getContext());
-		},function(err){
-			//failure case
-		});
+            result.then(function(resp){
+    			//success case
+    			//getting context of response
+    			console.log(resp.getContext());
+    		},function(err){
+    			//failure case
+    		});
+    
+    	}, function(errorData){
+    
+    	});
 	});
 ```
 
@@ -1204,7 +1318,7 @@ function sendString(value)
 
 ```javascript
 
-    var value = "value";
+    var value = "TestString";
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1217,6 +1331,7 @@ function sendString(value)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1235,7 +1350,7 @@ function sendIntegerEnumArray(suites)
 
 ```javascript
 
-    var suites = [ Object.keys(SuiteCode)[0] ];
+    var suites = [1, 3, 4, 2, 3];
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1248,6 +1363,7 @@ function sendIntegerEnumArray(suites)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1266,7 +1382,7 @@ function sendStringEnumArray(days)
 
 ```javascript
 
-    var days = [ Object.keys(Days)[0] ];
+    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1279,6 +1395,7 @@ function sendStringEnumArray(days)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1310,9 +1427,7 @@ function jsonEcho(input)
 
 ```javascript
 
-    var input = {
-        id : 21
-    };
+    var input = {"uid": "1123213", "name": "Shahid"};
 
 
 	app.controller("testController", function($scope, EchoController){
@@ -1325,6 +1440,7 @@ function jsonEcho(input)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1343,9 +1459,7 @@ function formEcho(input)
 
 ```javascript
 
-    var input = {
-        id : 21
-    };
+    var input = {"uid": "1123213", "name": "Shahid"};
 
 
 	app.controller("testController", function($scope, EchoController){
@@ -1358,6 +1472,7 @@ function formEcho(input)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1398,6 +1513,7 @@ function queryEcho(queryParameters)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1437,8 +1553,8 @@ function sendHeaders(customHeader, value)
 
 ```javascript
 
-    var customHeader = "custom-header";
-    var value = "value";
+    var customHeader = "TestString";
+    var value = "TestString";
 
 
 	app.controller("testController", function($scope, HeaderController){
@@ -1451,6 +1567,7 @@ function sendHeaders(customHeader, value)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1492,9 +1609,9 @@ function simpleQuery(mboolean, number, string, queryParameters)
 
 ```javascript
 
-    var mboolean = false;
-    var number = 37;
-    var string = "string";
+    var mboolean = true;
+    var number = 4;
+    var string = "TestString";
 
     // key-value map for optional query parameters
     var queryParameters = [];
@@ -1510,6 +1627,147 @@ function simpleQuery(mboolean, number, string, queryParameters)
 		},function(err){
 			//failure case
 		});
+
+	});
+```
+
+
+
+#### <a name="no_params"></a>![Method: ](http://apidocs.io/img/method.png ".QueryParamController.noParams") noParams
+
+> TODO: Add a method description
+
+
+```javascript
+function noParams()
+```
+
+#### Example Usage
+
+```javascript
+
+
+
+	app.controller("testController", function($scope, QueryParamController){
+		var result = QueryParamController.noParams();
+        //Function call returns a promise
+        result.then(function(resp){
+			//success case
+			//getting context of response
+			console.log(resp.getContext());
+		},function(err){
+			//failure case
+		});
+
+	});
+```
+
+
+
+#### <a name="string_param"></a>![Method: ](http://apidocs.io/img/method.png ".QueryParamController.stringParam") stringParam
+
+> TODO: Add a method description
+
+
+```javascript
+function stringParam(string)
+```
+
+#### Example Usage
+
+```javascript
+
+    var string = "l;asd;asdwe[2304&&;'.d??\\a\\\\\\;sd//";
+
+
+	app.controller("testController", function($scope, QueryParamController){
+		var result = QueryParamController.stringParam(string);
+        //Function call returns a promise
+        result.then(function(resp){
+			//success case
+			//getting context of response
+			console.log(resp.getContext());
+		},function(err){
+			//failure case
+		});
+
+	});
+```
+
+
+
+#### <a name="url_param"></a>![Method: ](http://apidocs.io/img/method.png ".QueryParamController.urlParam") urlParam
+
+> TODO: Add a method description
+
+
+```javascript
+function urlParam(url)
+```
+
+#### Example Usage
+
+```javascript
+
+    var url = "https://www.shahidisawesome.com/and/also/a/narcissist?thisis=aparameter&another=one";
+
+
+	app.controller("testController", function($scope, QueryParamController){
+		var result = QueryParamController.urlParam(url);
+        //Function call returns a promise
+        result.then(function(resp){
+			//success case
+			//getting context of response
+			console.log(resp.getContext());
+		},function(err){
+			//failure case
+		});
+
+	});
+```
+
+
+
+#### <a name="multiple_params"></a>![Method: ](http://apidocs.io/img/method.png ".QueryParamController.multipleParams") multipleParams
+
+> TODO: Add a method description
+
+
+```javascript
+function multipleParams(number, precision, string, url)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| number |  ``` Required ```  | TODO: Add a parameter description |
+| precision |  ``` Required ```  | TODO: Add a parameter description |
+| string |  ``` Required ```  | TODO: Add a parameter description |
+| url |  ``` Required ```  | TODO: Add a parameter description |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var number = 123412312;
+    var precision = 1112.34;
+    var string = "\"\"test./;\";12&&3asl\"\";\"qw1&34\"///..//.";
+    var url = "http://www.abc.com/test?a=b&c=\"http://lolol.com?param=no&another=lol\"";
+
+
+	app.controller("testController", function($scope, QueryParamController){
+		var result = QueryParamController.multipleParams(number, precision, string, url);
+        //Function call returns a promise
+        result.then(function(resp){
+			//success case
+			//getting context of response
+			console.log(resp.getContext());
+		},function(err){
+			//failure case
+		});
+
 	});
 ```
 
@@ -1528,7 +1786,7 @@ function numberArray(integers)
 
 ```javascript
 
-    var integers = [37];
+    var integers = [1,2,3,4,5];
 
 
 	app.controller("testController", function($scope, QueryParamController){
@@ -1541,6 +1799,7 @@ function numberArray(integers)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1559,7 +1818,7 @@ function stringArray(strings)
 
 ```javascript
 
-    var strings = ["strings"];
+    var strings = ["abc", "def"];
 
 
 	app.controller("testController", function($scope, QueryParamController){
@@ -1572,6 +1831,7 @@ function stringArray(strings)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1590,7 +1850,7 @@ function stringEnumArray(days)
 
 ```javascript
 
-    var days = [ Object.keys(Days)[0] ];
+    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
 
 	app.controller("testController", function($scope, QueryParamController){
@@ -1603,6 +1863,7 @@ function stringEnumArray(days)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1621,7 +1882,7 @@ function integerEnumArray(suites)
 
 ```javascript
 
-    var suites = [ Object.keys(SuiteCode)[0] ];
+    var suites = [1, 3, 4, 2, 3];
 
 
 	app.controller("testController", function($scope, QueryParamController){
@@ -1634,6 +1895,7 @@ function integerEnumArray(suites)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1665,7 +1927,7 @@ function sendStringArray(strings)
 
 ```javascript
 
-    var strings = ["strings"];
+    var strings = ["abc", "def"];
 
 
 	app.controller("testController", function($scope, TemplateParamsController){
@@ -1678,6 +1940,7 @@ function sendStringArray(strings)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
@@ -1696,7 +1959,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [37];
+    var integers = [1,2,3,4,5];
 
 
 	app.controller("testController", function($scope, TemplateParamsController){
@@ -1709,6 +1972,7 @@ function sendIntegerArray(integers)
 		},function(err){
 			//failure case
 		});
+
 	});
 ```
 
