@@ -125,13 +125,10 @@ function getLong()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -158,13 +155,10 @@ function getModel()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -191,13 +185,10 @@ function getStringEnumArray()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -224,13 +215,10 @@ function getStringEnum()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -257,13 +245,10 @@ function getModelArray()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -290,13 +275,10 @@ function getIntEnum()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -323,13 +305,10 @@ function getIntEnumArray()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -356,13 +335,10 @@ function getPrecision()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -389,13 +365,10 @@ function getBinary()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -422,13 +395,10 @@ function getInteger()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -455,13 +425,10 @@ function getIntegerArray()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -488,13 +455,10 @@ function getDynamic()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -521,13 +485,10 @@ function getDynamicArray()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -554,13 +515,10 @@ function getDatetime()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -587,13 +545,10 @@ function getDatetimeArray()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -620,13 +575,10 @@ function getBoolean()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -653,13 +605,10 @@ function getBooleanArray()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -699,13 +648,10 @@ function get400()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -732,13 +678,10 @@ function get500()
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -779,13 +722,10 @@ function sendStringArray(sarray)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -805,7 +745,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [197];
+    var integers = [37];
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -813,13 +753,10 @@ function sendIntegerArray(integers)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -847,13 +784,10 @@ function sendModel(model)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -883,13 +817,10 @@ function sendModelArray(models)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -919,13 +850,10 @@ function sendDynamic(dynamic)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -953,13 +881,10 @@ function sendString(value)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -987,13 +912,10 @@ function sendStringEnumArray(days)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1021,13 +943,10 @@ function sendIntegerEnumArray(suites)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1060,7 +979,7 @@ function sendLong(value)
 
 ```javascript
 
-    var value = 34;
+    var value = 37;
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1068,13 +987,10 @@ function sendLong(value)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1094,7 +1010,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [34];
+    var integers = [37];
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1102,13 +1018,10 @@ function sendIntegerArray(integers)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1136,13 +1049,10 @@ function sendStringArray(strings)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1170,13 +1080,10 @@ function sendModel(model)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1206,13 +1113,10 @@ function sendModelArray(models)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1240,13 +1144,10 @@ function sendFile(file)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1268,7 +1169,7 @@ function sendMixedArray(input)
 
     var input = [];
         input["file"] = data;
-        input["integers"] = [34];
+        input["integers"] = [37];
         input["models"] = [{"key":"value"}].map(function(elem) {
         return new Employee(elem);
     });
@@ -1280,13 +1181,10 @@ function sendMixedArray(input)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1314,13 +1212,10 @@ function sendString(value)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1348,13 +1243,10 @@ function sendIntegerEnumArray(suites)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1382,13 +1274,10 @@ function sendStringEnumArray(days)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1431,13 +1320,10 @@ function jsonEcho(input)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1467,13 +1353,10 @@ function formEcho(input)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1510,13 +1393,10 @@ function queryEcho(queryParameters)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1566,13 +1446,10 @@ function sendHeaders(customHeader, value)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1616,7 +1493,7 @@ function simpleQuery(mboolean, number, string, queryParameters)
 ```javascript
 
     var mboolean = false;
-    var number = 34;
+    var number = 37;
     var string = "string";
 
     // key-value map for optional query parameters
@@ -1628,13 +1505,10 @@ function simpleQuery(mboolean, number, string, queryParameters)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1654,7 +1528,7 @@ function numberArray(integers)
 
 ```javascript
 
-    var integers = [34];
+    var integers = [37];
 
 
 	app.controller("testController", function($scope, QueryParamController){
@@ -1662,13 +1536,10 @@ function numberArray(integers)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1696,13 +1567,10 @@ function stringArray(strings)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1730,13 +1598,10 @@ function stringEnumArray(days)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1764,13 +1629,10 @@ function integerEnumArray(suites)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1811,13 +1673,10 @@ function sendStringArray(strings)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
@@ -1837,7 +1696,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [34];
+    var integers = [37];
 
 
 	app.controller("testController", function($scope, TemplateParamsController){
@@ -1845,13 +1704,10 @@ function sendIntegerArray(integers)
         //Function call returns a promise
         result.then(function(resp){
 			//success case
-			console.log(resp.response);
-			console.log(resp.body);
 			//getting context of response
 			console.log(resp.getContext());
 		},function(err){
 			//failure case
-			console.log(err);
 		});
 	});
 ```
