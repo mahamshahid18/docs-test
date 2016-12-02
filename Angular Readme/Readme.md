@@ -765,7 +765,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [40];
+    var integers = [2];
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -1006,7 +1006,7 @@ function sendLong(value)
 
 ```javascript
 
-    var value = 40;
+    var value = 2;
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1038,7 +1038,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [40];
+    var integers = [2];
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1184,9 +1184,9 @@ function sendFile(file)
     			//failure case
     		});
     
-    		}, function(errorData){
+    	}, function(errorData){
     
-    		});
+    	});
 	});
 ```
 
@@ -1207,7 +1207,7 @@ function sendMixedArray(input)
 
     var input = [];
         input["file"] = "";
-        input["integers"] = [40];
+        input["integers"] = [2];
         input["models"] = [{"key":"value"}].map(function(elem) {
         return new Employee(elem);
     });
@@ -1227,9 +1227,9 @@ function sendMixedArray(input)
     			//failure case
     		});
     
-    		}, function(errorData){
+    	}, function(errorData){
     
-    		});
+    	});
 	});
 ```
 
@@ -1544,7 +1544,7 @@ function simpleQuery(mboolean, number, string, queryParameters)
 ```javascript
 
     var mboolean = false;
-    var number = 40;
+    var number = 2;
     var string = "string";
 
     // key-value map for optional query parameters
@@ -1580,7 +1580,7 @@ function numberArray(integers)
 
 ```javascript
 
-    var integers = [40];
+    var integers = [2];
 
 
 	app.controller("testController", function($scope, QueryParamController){
@@ -1753,7 +1753,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [40];
+    var integers = [2];
 
 
 	app.controller("testController", function($scope, TemplateParamsController){
