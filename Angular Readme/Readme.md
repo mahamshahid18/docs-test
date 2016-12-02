@@ -31,7 +31,7 @@ Right click on the folder name and select the `New File` option to create a new 
 ![open-new-file]()
 
 Save it with an appropriate name such as `index.html`. Import the reference to the generated SDK files inside `index.html` like:
-    `html
+    ``` html
     
     <!-- Helper files -->
     <script src="scripts/TesterLib/Configuration.js"></script>
@@ -60,23 +60,23 @@ Save it with an appropriate name such as `index.html`. Import the reference to t
     <script src="scripts/TesterLib/Models/SuiteCode.js"></script>
     <script src="scripts/TesterLib/Models/Employee.js"></script>
 
-    `
+    ```
 > The Configuration.js file should be imported before the other files.
 
 ### 5. Dependency Injection
 In order to use the generated SDK's module, controllers and factories, they need to be added as a dependency in your project's module. 
 Inject the SDK's module into your main module e.g:
 
-    `js
+    ``` js
     var myApp = angular.module('myApp', ['TesterLib']);
-    `
+    ```
 To use a generated factory in your controller, injection could be as follows:
 
-    `js
+    ``` js
     myApp.controller('appController', function($scope, ResponseTypesController) {
         ...
     }
-    `
+    ```
 ### 6. Running The App
 To run the app, simply open up the `index.html` file in a browser.
 ![app-running]()
@@ -765,7 +765,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [176];
+    var integers = [106];
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -1006,7 +1006,7 @@ function sendLong(value)
 
 ```javascript
 
-    var value = 176;
+    var value = 106;
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1038,7 +1038,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [176];
+    var integers = [106];
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1207,7 +1207,7 @@ function sendMixedArray(input)
 
     var input = [];
         input["file"] = "";
-        input["integers"] = [176];
+        input["integers"] = [106];
         input["models"] = [{"key":"value"}].map(function(elem) {
         return new Employee(elem);
     });
@@ -1543,8 +1543,8 @@ function simpleQuery(mboolean, number, string, queryParameters)
 
 ```javascript
 
-    var mboolean = true;
-    var number = 176;
+    var mboolean = false;
+    var number = 106;
     var string = "string";
 
     // key-value map for optional query parameters
@@ -1580,7 +1580,7 @@ function numberArray(integers)
 
 ```javascript
 
-    var integers = [176];
+    var integers = [106];
 
 
 	app.controller("testController", function($scope, QueryParamController){
@@ -1753,7 +1753,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [176];
+    var integers = [106];
 
 
 	app.controller("testController", function($scope, TemplateParamsController){
