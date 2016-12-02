@@ -1,4 +1,4 @@
-# Getting started
+#Getting started
 
 ## How to Build
 
@@ -6,13 +6,13 @@ The generated SDK requires AngularJS framework to work. If you do not already ha
 
 ## How to Use
 
-The following section describes how to use the generate SDK in an existing/new project.
+The following section describes how to use the generated SDK in an existing/new project.
 
 ### 1. Configure Angular and Generated SDK
 Perform the following steps to configure angular and the SDK:
 + Make a `scripts` folder inside the root folder of the project. If you already have one, skip to the next step.
 + Move the angular.min.js file inside the scripts folder. 
-+ Move the generated-lib folder inside the scripts folder.
++ Move the testerlib folder inside the scripts folder.
 
 ### 2. Open Project Folder
 Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
@@ -123,10 +123,10 @@ function getLong()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getLong();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -154,10 +154,10 @@ function getModel()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getModel();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -185,10 +185,10 @@ function getStringEnumArray()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getStringEnumArray();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -216,10 +216,10 @@ function getStringEnum()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getStringEnum();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -247,10 +247,10 @@ function getModelArray()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getModelArray();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -278,10 +278,10 @@ function getIntEnum()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getIntEnum();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -309,10 +309,10 @@ function getIntEnumArray()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getIntEnumArray();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -340,10 +340,10 @@ function getPrecision()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getPrecision();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -371,10 +371,10 @@ function getBinary()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getBinary();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -402,10 +402,10 @@ function getInteger()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getInteger();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -433,10 +433,10 @@ function getIntegerArray()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getIntegerArray();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -464,10 +464,10 @@ function getDynamic()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getDynamic();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -495,10 +495,10 @@ function getDynamicArray()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getDynamicArray();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -526,10 +526,10 @@ function getDatetime()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getDatetime();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -557,10 +557,10 @@ function getDatetimeArray()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getDatetimeArray();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -588,10 +588,10 @@ function getBoolean()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getBoolean();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -619,10 +619,10 @@ function getBooleanArray()
 	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getBooleanArray();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -663,10 +663,10 @@ function get400()
 	app.controller("testController", function($scope, ErrorCodesController){
 		var result = ErrorCodesController.get400();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -694,10 +694,10 @@ function get500()
 	app.controller("testController", function($scope, ErrorCodesController){
 		var result = ErrorCodesController.get500();
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -739,10 +739,10 @@ function sendStringArray(sarray)
 	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendStringArray(sarray);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -765,16 +765,16 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [246];
+    var integers = [40];
 
 
 	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendIntegerArray(integers);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -803,10 +803,10 @@ function sendModel(model)
 	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendModel(model);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -837,10 +837,10 @@ function sendModelArray(models)
 	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendModelArray(models);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -871,10 +871,10 @@ function sendDynamic(dynamic)
 	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendDynamic(dynamic);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -903,10 +903,10 @@ function sendString(value)
 	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendString(value);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -935,10 +935,10 @@ function sendStringEnumArray(days)
 	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendStringEnumArray(days);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -967,10 +967,10 @@ function sendIntegerEnumArray(suites)
 	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendIntegerEnumArray(suites);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1006,16 +1006,16 @@ function sendLong(value)
 
 ```javascript
 
-    var value = 246;
+    var value = 40;
 
 
 	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendLong(value);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1038,16 +1038,16 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [246];
+    var integers = [40];
 
 
 	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendIntegerArray(integers);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1076,10 +1076,10 @@ function sendStringArray(strings)
 	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendStringArray(strings);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1108,10 +1108,10 @@ function sendModel(model)
 	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendModel(model);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1142,10 +1142,10 @@ function sendModelArray(models)
 	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendModelArray(models);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1176,17 +1176,17 @@ function sendFile(file)
             file = successData;
             var result = FormParamsController.sendFile(file);
         //Function call returns a promise
-            result.then(function(resp){
+            result.then(function(success){
     			//success case
     			//getting context of response
-    			console.log(resp.getContext());
+    			console.log(success.getContext());
     		},function(err){
     			//failure case
     		});
     
-    	}, function(errorData){
+    		}, function(errorData){
     
-    	});
+    		});
 	});
 ```
 
@@ -1207,7 +1207,7 @@ function sendMixedArray(input)
 
     var input = [];
         input["file"] = "";
-        input["integers"] = [246];
+        input["integers"] = [40];
         input["models"] = [{"key":"value"}].map(function(elem) {
         return new Employee(elem);
     });
@@ -1216,20 +1216,20 @@ function sendMixedArray(input)
 
 	app.controller("testController", function($scope, FormParamsController, $http){
 		$http.get(url).then(function(successData){
-            file = successData;
+            input["file"] = successData;
             var result = FormParamsController.sendMixedArray(input);
         //Function call returns a promise
-            result.then(function(resp){
+            result.then(function(success){
     			//success case
     			//getting context of response
-    			console.log(resp.getContext());
+    			console.log(success.getContext());
     		},function(err){
     			//failure case
     		});
     
-    	}, function(errorData){
+    		}, function(errorData){
     
-    	});
+    		});
 	});
 ```
 
@@ -1254,10 +1254,10 @@ function sendString(value)
 	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendString(value);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1286,10 +1286,10 @@ function sendIntegerEnumArray(suites)
 	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendIntegerEnumArray(suites);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1318,10 +1318,10 @@ function sendStringEnumArray(days)
 	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendStringEnumArray(days);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1365,10 +1365,10 @@ function jsonEcho(input)
 	app.controller("testController", function($scope, EchoController){
 		var result = EchoController.jsonEcho(input);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1399,10 +1399,10 @@ function formEcho(input)
 	app.controller("testController", function($scope, EchoController){
 		var result = EchoController.formEcho(input);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1440,10 +1440,10 @@ function queryEcho(queryParameters)
 	app.controller("testController", function($scope, EchoController){
 		var result = EchoController.queryEcho(queryParameters);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1494,10 +1494,10 @@ function sendHeaders(customHeader, value)
 	app.controller("testController", function($scope, HeaderController){
 		var result = HeaderController.sendHeaders(customHeader, value);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1543,8 +1543,8 @@ function simpleQuery(mboolean, number, string, queryParameters)
 
 ```javascript
 
-    var mboolean = true;
-    var number = 246;
+    var mboolean = false;
+    var number = 40;
     var string = "string";
 
     // key-value map for optional query parameters
@@ -1554,10 +1554,10 @@ function simpleQuery(mboolean, number, string, queryParameters)
 	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.simpleQuery(mboolean, number, string, queryParameters);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1580,16 +1580,16 @@ function numberArray(integers)
 
 ```javascript
 
-    var integers = [246];
+    var integers = [40];
 
 
 	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.numberArray(integers);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1618,10 +1618,10 @@ function stringArray(strings)
 	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.stringArray(strings);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1650,10 +1650,10 @@ function stringEnumArray(days)
 	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.stringEnumArray(days);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1682,10 +1682,10 @@ function integerEnumArray(suites)
 	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.integerEnumArray(suites);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1727,10 +1727,10 @@ function sendStringArray(strings)
 	app.controller("testController", function($scope, TemplateParamsController){
 		var result = TemplateParamsController.sendStringArray(strings);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
@@ -1753,16 +1753,16 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [246];
+    var integers = [40];
 
 
 	app.controller("testController", function($scope, TemplateParamsController){
 		var result = TemplateParamsController.sendIntegerArray(integers);
         //Function call returns a promise
-        result.then(function(resp){
+        result.then(function(success){
 			//success case
 			//getting context of response
-			console.log(resp.getContext());
+			console.log(success.getContext());
 		},function(err){
 			//failure case
 		});
