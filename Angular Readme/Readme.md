@@ -1,4 +1,4 @@
-#Getting started
+# Getting started
 
 ## How to Build
 
@@ -765,7 +765,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [96];
+    var integers = [246];
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -1006,7 +1006,7 @@ function sendLong(value)
 
 ```javascript
 
-    var value = 96;
+    var value = 246;
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1038,7 +1038,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [96];
+    var integers = [246];
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1168,7 +1168,7 @@ function sendFile(file)
 
 ```javascript
 
-    var file = ;
+    var file = "";
 
 
 	app.controller("testController", function($scope, FormParamsController, $http){
@@ -1206,8 +1206,8 @@ function sendMixedArray(input)
 ```javascript
 
     var input = [];
-        input["file"] = ;
-        input["integers"] = [96];
+        input["file"] = "";
+        input["integers"] = [246];
         input["models"] = [{"key":"value"}].map(function(elem) {
         return new Employee(elem);
     });
@@ -1543,8 +1543,8 @@ function simpleQuery(mboolean, number, string, queryParameters)
 
 ```javascript
 
-    var mboolean = false;
-    var number = 54;
+    var mboolean = true;
+    var number = 246;
     var string = "string";
 
     // key-value map for optional query parameters
@@ -1580,7 +1580,7 @@ function numberArray(integers)
 
 ```javascript
 
-    var integers = [54];
+    var integers = [246];
 
 
 	app.controller("testController", function($scope, QueryParamController){
@@ -1753,7 +1753,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [54];
+    var integers = [246];
 
 
 	app.controller("testController", function($scope, TemplateParamsController){
