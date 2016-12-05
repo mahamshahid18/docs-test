@@ -13,11 +13,11 @@ Perform the following steps to configure angular and the SDK:
 + Make a `scripts` folder inside the root folder of the project. If you already have one, skip to the next step.
 + Move the `angular.min.js` file inside the scripts folder. 
 + Move the `testerlib` folder inside the scripts folder.
+![folder-structure-image]()
 
 ### 2. Open Project Folder
 Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
 Click on `File` and select `Open Folder`
-![open-folder-image]()
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 ![open-project-image]()
@@ -27,12 +27,10 @@ Create an angular application where the logic of the project/app will go and sav
 > If your angular app files resides in a different folder/path, you will only need to replace the path references used in this document with the ones that are applicable in your project.
 
 ### 4. Create HTML file
-Right click on the folder name and select the `New File` option to create a new test file. 
-![open-new-file]()
+Right click on the folder name and select the `New File` option to create a new test file.
 
 Save it with an appropriate name such as `index.html`. Import the reference to the generated SDK files inside `index.html` like:
-    `
-    
+```html
     <!-- Helper files -->
     <script src="scripts/TesterLib/Configuration.js"></script>
     <script src="scripts/TesterLib/APIHelper.js"></script>
@@ -60,23 +58,27 @@ Save it with an appropriate name such as `index.html`. Import the reference to t
     <script src="scripts/TesterLib/Models/SuiteCode.js"></script>
     <script src="scripts/TesterLib/Models/Employee.js"></script>
 
-    `
+```
 > The Configuration.js file should be imported before the other files.
+
+![example-html-code-image]()
 
 ### 5. Dependency Injection
 In order to use the generated SDK's module, controllers and factories, they need to be added as a dependency in your project's module. 
 Inject the SDK's module into your main module e.g:
 
-    `
+```js
     var myApp = angular.module('myApp', ['TesterLib']);
-    `
+```
 To use a generated factory in your controller, injection could be as follows:
 
-    `
+```js
     myApp.controller('appController', function($scope, ResponseTypesController) {
         ...
     }
-    `
+```
+![example-app-code-image]()
+
 ### 6. Running The App
 To run the app, simply open up the `index.html` file in a browser.
 ![app-running]()
@@ -728,6 +730,13 @@ The singleton instance of the ``` BodyParamsController ``` class can be accessed
 ```javascript
 function sendStringArray(sarray)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| sarray |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -760,12 +769,19 @@ function sendStringArray(sarray)
 ```javascript
 function sendIntegerArray(integers)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| integers |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
 ```javascript
 
-    var integers = [63];
+    var integers = [121];
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -792,6 +808,13 @@ function sendIntegerArray(integers)
 ```javascript
 function sendModel(model)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| model |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -824,6 +847,13 @@ function sendModel(model)
 ```javascript
 function sendModelArray(models)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| models |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -858,6 +888,13 @@ function sendModelArray(models)
 ```javascript
 function sendDynamic(dynamic)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| dynamic |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -892,6 +929,13 @@ function sendDynamic(dynamic)
 ```javascript
 function sendString(value)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| value |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -924,6 +968,13 @@ function sendString(value)
 ```javascript
 function sendStringEnumArray(days)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| days |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -956,6 +1007,13 @@ function sendStringEnumArray(days)
 ```javascript
 function sendIntegerEnumArray(suites)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| suites |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1001,12 +1059,19 @@ The singleton instance of the ``` FormParamsController ``` class can be accessed
 ```javascript
 function sendLong(value)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| value |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
 ```javascript
 
-    var value = 63;
+    var value = 121;
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1033,12 +1098,19 @@ function sendLong(value)
 ```javascript
 function sendIntegerArray(integers)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| integers |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
 ```javascript
 
-    var integers = [63];
+    var integers = [121];
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1065,6 +1137,13 @@ function sendIntegerArray(integers)
 ```javascript
 function sendStringArray(strings)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| strings |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1097,6 +1176,13 @@ function sendStringArray(strings)
 ```javascript
 function sendModel(model)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| model |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1129,6 +1215,13 @@ function sendModel(model)
 ```javascript
 function sendModelArray(models)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| models |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1163,6 +1256,13 @@ function sendModelArray(models)
 ```javascript
 function sendFile(file)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| file |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1200,6 +1300,16 @@ function sendFile(file)
 ```javascript
 function sendMixedArray(input)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| file |  ``` Required ```  | TODO: Add a parameter description |
+| integers |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+| models |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+| strings |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1207,7 +1317,7 @@ function sendMixedArray(input)
 
     var input = [];
         input["file"] = "";
-        input["integers"] = [63];
+        input["integers"] = [121];
         input["models"] = [{"key":"value"}].map(function(elem) {
         return new Employee(elem);
     });
@@ -1243,6 +1353,13 @@ function sendMixedArray(input)
 ```javascript
 function sendString(value)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| value |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1275,6 +1392,13 @@ function sendString(value)
 ```javascript
 function sendIntegerEnumArray(suites)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| suites |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1307,6 +1431,13 @@ function sendIntegerEnumArray(suites)
 ```javascript
 function sendStringEnumArray(days)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| days |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1352,6 +1483,13 @@ The singleton instance of the ``` EchoController ``` class can be accessed via D
 ```javascript
 function jsonEcho(input)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| input |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1386,6 +1524,13 @@ function jsonEcho(input)
 ```javascript
 function formEcho(input)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| input |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1544,7 +1689,7 @@ function simpleQuery(mboolean, number, string, queryParameters)
 ```javascript
 
     var mboolean = false;
-    var number = 63;
+    var number = 121;
     var string = "string";
 
     // key-value map for optional query parameters
@@ -1575,12 +1720,19 @@ function simpleQuery(mboolean, number, string, queryParameters)
 ```javascript
 function numberArray(integers)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| integers |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
 ```javascript
 
-    var integers = [63];
+    var integers = [121];
 
 
 	app.controller("testController", function($scope, QueryParamController){
@@ -1607,6 +1759,13 @@ function numberArray(integers)
 ```javascript
 function stringArray(strings)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| strings |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1639,6 +1798,13 @@ function stringArray(strings)
 ```javascript
 function stringEnumArray(days)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| days |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1671,6 +1837,13 @@ function stringEnumArray(days)
 ```javascript
 function integerEnumArray(suites)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| suites |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1716,6 +1889,13 @@ The singleton instance of the ``` TemplateParamsController ``` class can be acce
 ```javascript
 function sendStringArray(strings)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| strings |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
@@ -1748,12 +1928,19 @@ function sendStringArray(strings)
 ```javascript
 function sendIntegerArray(integers)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| integers |  ``` Required ```  ``` Collection ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
 ```javascript
 
-    var integers = [63];
+    var integers = [121];
 
 
 	app.controller("testController", function($scope, TemplateParamsController){
