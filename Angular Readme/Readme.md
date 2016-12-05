@@ -20,7 +20,6 @@ Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow pre
 Click on `File` and select `Open Folder`
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
-![open-project-image]()
 
 ### 3. Create Angular App File
 Create an angular application where the logic of the project/app will go and save it in `scripts` folder (or according to the folder structure that the project is following). The rest of this document assumes that the angular app file is present in `scripts` folder.
@@ -51,6 +50,7 @@ Save it with an appropriate name such as `index.html`. Import the reference to t
 
 
     <!-- Models -->
+    <script src="scripts/TesterLib/Models/BaseModel.js.js"></script>
     <script src="scripts/TesterLib/Models/ServerResponse.js"></script>
     <script src="scripts/TesterLib/Models/EchoResponse.js"></script>
     <script src="scripts/TesterLib/Models/Person.js"></script>
@@ -781,7 +781,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [121];
+    var integers = [43];
 
 
 	app.controller("testController", function($scope, BodyParamsController){
@@ -1071,7 +1071,7 @@ function sendLong(value)
 
 ```javascript
 
-    var value = 121;
+    var value = 43;
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1110,7 +1110,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [121];
+    var integers = [43];
 
 
 	app.controller("testController", function($scope, FormParamsController){
@@ -1317,7 +1317,7 @@ function sendMixedArray(input)
 
     var input = [];
         input["file"] = "";
-        input["integers"] = [121];
+        input["integers"] = [135];
         input["models"] = [{"key":"value"}].map(function(elem) {
         return new Employee(elem);
     });
@@ -1688,8 +1688,8 @@ function simpleQuery(mboolean, number, string, queryParameters)
 
 ```javascript
 
-    var mboolean = false;
-    var number = 121;
+    var mboolean = true;
+    var number = 135;
     var string = "string";
 
     // key-value map for optional query parameters
@@ -1732,7 +1732,7 @@ function numberArray(integers)
 
 ```javascript
 
-    var integers = [121];
+    var integers = [135];
 
 
 	app.controller("testController", function($scope, QueryParamController){
@@ -1940,7 +1940,7 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [121];
+    var integers = [135];
 
 
 	app.controller("testController", function($scope, TemplateParamsController){
