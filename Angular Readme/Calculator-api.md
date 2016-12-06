@@ -22,26 +22,28 @@ Click on `File` and select `Open Folder`
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 
 ### 3. Create an Angular Application
-Since Angular JS is used for client-side web development, in order to use the generated library, you will have to develop an application first. To create a sample application, a tutorial listed [here](http://www.w3schools.com/angular/angular_application.asp) can be used as a reference. 
+Since Angular JS is used for client-side web development, in order to use the generated library, you will have to develop an application first.
+If you already have an angular application, skip to Step 5. Otherwise, follow these steps to create one:
 
-Follow the steps to create an angular application:
 + In the IDE, click on `File` and choose `New File` to create a new file.
 + Add the following starting code in the file:
 ```js
     var app = angular.module('myApp', []);
     app.controller('testController', function($scope) 
     {
-        ...
+
     }
 ```
 + Save it with the name `app.js` in the root of the `scripts` folder.
- 
-> If you want to know how to include the generated SDK in the project, skip to [this](#5-including-generated-sdk-in-project)
+
 
 ### 4. Create HTML File
-Right click on the folder name and select the `New File` option to create a new test file.
+Skip to the next step if you are working with an existing project and already have an html file. Otherwise follow the steps to create one:
++ Right click on the folder name and select the `New File` option to create a new test file.
++ Save it with an appropriate name such as `index.html`.
 
-Save it with an appropriate name such as `index.html`. Import the reference to the generated SDK files inside `index.html` like:
+### 5. Include SDK references in HTML file
+Import the reference to the generated SDK files inside your html file like:
 ```html
     <!-- Helper files -->
     <script src="scripts/CalculatorLib/Configuration.js"></script>
@@ -64,13 +66,14 @@ Save it with an appropriate name such as `index.html`. Import the reference to t
 
 ![example-html-code-image]()
 
-### 5. Including Generated SDK in Project 
+### 6. Consuming the SDK 
 In order to use the generated SDK's modules, controllers and factories, they need to be added as a dependency in your project's module. 
 Include the SDK's module into your main module e.g:
 
 ```js
     var app = angular.module('myApp', ['CalculatorLib']);
 ```
+At this point, the SDK module has been successfully included in your project. Further steps include adding a controller and using a service/factory from the generated SDK.
 To use a generated factory/service in your controller, include it into the project as:
 
 ```js
@@ -80,7 +83,7 @@ To use a generated factory/service in your controller, include it into the proje
 ```
 ![example-app-code-image]()
 
-### 6. Running The App
+### 7. Running The App
 To run the app, simply open up the `index.html` file in a browser.
 ![app-running]()
 
@@ -124,8 +127,8 @@ function getCalculate(operation, x, y)
 ```javascript
 
     var operation = Object.keys(Operation Type)[0];
-    var x = 134.968504768316;
-    var y = 134.968504768316;
+    var x = 186.982748316127;
+    var y = 186.982748316127;
 
 
 	app.controller("testController", function($scope, SimpleCalculatorController){
