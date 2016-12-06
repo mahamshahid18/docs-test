@@ -25,7 +25,7 @@ Select the folder of your SDK and click on `Select Folder` to open it up in Subl
 Create an angular application where the logic of the project/app will go and save it in `scripts` folder (or according to the folder structure that the project is following). The rest of this document assumes that the angular app file is present in `scripts` folder.
 > If your angular app files resides in a different folder/path, you will only need to replace the path references used in this document with the ones that are applicable in your project.
 
-### 4. Create HTML file
+### 4. Create HTML File
 Right click on the folder name and select the `New File` option to create a new test file.
 
 Save it with an appropriate name such as `index.html`. Import the reference to the generated SDK files inside `index.html` like:
@@ -51,14 +51,14 @@ Save it with an appropriate name such as `index.html`. Import the reference to t
 
 ![example-html-code-image]()
 
-### 5. Dependency Injection
-In order to use the generated SDK's module, controllers and factories, they need to be added as a dependency in your project's module. 
-Inject the SDK's module into your main module e.g:
+### 5. Including Generated SDK in Project 
+In order to use the generated SDK's modules, controllers and factories, they need to be added as a dependency in your project's module. 
+Include the SDK's module into your main module e.g:
 
 ```js
     var myApp = angular.module('myApp', ['CalculatorLib']);
 ```
-To use a generated factory in your controller, injection could be as follows:
+To use a generated factory/service in your controller, include it into the project as:
 
 ```js
     myApp.controller('appController', function($scope, SimpleCalculatorController) {
@@ -111,8 +111,8 @@ function getCalculate(operation, x, y)
 ```javascript
 
     var operation = Object.keys(Operation Type)[0];
-    var x = 166.606207278839;
-    var y = 166.606207278839;
+    var x = 33.0293305744554;
+    var y = 33.0293305744554;
 
 
 	app.controller("testController", function($scope, SimpleCalculatorController){
