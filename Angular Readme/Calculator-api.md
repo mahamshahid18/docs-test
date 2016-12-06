@@ -61,7 +61,7 @@ Inject the SDK's module into your main module e.g:
 To use a generated factory in your controller, injection could be as follows:
 
 ```js
-    myApp.controller('appController', function($scope, ResponseTypesController) {
+    myApp.controller('appController', function($scope, SimpleCalculatorController) {
         ...
     }
 ```
@@ -111,8 +111,8 @@ function getCalculate(operation, x, y)
 ```javascript
 
     var operation = Object.keys(Operation Type)[0];
-    var x = 51.9005720535762;
-    var y = 51.9005720535762;
+    var x = 166.606207278839;
+    var y = 166.606207278839;
 
 
 	app.controller("testController", function($scope, SimpleCalculatorController){
