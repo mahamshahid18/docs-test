@@ -21,9 +21,22 @@ Click on `File` and select `Open Folder`
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 
-### 3. Create Angular App File
-Create an angular application where the logic of the project/app will go and save it in `scripts` folder (or according to the folder structure that the project is following). The rest of this document assumes that the angular app file is present in `scripts` folder.
-> If your angular app files resides in a different folder/path, you will only need to replace the path references used in this document with the ones that are applicable in your project.
+### 3. Create an Angular Application
+Since Angular JS is used for client-side web development, in order to use the generated library, you will have to develop an application first. To create a sample application, a tutorial listed [here](http://www.w3schools.com/angular/angular_application.asp) can be used as a reference. 
+
+Follow the steps to create an angular application:
++ In the IDE, click on `File` and choose `New File` to create a new file.
++ Add the following starting code in the file:
+```js
+    var app = angular.module('myApp', []);
+    app.controller('testController', function($scope) 
+    {
+        ...
+    }
+```
++ Save it with the name `app.js` in the root of the `scripts` folder.
+ 
+> If you want to know how to include the generated SDK in the project, skip to [this](#5-including-generated-sdk-in-project)
 
 ### 4. Create HTML File
 Right click on the folder name and select the `New File` option to create a new test file.
@@ -56,12 +69,12 @@ In order to use the generated SDK's modules, controllers and factories, they nee
 Include the SDK's module into your main module e.g:
 
 ```js
-    var myApp = angular.module('myApp', ['CalculatorLib']);
+    var app = angular.module('myApp', ['CalculatorLib']);
 ```
 To use a generated factory/service in your controller, include it into the project as:
 
 ```js
-    myApp.controller('appController', function($scope, SimpleCalculatorController) {
+    app.controller('testController', function($scope, SimpleCalculatorController) {
         ...
     }
 ```
@@ -111,8 +124,8 @@ function getCalculate(operation, x, y)
 ```javascript
 
     var operation = Object.keys(Operation Type)[0];
-    var x = 33.0293305744554;
-    var y = 33.0293305744554;
+    var x = 134.968504768316;
+    var y = 134.968504768316;
 
 
 	app.controller("testController", function($scope, SimpleCalculatorController){
