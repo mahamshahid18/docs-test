@@ -59,11 +59,10 @@ Skip to the next step if you are working with an existing project and already ha
 ![initial-html-code-image]()
 
 ### 5. Including links to Angular in HTML file
-Your HTML file needs to have a link to `angular.min.js` file and your `app.js` file. Add the links using `script` tags inside the `head` section like:
+Your HTML file needs to have a link to `angular.min.js` file and your `app.js` file. Add the links using `script` tags inside the `head` section of `index.html` like:
 ```html
 	<script src="scripts/angular.min.js" ></script>
 ```
-> The link to app.js needs to be included at the very end of the head tag
 
 ### 6. Include SDK references in HTML file
 Import the reference to the generated SDK files inside your html file like:
@@ -82,7 +81,7 @@ Import the reference to the generated SDK files inside your html file like:
 
     <!-- Models -->
     <script src="scripts/CalculatorLib/Models/BaseModel.js"></script>
-    <script src="scripts/CalculatorLib/Models/OperationType.js"></script>
+    <script src="scripts/CalculatorLib/Models/OperationTypeEnum.js"></script>
 
 ```
 > The Configuration.js file should be imported before the other files.
@@ -97,9 +96,10 @@ Link your `app.js` file to your `index.html` file like:
 		<script src="scripts/app.js"></script>
 	</head>
 ```
+> The link to app.js needs to be included at the very end of the head tag
 
 ### 8. Initializing the Angular App
-You need to initialize your project's module and controller inside your `index.html` file. Do so like:
+You need to initialize your app and the controller associated with your view inside your `index.html` file. Do so like:
 + Add ng-app directive to initialize your app inside the `body` tag.
 ```html
 	<body ng-app="myApp">
@@ -177,8 +177,8 @@ function getCalculate(operation, x, y)
 ```javascript
 
     var operation = Object.keys(OperationType)[0];
-    var x = 57.9107790197762;
-    var y = 57.9107790197762;
+    var x = 212.252982399544;
+    var y = 212.252982399544;
 
 
 	app.controller("testController", function($scope, SimpleCalculatorController){
