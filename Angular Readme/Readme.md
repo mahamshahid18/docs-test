@@ -68,12 +68,12 @@ Your HTML file needs to have a link to `angular.min.js` file and your `app.js` f
 Import the reference to the generated SDK files inside your html file like:
 ```html
     <!-- Helper files -->
-    <script src="scripts/CalcLib/Configuration.js"></script>
-    <script src="scripts/CalcLib/APIHelper.js"></script>
-    <script src="scripts/CalcLib/Http/Client/HttpContext.js"></script>
-    <script src="scripts/CalcLib/Http/Client/RequestClient.js"></script>
-    <script src="scripts/CalcLib/Http/Request/HttpRequest.js"></script>
-    <script src="scripts/CalcLib/Http/Response/HttpResponse.js"></script>
+    <script src="scripts/calclib/Configuration.js"></script>
+    <script src="scripts/calclib/APIHelper.js"></script>
+    <script src="scripts/calclib/Http/Client/HttpContext.js"></script>
+    <script src="scripts/calclib/Http/Client/RequestClient.js"></script>
+    <script src="scripts/calclib/Http/Request/HttpRequest.js"></script>
+    <script src="scripts/calclib/Http/Response/HttpResponse.js"></script>
 
     <!-- API Controllers -->
     <script src="scripts/calclib/Controllers/SimpleCalculatorController.js"></script>
@@ -137,6 +137,9 @@ To use a generated factory/service in your controller, include it into the proje
 To run the app, simply open up the `index.html` file in a browser.
 ![app-running]()
 
+### 11. blah
+
+
 ## Class Reference
 
 ### <a name="list_of_controllers"></a>List of Controllers
@@ -180,8 +183,8 @@ function getCalculate(input)
 	app.controller("testController", function($scope, SimpleCalculatorController){
 		    var input = [];
         input["operation"] = Object.keys(OperationTypeEnum)[0];
-        input["x"] = 84.9235630244592;
-        input["y"] = 84.9235630244592;
+        input["x"] = 212.479093185383;
+        input["y"] = 212.479093185383;
 
 
 		var result = SimpleCalculatorController.getCalculate(input);
