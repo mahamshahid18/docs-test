@@ -20,9 +20,9 @@ Perform the following steps to configure angular and the SDK:
 Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.  
 Click on `File` and select `Open Folder`
 
-![open-folder-image](open-folder-image.PNG)
-
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
+
+![open-folder-image](open-folder-image.PNG)
 
 ### 3. Create an Angular Application
 Since Angular JS is used for client-side web development, in order to use the generated library, you will have to develop an application first.
@@ -127,6 +127,7 @@ Add the dependency like this:
     var app = angular.module('myApp', ['CalcLib']);
 ```
 At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the generated SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
+You can also see an example use case in the screenshot below:  
 
 ![example-app-code-image](example-app-code-image.PNG)
 
@@ -178,8 +179,8 @@ function getCalculate(input)
 	app.controller("testController", function($scope, SimpleCalculatorController,OperationTypeEnum){
 	    var input = [];
         input["operation"] = Object.keys(OperationTypeEnum)[0];
-        input["x"] = 135.686089375841;
-        input["y"] = 135.686089375841;
+        input["x"] = 146.139190483903;
+        input["y"] = 146.139190483903;
 
 
 		var result = SimpleCalculatorController.getCalculate(input);
