@@ -127,7 +127,7 @@ At this point, the SDK module has been successfully included in your project. Fu
 To use a generated factory/service in your controller, include it into the project as:
 
 ```js
-    app.controller('testController', function($scope, SimpleCalculatorController) {
+    app.controller('testController', function($scope, SimpleCalculatorController,OperationTypeEnum) {
         ...
     });
 ```
@@ -138,7 +138,7 @@ To run the app, simply open up the `index.html` file in a browser.
 ![app-running]()
 
 ### 11. blah
-
+,OperationTypeEnum
 
 ## Class Reference
 
@@ -183,8 +183,8 @@ function getCalculate(input)
 	app.controller("testController", function($scope, SimpleCalculatorController){
 		    var input = [];
         input["operation"] = Object.keys(OperationTypeEnum)[0];
-        input["x"] = 212.479093185383;
-        input["y"] = 212.479093185383;
+        input["x"] = 240.724824937398;
+        input["y"] = 240.724824937398;
 
 
 		var result = SimpleCalculatorController.getCalculate(input);
