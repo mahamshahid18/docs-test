@@ -59,7 +59,7 @@ Skip to the next step if you are working with an existing project and already ha
 ![initial-html-code-image]()
 
 ### 5. Including links to Angular in HTML file
-Your HTML file needs to have a link to `angular.min.js` file and your `app.js` file. Add the links using `script` tags inside the `head` section of `index.html` like:
+Your HTML file needs to have a link to `angular.min.js` file to use Angular-JS. Add the link using `script` tags inside the `head` section of `index.html` like:
 ```html
 	<script src="scripts/angular.min.js" ></script>
 ```
@@ -96,7 +96,7 @@ Link your `app.js` file to your `index.html` file like:
 		<script src="scripts/app.js"></script>
 	</head>
 ```
-> The link to app.js needs to be included at the very end of the head tag
+> The link to app.js needs to be included at the very end of the head tag, after the SDK references have been added
 
 ### 8. Initializing the Angular App
 You need to initialize your app and the controller associated with your view inside your `index.html` file. Do so like:
@@ -123,22 +123,12 @@ Add the dependency like this:
 ```js
     var app = angular.module('myApp', ['CalcLib']);
 ```
-At this point, the SDK module has been successfully included in your project. Further steps include adding a controller and using a service/factory from the generated SDK.  
-To use a generated factory/service in your controller, include it into the project as:
-
-```js
-    app.controller('testController', function($scope, SimpleCalculatorController,OperationTypeEnum) {
-        ...
-    });
-```
+At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the generated SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.
 ![example-app-code-image]()
 
 ### 10. Running The App
 To run the app, simply open up the `index.html` file in a browser.
 ![app-running]()
-
-### 11. blah
-,OperationTypeEnum
 
 ## Class Reference
 
@@ -183,8 +173,8 @@ function getCalculate(input)
 	app.controller("testController", function($scope, SimpleCalculatorController,OperationTypeEnum){
 	    var input = [];
         input["operation"] = Object.keys(OperationTypeEnum)[0];
-        input["x"] = 52.6709640900004;
-        input["y"] = 52.6709640900004;
+        input["x"] = 130.875372239796;
+        input["y"] = 130.875372239796;
 
 
 		var result = SimpleCalculatorController.getCalculate(input);
