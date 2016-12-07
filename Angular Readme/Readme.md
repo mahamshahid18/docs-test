@@ -13,7 +13,7 @@ Perform the following steps to configure angular and the SDK:
 + Make a `scripts` folder inside the root folder of the project. If you already have a `scripts` folder, skip to the next step.
 + Move the `angular.min.js` file inside the scripts folder. 
 + Move the `calclib` folder inside the scripts folder.
-![folder-structure-image](folder-structure-image)
+![folder-structure-image](folder-structure-image.PNG)
 
 ### 2. Open Project Folder
 Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
@@ -56,7 +56,7 @@ Skip to the next step if you are working with an existing project and already ha
 	</html>
 ```
 
-![initial-html-code-image](initial-html-code-image)
+![initial-html-code-image](initial-html-code-image.PNG)
 
 ### 5. Including links to Angular in HTML file
 Your HTML file needs to have a link to `angular.min.js` file to use Angular-JS. Add the link using `script` tags inside the `head` section of `index.html` like:
@@ -86,7 +86,7 @@ Import the reference to the generated SDK files inside your html file like:
 ```
 > The Configuration.js file should be imported before the other files.
 
-![example-html-code-image](example-html-code-image)
+![example-html-code-image](example-html-code-image.PNG)
 
 ### 7. Including link to `app.js` in HTML file
 Link your `app.js` file to your `index.html` file like:
@@ -124,11 +124,11 @@ Add the dependency like this:
     var app = angular.module('myApp', ['CalcLib']);
 ```
 At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the generated SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
-![example-app-code-image](example-app-code-image)
+![example-app-code-image](example-app-code-image.PNG)
 
 ### 10. Running The App
 To run the app, simply open up the `index.html` file in a browser.
-![app-running](app-running)
+![app-running](app-running.PNG)
 
 ## Class Reference
 
@@ -173,8 +173,8 @@ function getCalculate(input)
 	app.controller("testController", function($scope, SimpleCalculatorController,OperationTypeEnum){
 	    var input = [];
         input["operation"] = Object.keys(OperationTypeEnum)[0];
-        input["x"] = 123.49105118238;
-        input["y"] = 123.49105118238;
+        input["x"] = 62.8070236289906;
+        input["y"] = 62.8070236289906;
 
 
 		var result = SimpleCalculatorController.getCalculate(input);
