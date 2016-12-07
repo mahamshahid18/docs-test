@@ -10,9 +10,9 @@ The following section describes how to use the generated SDK in an existing/new 
 
 ### 1. Configure Angular and Generated SDK
 Perform the following steps to configure angular and the SDK:
-+ Make a `scripts` folder inside the root folder of the project. If you already have one, skip to the next step.
++ Make a `scripts` folder inside the root folder of the project. If you already have a `scripts` folder, skip to the next step.
 + Move the `angular.min.js` file inside the scripts folder. 
-+ Move the `calculatorlib` folder inside the scripts folder.
++ Move the `calclib` folder inside the scripts folder.
 ![folder-structure-image]()
 
 ### 2. Open Project Folder
@@ -68,20 +68,20 @@ Your HTML file needs to have a link to `angular.min.js` file and your `app.js` f
 Import the reference to the generated SDK files inside your html file like:
 ```html
     <!-- Helper files -->
-    <script src="scripts/CalculatorLib/Configuration.js"></script>
-    <script src="scripts/CalculatorLib/APIHelper.js"></script>
-    <script src="scripts/CalculatorLib/Http/Client/HttpContext.js"></script>
-    <script src="scripts/CalculatorLib/Http/Client/RequestClient.js"></script>
-    <script src="scripts/CalculatorLib/Http/Request/HttpRequest.js"></script>
-    <script src="scripts/CalculatorLib/Http/Response/HttpResponse.js"></script>
+    <script src="scripts/CalcLib/Configuration.js"></script>
+    <script src="scripts/CalcLib/APIHelper.js"></script>
+    <script src="scripts/CalcLib/Http/Client/HttpContext.js"></script>
+    <script src="scripts/CalcLib/Http/Client/RequestClient.js"></script>
+    <script src="scripts/CalcLib/Http/Request/HttpRequest.js"></script>
+    <script src="scripts/CalcLib/Http/Response/HttpResponse.js"></script>
 
     <!-- API Controllers -->
-    <script src="scripts/CalculatorLib/Controllers/SimpleCalculatorController.js"></script>
+    <script src="scripts/CalcLib/Controllers/SimpleCalculatorController.js"></script>
 
 
     <!-- Models -->
-    <script src="scripts/CalculatorLib/Models/BaseModel.js"></script>
-    <script src="scripts/CalculatorLib/Models/OperationTypeEnum.js"></script>
+    <script src="scripts/CalcLib/Models/BaseModel.js"></script>
+    <script src="scripts/CalcLib/Models/OperationTypeEnum.js"></script>
 
 ```
 > The Configuration.js file should be imported before the other files.
@@ -121,7 +121,7 @@ In order to use the generated SDK's modules, controllers and factories, the proj
 Add the dependency like this:
 
 ```js
-    var app = angular.module('myApp', ['CalculatorLib']);
+    var app = angular.module('myApp', ['CalcLib']);
 ```
 At this point, the SDK module has been successfully included in your project. Further steps include adding a controller and using a service/factory from the generated SDK.  
 To use a generated factory/service in your controller, include it into the project as:
@@ -156,19 +156,19 @@ The singleton instance of the ``` SimpleCalculatorController ``` class can be ac
 
 #### <a name="get_calculate"></a>![Method: ](http://apidocs.io/img/method.png ".SimpleCalculatorController.getCalculate") getCalculate
 
-> Calculates the expression based on the x and y operator
+> Calculates the expression using the specified operation.
 
 
 ```javascript
-function getCalculate(operation, x, y)
+function getCalculate(input)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| operation |  ``` Required ```  | TODO: Add a parameter description |
-| x |  ``` Required ```  | TODO: Add a parameter description |
-| y |  ``` Required ```  | TODO: Add a parameter description |
+| operation |  ``` Required ```  | The operator to apply on the variables |
+| x |  ``` Required ```  | The LHS value |
+| y |  ``` Required ```  | The RHS value |
 
 
 
@@ -176,13 +176,14 @@ function getCalculate(operation, x, y)
 
 ```javascript
 
-    var operation = Object.keys(OperationTypeEnum)[0];
-    var x = 21.9937920882338;
-    var y = 21.9937920882338;
+    var input = [];
+        input["operation"] = Object.keys(OperationTypeEnum)[0];
+        input["x"] = 190.885254573489;
+        input["y"] = 190.885254573489;
 
 
 	app.controller("testController", function($scope, SimpleCalculatorController){
-		var result = SimpleCalculatorController.getCalculate(operation, x, y);
+		var result = SimpleCalculatorController.getCalculate(input);
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -194,6 +195,13 @@ function getCalculate(operation, x, y)
 
 	});
 ```
+
+#### Errors
+
+| Error Code | Error Description |
+|------------|-------------------|
+| 412 | Could not compute the requested calculation |
+
 
 
 
