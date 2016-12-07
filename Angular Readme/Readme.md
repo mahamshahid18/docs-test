@@ -153,7 +153,7 @@ To run the app, simply open up the `index.html` file in a browser.
 The singleton instance of the ``` SimpleCalculatorController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, SimpleCalculatorController ,OperationTypeEnum){
+	app.controller("testController", function($scope, SimpleCalculatorController,OperationTypeEnum){
 	});
 ```
 
@@ -181,10 +181,10 @@ function getCalculate(input)
 
 
 	app.controller("testController", function($scope, SimpleCalculatorController,OperationTypeEnum){
-		    var input = [];
+	    var input = [];
         input["operation"] = Object.keys(OperationTypeEnum)[0];
-        input["x"] = 161.426799845149;
-        input["y"] = 161.426799845149;
+        input["x"] = 52.6709640900004;
+        input["y"] = 52.6709640900004;
 
 
 		var result = SimpleCalculatorController.getCalculate(input);
