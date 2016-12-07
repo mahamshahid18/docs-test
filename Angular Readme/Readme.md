@@ -13,11 +13,14 @@ Perform the following steps to configure angular and the SDK:
 + Make a `scripts` folder inside the root folder of the project. If you already have a `scripts` folder, skip to the next step.
 + Move the `angular.min.js` file inside the scripts folder. 
 + Move the `calclib` folder inside the scripts folder.
+
 ![folder-structure-image](folder-structure-image.PNG)
 
 ### 2. Open Project Folder
-Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
+Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.  
 Click on `File` and select `Open Folder`
+
+![open-folder-image](open-folder-image.PNG)
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 
@@ -124,10 +127,12 @@ Add the dependency like this:
     var app = angular.module('myApp', ['CalcLib']);
 ```
 At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the generated SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
+
 ![example-app-code-image](example-app-code-image.PNG)
 
 ### 10. Running The App
 To run the app, simply open up the `index.html` file in a browser.
+
 ![app-running](app-running.PNG)
 
 ## Class Reference
@@ -173,8 +178,8 @@ function getCalculate(input)
 	app.controller("testController", function($scope, SimpleCalculatorController,OperationTypeEnum){
 	    var input = [];
         input["operation"] = Object.keys(OperationTypeEnum)[0];
-        input["x"] = 62.8070236289906;
-        input["y"] = 62.8070236289906;
+        input["x"] = 135.686089375841;
+        input["y"] = 135.686089375841;
 
 
 		var result = SimpleCalculatorController.getCalculate(input);
