@@ -176,9 +176,9 @@ function getCalculate(operation, x, y)
 
 ```javascript
 
-    var operation = Object.keys(OperationType)[0];
-    var x = 212.252982399544;
-    var y = 212.252982399544;
+    var operation = Object.keys(OperationTypeEnum)[0];
+    var x = 21.9937920882338;
+    var y = 21.9937920882338;
 
 
 	app.controller("testController", function($scope, SimpleCalculatorController){
