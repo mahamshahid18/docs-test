@@ -80,13 +80,13 @@ Import the reference to the generated SDK files inside your html file like:
 		<script src="scripts/calclib/Http/Request/HttpRequest.js"></script>
 		<script src="scripts/calclib/Http/Response/HttpResponse.js"></script>
 
-			<!-- API Controllers -->
-    <script src="scripts/calclib/Controllers/SimpleCalculatorController.js"></script>
+		<!-- API Controllers -->
+        <script src="scripts/calclib/Controllers/SimpleCalculatorController.js"></script>
 
 
-			<!-- Models -->
-    <script src="scripts/calclib/Models/BaseModel.js"></script>
-    <script src="scripts/calclib/Models/OperationTypeEnum.js"></script>
+		<!-- Models -->
+        <script src="scripts/calclib/Models/BaseModel.js"></script>
+        <script src="scripts/calclib/Models/OperationTypeEnum.js"></script>
 
 		...
 	</head>
@@ -178,8 +178,8 @@ function getCalculate(input)
 	app.controller("testController", function($scope, SimpleCalculatorController,OperationTypeEnum){
 	    var input = [];
         input["operation"] = Object.keys(OperationTypeEnum)[0];
-        input["x"] = 23.6849745845818;
-        input["y"] = 23.6849745845818;
+        input["x"] = 151.895940125406;
+        input["y"] = 151.895940125406;
 
 
 		var result = SimpleCalculatorController.getCalculate(input);
