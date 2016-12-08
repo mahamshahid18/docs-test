@@ -867,7 +867,7 @@ function sendIntegerArray(integers)
 
 
 	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var integers = [211];
+	    var integers = [161];
 
 
 		var result = BodyParamsController.sendIntegerArray(integers);
@@ -1071,7 +1071,7 @@ function sendStringEnumArray(days)
 
 
 	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var days = [ Object.keys(DaysEnum)[0] ];
+	    var days = [ Object.keys(Days)[0] ];
 
 
 		var result = BodyParamsController.sendStringEnumArray(days);
@@ -1111,7 +1111,7 @@ function sendIntegerEnumArray(suites)
 
 
 	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var suites = [ Object.keys(SuiteCodeEnum)[0] ];
+	    var suites = [ Object.keys(SuiteCode)[0] ];
 
 
 		var result = BodyParamsController.sendIntegerEnumArray(suites);
@@ -1164,7 +1164,7 @@ function sendLong(value)
 
 
 	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var value = 211;
+	    var value = 161;
 
 
 		var result = FormParamsController.sendLong(value);
@@ -1204,7 +1204,7 @@ function sendIntegerArray(integers)
 
 
 	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var integers = [211];
+	    var integers = [161];
 
 
 		var result = FormParamsController.sendIntegerArray(integers);
@@ -1416,7 +1416,7 @@ function sendMixedArray(input)
 	app.controller("testController", function($scope, FormParamsController, $http,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
 	    var input = [];
         input["file"] = "";
-        input["integers"] = [211];
+        input["integers"] = [161];
         input["models"] = [{"key":"value"}].map(function(elem) {
         return new Employee(elem);
     });
@@ -1505,7 +1505,7 @@ function sendIntegerEnumArray(suites)
 
 
 	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var suites = [ Object.keys(SuiteCodeEnum)[0] ];
+	    var suites = [ Object.keys(SuiteCode)[0] ];
 
 
 		var result = FormParamsController.sendIntegerEnumArray(suites);
@@ -1545,7 +1545,7 @@ function sendStringEnumArray(days)
 
 
 	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var days = [ Object.keys(DaysEnum)[0] ];
+	    var days = [ Object.keys(Days)[0] ];
 
 
 		var result = FormParamsController.sendStringEnumArray(days);
@@ -1684,7 +1684,7 @@ function queryEcho(queryParameters)
 	app.controller("testController", function($scope, EchoController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
 	
     // key-value map for optional query parameters
-    var queryParameters = [];
+        var queryParameters = [];
 
 
 		var result = EchoController.queryEcho(queryParameters);
@@ -1796,11 +1796,11 @@ function simpleQuery(mboolean, number, string, queryParameters)
 
 	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
 	    var mboolean = true;
-    var number = 211;
+    var number = 252;
     var string = "string";
 
     // key-value map for optional query parameters
-    var queryParameters = [];
+        var queryParameters = [];
 
 
 		var result = QueryParamController.simpleQuery(mboolean, number, string, queryParameters);
@@ -1840,7 +1840,7 @@ function numberArray(integers)
 
 
 	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var integers = [211];
+	    var integers = [252];
 
 
 		var result = QueryParamController.numberArray(integers);
@@ -1920,7 +1920,7 @@ function stringEnumArray(days)
 
 
 	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var days = [ Object.keys(DaysEnum)[0] ];
+	    var days = [ Object.keys(Days)[0] ];
 
 
 		var result = QueryParamController.stringEnumArray(days);
@@ -1960,7 +1960,7 @@ function integerEnumArray(suites)
 
 
 	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var suites = [ Object.keys(SuiteCodeEnum)[0] ];
+	    var suites = [ Object.keys(SuiteCode)[0] ];
 
 
 		var result = QueryParamController.integerEnumArray(suites);
@@ -2053,7 +2053,7 @@ function sendIntegerArray(integers)
 
 
 	app.controller("testController", function($scope, TemplateParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var integers = [211];
+	    var integers = [252];
 
 
 		var result = TemplateParamsController.sendIntegerArray(integers);

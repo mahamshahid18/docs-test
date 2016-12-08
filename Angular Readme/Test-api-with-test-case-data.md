@@ -1750,7 +1750,7 @@ function queryEcho(queryParameters)
 	app.controller("testController", function($scope, EchoController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
 	
     // key-value map for optional query parameters
-    var queryParameters = [];
+        var queryParameters = [];
 
 
 		var result = EchoController.queryEcho(queryParameters);
@@ -1866,7 +1866,7 @@ function simpleQuery(mboolean, number, string, queryParameters)
     var string = "TestString";
 
     // key-value map for optional query parameters
-    var queryParameters = [];
+        var queryParameters = [];
 
 
 		var result = QueryParamController.simpleQuery(mboolean, number, string, queryParameters);
