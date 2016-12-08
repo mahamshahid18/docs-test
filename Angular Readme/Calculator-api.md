@@ -10,20 +10,23 @@ The following section describes how to use the generated SDK in an existing/new 
 
 ### 1. Configure Angular and Generated SDK
 Perform the following steps to configure angular and the SDK:
-+ Make a `scripts` folder inside the root folder of the project. If you already have one, skip to the next step.
++ Make a `scripts` folder inside the root folder of the project. If you already have a `scripts` folder, skip to the next step.
 + Move the `angular.min.js` file inside the scripts folder. 
 + Move the `calculatorlib` folder inside the scripts folder.
-![folder-structure-image]()
+
+![folder-structure-image](folder-structure-image.PNG)
 
 ### 2. Open Project Folder
-Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
+Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.  
 Click on `File` and select `Open Folder`
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 
+![open-folder-image](open-folder-image.PNG)
+
 ### 3. Create an Angular Application
 Since Angular JS is used for client-side web development, in order to use the generated library, you will have to develop an application first.
-If you already have an angular application, skip to Step 5. Otherwise, follow these steps to create one:
+If you already have an angular application, [skip to Step 6](#6-include-sdk-references-in-html-file). Otherwise, follow these steps to create one:
 
 + In the IDE, click on `File` and choose `New File` to create a new file.
 + Add the following starting code in the file:
@@ -32,60 +35,105 @@ If you already have an angular application, skip to Step 5. Otherwise, follow th
     app.controller('testController', function($scope) 
     {
 
-    }
+    });
 ```
-+ Save it with the name `app.js` in the root of the `scripts` folder.
++ Save it with the name `app.js` in the `scripts` folder.
 
 
 ### 4. Create HTML File
 Skip to the next step if you are working with an existing project and already have an html file. Otherwise follow the steps to create one:
-+ Right click on the folder name and select the `New File` option to create a new test file.
-+ Save it with an appropriate name such as `index.html`.
++ Inside the IDE, right click on the project folder name and select the `New File` option to create a new test file.
++ Save it with an appropriate name such as `index.html` in the root of your project folder.
+`index.html` should look like this:
+```html
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Angular Project</title>
+		<script></script>
+	</head>
 
-### 5. Include SDK references in HTML file
+	<body>
+	</body>
+
+	</html>
+```
+
+![initial-html-code-image](initial-html-code-image.PNG)
+
+### 5. Including links to Angular in HTML file
+Your HTML file needs to have a link to `angular.min.js` file to use Angular-JS. Add the link using `script` tags inside the `head` section of `index.html` like:
+```html
+	<script src="scripts/angular.min.js" ></script>
+```
+
+### 6. Include SDK references in HTML file
 Import the reference to the generated SDK files inside your html file like:
 ```html
-    <!-- Helper files -->
-    <script src="scripts/CalculatorLib/Configuration.js"></script>
-    <script src="scripts/CalculatorLib/APIHelper.js"></script>
-    <script src="scripts/CalculatorLib/Http/Client/HttpContext.js"></script>
-    <script src="scripts/CalculatorLib/Http/Client/RequestClient.js"></script>
-    <script src="scripts/CalculatorLib/Http/Request/HttpRequest.js"></script>
-    <script src="scripts/CalculatorLib/Http/Response/HttpResponse.js"></script>
+	<head>
+		...
+		<!-- Helper files -->
+		<script src="scripts/calculatorlib/Configuration.js"></script>
+		<script src="scripts/calculatorlib/APIHelper.js"></script>
+		<script src="scripts/calculatorlib/Http/Client/HttpContext.js"></script>
+		<script src="scripts/calculatorlib/Http/Client/RequestClient.js"></script>
+		<script src="scripts/calculatorlib/Http/Request/HttpRequest.js"></script>
+		<script src="scripts/calculatorlib/Http/Response/HttpResponse.js"></script>
 
-    <!-- API Controllers -->
-    <script src="scripts/CalculatorLib/Controllers/SimpleCalculatorController.js"></script>
+		<!-- API Controllers -->
+        <script src="scripts/calculatorlib/Controllers/SimpleCalculatorController.js"></script>
 
 
-    <!-- Models -->
-    <script src="scripts/CalculatorLib/Models/BaseModel.js.js"></script>
-    <script src="scripts/CalculatorLib/Models/Operation Type.js"></script>
+		<!-- Models -->
+        <script src="scripts/calculatorlib/Models/BaseModel.js"></script>
+        <script src="scripts/calculatorlib/Models/OperationTypeEnum.js"></script>
 
+		...
+	</head>
 ```
 > The Configuration.js file should be imported before the other files.
 
-![example-html-code-image]()
+### 7. Including link to `app.js` in HTML file
+Link your `app.js` file to your `index.html` file like:
+```html
+	<head>
+		...
+		<script src="scripts/app.js"></script>
+	</head>
+```
+> The link to app.js needs to be included at the very end of the head tag, after the SDK references have been added
 
-### 6. Consuming the SDK 
-In order to use the generated SDK's modules, controllers and factories, they need to be added as a dependency in your project's module. 
-Include the SDK's module into your main module e.g:
+### 8. Initializing the Angular App
+You need to initialize your app and the controller associated with your view inside your `index.html` file. Do so like:
++ Add ng-app directive to initialize your app inside the `body` tag.
+```html
+	<body ng-app="myApp">
+```
++ Add ng-controller directive to initialize your controller and bind it with your view (`index.html` file).
+```html
+	...
+	<body ng-app="myApp">
+		<div ng-controller="testController">
+			...
+		</div>
+		...
+	</body>
+	...
+```
+
+### 9. Consuming the SDK 
+In order to use the generated SDK's modules, controllers and factories, the project needs to be added as a dependency in your angular app's module. This will be done inside the `app.js` file.
+Add the dependency like this:
 
 ```js
     var app = angular.module('myApp', ['CalculatorLib']);
 ```
-At this point, the SDK module has been successfully included in your project. Further steps include adding a controller and using a service/factory from the generated SDK.
-To use a generated factory/service in your controller, include it into the project as:
+At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the generated SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
 
-```js
-    app.controller('testController', function($scope, SimpleCalculatorController) {
-        ...
-    }
-```
-![example-app-code-image]()
-
-### 7. Running The App
+### 10. Running The App
 To run the app, simply open up the `index.html` file in a browser.
-![app-running]()
+
+![app-running](app-running.PNG)
 
 ## Class Reference
 
@@ -100,7 +148,7 @@ To run the app, simply open up the `index.html` file in a browser.
 The singleton instance of the ``` SimpleCalculatorController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, SimpleCalculatorController){
+	app.controller("testController", function($scope, SimpleCalculatorController,OperationTypeEnum){
 	});
 ```
 
@@ -126,12 +174,13 @@ function getCalculate(operation, x, y)
 
 ```javascript
 
-    var operation = Object.keys(Operation Type)[0];
-    var x = 186.982748316127;
-    var y = 186.982748316127;
+
+	app.controller("testController", function($scope, SimpleCalculatorController,OperationTypeEnum){
+	    var operation = Object.keys(OperationTypeEnum)[0];
+    var x = 55.7430196836325;
+    var y = 55.7430196836325;
 
 
-	app.controller("testController", function($scope, SimpleCalculatorController){
 		var result = SimpleCalculatorController.getCalculate(operation, x, y);
         //Function call returns a promise
         result.then(function(success){

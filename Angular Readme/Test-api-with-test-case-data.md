@@ -10,81 +10,143 @@ The following section describes how to use the generated SDK in an existing/new 
 
 ### 1. Configure Angular and Generated SDK
 Perform the following steps to configure angular and the SDK:
-+ Make a `scripts` folder inside the root folder of the project. If you already have one, skip to the next step.
++ Make a `scripts` folder inside the root folder of the project. If you already have a `scripts` folder, skip to the next step.
 + Move the `angular.min.js` file inside the scripts folder. 
 + Move the `testerlib` folder inside the scripts folder.
-![folder-structure-image]()
+
+![folder-structure-image](folder-structure-image.PNG)
 
 ### 2. Open Project Folder
-Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.
+Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.  
 Click on `File` and select `Open Folder`
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 
-### 3. Create Angular App File
-Create an angular application where the logic of the project/app will go and save it in `scripts` folder (or according to the folder structure that the project is following). The rest of this document assumes that the angular app file is present in `scripts` folder.
-> If your angular app files resides in a different folder/path, you will only need to replace the path references used in this document with the ones that are applicable in your project.
+![open-folder-image](open-folder-image.PNG)
 
-### 4. Create HTML file
-Right click on the folder name and select the `New File` option to create a new test file.
+### 3. Create an Angular Application
+Since Angular JS is used for client-side web development, in order to use the generated library, you will have to develop an application first.
+If you already have an angular application, [skip to Step 6](#6-include-sdk-references-in-html-file). Otherwise, follow these steps to create one:
 
-Save it with an appropriate name such as `index.html`. Import the reference to the generated SDK files inside `index.html` like:
++ In the IDE, click on `File` and choose `New File` to create a new file.
++ Add the following starting code in the file:
+```js
+    var app = angular.module('myApp', []);
+    app.controller('testController', function($scope) 
+    {
+
+    });
+```
++ Save it with the name `app.js` in the `scripts` folder.
+
+
+### 4. Create HTML File
+Skip to the next step if you are working with an existing project and already have an html file. Otherwise follow the steps to create one:
++ Inside the IDE, right click on the project folder name and select the `New File` option to create a new test file.
++ Save it with an appropriate name such as `index.html` in the root of your project folder.
+`index.html` should look like this:
 ```html
-    <!-- Helper files -->
-    <script src="scripts/TesterLib/Configuration.js"></script>
-    <script src="scripts/TesterLib/APIHelper.js"></script>
-    <script src="scripts/TesterLib/Http/Client/HttpContext.js"></script>
-    <script src="scripts/TesterLib/Http/Client/RequestClient.js"></script>
-    <script src="scripts/TesterLib/Http/Request/HttpRequest.js"></script>
-    <script src="scripts/TesterLib/Http/Response/HttpResponse.js"></script>
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Angular Project</title>
+		<script></script>
+	</head>
 
-    <!-- API Controllers -->
-    <script src="scripts/TesterLib/Controllers/ResponseTypesController.js"></script>
-    <script src="scripts/TesterLib/Controllers/ErrorCodesController.js"></script>
-    <script src="scripts/TesterLib/Controllers/BodyParamsController.js"></script>
-    <script src="scripts/TesterLib/Controllers/FormParamsController.js"></script>
-    <script src="scripts/TesterLib/Controllers/EchoController.js"></script>
-    <script src="scripts/TesterLib/Controllers/HeaderController.js"></script>
-    <script src="scripts/TesterLib/Controllers/QueryParamController.js"></script>
-    <script src="scripts/TesterLib/Controllers/TemplateParamsController.js"></script>
+	<body>
+	</body>
+
+	</html>
+```
+
+![initial-html-code-image](initial-html-code-image.PNG)
+
+### 5. Including links to Angular in HTML file
+Your HTML file needs to have a link to `angular.min.js` file to use Angular-JS. Add the link using `script` tags inside the `head` section of `index.html` like:
+```html
+	<script src="scripts/angular.min.js" ></script>
+```
+
+### 6. Include SDK references in HTML file
+Import the reference to the generated SDK files inside your html file like:
+```html
+	<head>
+		...
+		<!-- Helper files -->
+		<script src="scripts/testerlib/Configuration.js"></script>
+		<script src="scripts/testerlib/APIHelper.js"></script>
+		<script src="scripts/testerlib/Http/Client/HttpContext.js"></script>
+		<script src="scripts/testerlib/Http/Client/RequestClient.js"></script>
+		<script src="scripts/testerlib/Http/Request/HttpRequest.js"></script>
+		<script src="scripts/testerlib/Http/Response/HttpResponse.js"></script>
+
+		<!-- API Controllers -->
+        <script src="scripts/testerlib/Controllers/ResponseTypesController.js"></script>
+        <script src="scripts/testerlib/Controllers/ErrorCodesController.js"></script>
+        <script src="scripts/testerlib/Controllers/BodyParamsController.js"></script>
+        <script src="scripts/testerlib/Controllers/FormParamsController.js"></script>
+        <script src="scripts/testerlib/Controllers/EchoController.js"></script>
+        <script src="scripts/testerlib/Controllers/HeaderController.js"></script>
+        <script src="scripts/testerlib/Controllers/QueryParamController.js"></script>
+        <script src="scripts/testerlib/Controllers/TemplateParamsController.js"></script>
 
 
-    <!-- Models -->
-    <script src="scripts/TesterLib/Models/BaseModel.js.js"></script>
-    <script src="scripts/TesterLib/Models/ServerResponse.js"></script>
-    <script src="scripts/TesterLib/Models/EchoResponse.js"></script>
-    <script src="scripts/TesterLib/Models/QueryParameter.js"></script>
-    <script src="scripts/TesterLib/Models/Person.js"></script>
-    <script src="scripts/TesterLib/Models/Days.js"></script>
-    <script src="scripts/TesterLib/Models/SuiteCode.js"></script>
-    <script src="scripts/TesterLib/Models/Employee.js"></script>
-    <script src="scripts/TesterLib/Models/GlobalTestException.js"></script>
-    <script src="scripts/TesterLib/Models/LocalTestException.js"></script>
+		<!-- Models -->
+        <script src="scripts/testerlib/Models/BaseModel.js"></script>
+        <script src="scripts/testerlib/Models/ServerResponse.js"></script>
+        <script src="scripts/testerlib/Models/EchoResponse.js"></script>
+        <script src="scripts/testerlib/Models/QueryParameter.js"></script>
+        <script src="scripts/testerlib/Models/Person.js"></script>
+        <script src="scripts/testerlib/Models/Days.js"></script>
+        <script src="scripts/testerlib/Models/SuiteCode.js"></script>
+        <script src="scripts/testerlib/Models/Employee.js"></script>
 
+		...
+	</head>
 ```
 > The Configuration.js file should be imported before the other files.
 
-![example-html-code-image]()
+### 7. Including link to `app.js` in HTML file
+Link your `app.js` file to your `index.html` file like:
+```html
+	<head>
+		...
+		<script src="scripts/app.js"></script>
+	</head>
+```
+> The link to app.js needs to be included at the very end of the head tag, after the SDK references have been added
 
-### 5. Dependency Injection
-In order to use the generated SDK's module, controllers and factories, they need to be added as a dependency in your project's module. 
-Inject the SDK's module into your main module e.g:
+### 8. Initializing the Angular App
+You need to initialize your app and the controller associated with your view inside your `index.html` file. Do so like:
++ Add ng-app directive to initialize your app inside the `body` tag.
+```html
+	<body ng-app="myApp">
+```
++ Add ng-controller directive to initialize your controller and bind it with your view (`index.html` file).
+```html
+	...
+	<body ng-app="myApp">
+		<div ng-controller="testController">
+			...
+		</div>
+		...
+	</body>
+	...
+```
+
+### 9. Consuming the SDK 
+In order to use the generated SDK's modules, controllers and factories, the project needs to be added as a dependency in your angular app's module. This will be done inside the `app.js` file.
+Add the dependency like this:
 
 ```js
-    var myApp = angular.module('myApp', ['TesterLib']);
+    var app = angular.module('myApp', ['TesterLib']);
 ```
-To use a generated factory in your controller, injection could be as follows:
+At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the generated SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
 
-```js
-    myApp.controller('appController', function($scope, ResponseTypesController) {
-        ...
-    }
-```
-![example-app-code-image]()
-
-### 6. Running The App
+### 10. Running The App
 To run the app, simply open up the `index.html` file in a browser.
-![app-running]()
+
+![app-running](app-running.PNG)
 
 ## Class Reference
 
@@ -106,7 +168,7 @@ To run the app, simply open up the `index.html` file in a browser.
 The singleton instance of the ``` ResponseTypesController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, ResponseTypesController){
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
 	});
 ```
 
@@ -124,8 +186,9 @@ function getLong()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getLong();
         //Function call returns a promise
         result.then(function(success){
@@ -155,8 +218,9 @@ function getModel()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getModel();
         //Function call returns a promise
         result.then(function(success){
@@ -186,8 +250,9 @@ function getStringEnumArray()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getStringEnumArray();
         //Function call returns a promise
         result.then(function(success){
@@ -217,8 +282,9 @@ function getStringEnum()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getStringEnum();
         //Function call returns a promise
         result.then(function(success){
@@ -248,8 +314,9 @@ function getModelArray()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getModelArray();
         //Function call returns a promise
         result.then(function(success){
@@ -279,8 +346,9 @@ function getIntEnum()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getIntEnum();
         //Function call returns a promise
         result.then(function(success){
@@ -310,8 +378,9 @@ function getIntEnumArray()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getIntEnumArray();
         //Function call returns a promise
         result.then(function(success){
@@ -341,8 +410,9 @@ function getPrecision()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getPrecision();
         //Function call returns a promise
         result.then(function(success){
@@ -372,8 +442,9 @@ function getBinary()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getBinary();
         //Function call returns a promise
         result.then(function(success){
@@ -403,8 +474,9 @@ function getInteger()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getInteger();
         //Function call returns a promise
         result.then(function(success){
@@ -434,8 +506,9 @@ function getIntegerArray()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getIntegerArray();
         //Function call returns a promise
         result.then(function(success){
@@ -465,8 +538,9 @@ function getDynamic()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getDynamic();
         //Function call returns a promise
         result.then(function(success){
@@ -496,8 +570,9 @@ function getDynamicArray()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getDynamicArray();
         //Function call returns a promise
         result.then(function(success){
@@ -527,8 +602,9 @@ function getDatetime()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getDatetime();
         //Function call returns a promise
         result.then(function(success){
@@ -558,8 +634,9 @@ function getDatetimeArray()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getDatetimeArray();
         //Function call returns a promise
         result.then(function(success){
@@ -589,8 +666,9 @@ function getBoolean()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getBoolean();
         //Function call returns a promise
         result.then(function(success){
@@ -620,8 +698,9 @@ function getBooleanArray()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getBooleanArray();
         //Function call returns a promise
         result.then(function(success){
@@ -651,8 +730,9 @@ function getHeaders()
 ```javascript
 
 
+	app.controller("testController", function($scope, ResponseTypesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ResponseTypesController){
 		var result = ResponseTypesController.getHeaders();
         //Function call returns a promise
         result.then(function(success){
@@ -677,7 +757,7 @@ function getHeaders()
 The singleton instance of the ``` ErrorCodesController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, ErrorCodesController){
+	app.controller("testController", function($scope, ErrorCodesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
 	});
 ```
 
@@ -695,8 +775,9 @@ function get400()
 ```javascript
 
 
+	app.controller("testController", function($scope, ErrorCodesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ErrorCodesController){
 		var result = ErrorCodesController.get400();
         //Function call returns a promise
         result.then(function(success){
@@ -726,8 +807,9 @@ function get500()
 ```javascript
 
 
+	app.controller("testController", function($scope, ErrorCodesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ErrorCodesController){
 		var result = ErrorCodesController.get500();
         //Function call returns a promise
         result.then(function(success){
@@ -757,8 +839,9 @@ function get401()
 ```javascript
 
 
+	app.controller("testController", function($scope, ErrorCodesController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, ErrorCodesController){
 		var result = ErrorCodesController.get401();
         //Function call returns a promise
         result.then(function(success){
@@ -790,7 +873,7 @@ function get401()
 The singleton instance of the ``` BodyParamsController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, BodyParamsController){
+	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
 	});
 ```
 
@@ -814,10 +897,11 @@ function sendStringArray(sarray)
 
 ```javascript
 
-    var sarray = ["abc", "def"];
+
+	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var sarray = ["abc", "def"];
 
 
-	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendStringArray(sarray);
         //Function call returns a promise
         result.then(function(success){
@@ -853,10 +937,11 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [1,2,3,4,5];
+
+	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var integers = [1,2,3,4,5];
 
 
-	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendIntegerArray(integers);
         //Function call returns a promise
         result.then(function(success){
@@ -892,10 +977,11 @@ function sendModel(model)
 
 ```javascript
 
-    var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
+
+	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
 
 
-	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendModel(model);
         //Function call returns a promise
         result.then(function(success){
@@ -931,12 +1017,13 @@ function sendModelArray(models)
 
 ```javascript
 
-    var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
+
+	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
         return new Employee(elem);
     });
 
 
-	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendModelArray(models);
         //Function call returns a promise
         result.then(function(success){
@@ -972,10 +1059,11 @@ function sendDynamic(dynamic)
 
 ```javascript
 
-    var dynamic = {"uid": "1123213", "name": "Shahid"};
+
+	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var dynamic = {"uid": "1123213", "name": "Shahid"};
 
 
-	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendDynamic(dynamic);
         //Function call returns a promise
         result.then(function(success){
@@ -1011,10 +1099,11 @@ function sendString(value)
 
 ```javascript
 
-    var value = "TestString";
+
+	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var value = "TestString";
 
 
-	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendString(value);
         //Function call returns a promise
         result.then(function(success){
@@ -1050,10 +1139,11 @@ function sendStringEnumArray(days)
 
 ```javascript
 
-    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
+
+	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
 
-	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendStringEnumArray(days);
         //Function call returns a promise
         result.then(function(success){
@@ -1089,10 +1179,11 @@ function sendIntegerEnumArray(suites)
 
 ```javascript
 
-    var suites = [1, 3, 4, 2, 3];
+
+	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var suites = [1, 3, 4, 2, 3];
 
 
-	app.controller("testController", function($scope, BodyParamsController){
 		var result = BodyParamsController.sendIntegerEnumArray(suites);
         //Function call returns a promise
         result.then(function(success){
@@ -1117,7 +1208,7 @@ function sendIntegerEnumArray(suites)
 The singleton instance of the ``` FormParamsController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, FormParamsController){
+	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
 	});
 ```
 
@@ -1141,10 +1232,11 @@ function sendLong(value)
 
 ```javascript
 
-    var value = 5147483647;
+
+	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var value = 5147483647;
 
 
-	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendLong(value);
         //Function call returns a promise
         result.then(function(success){
@@ -1180,10 +1272,11 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [1,2,3,4,5];
+
+	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var integers = [1,2,3,4,5];
 
 
-	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendIntegerArray(integers);
         //Function call returns a promise
         result.then(function(success){
@@ -1219,10 +1312,11 @@ function sendStringArray(strings)
 
 ```javascript
 
-    var strings = ["abc", "def"];
+
+	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var strings = ["abc", "def"];
 
 
-	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendStringArray(strings);
         //Function call returns a promise
         result.then(function(success){
@@ -1258,10 +1352,11 @@ function sendModel(model)
 
 ```javascript
 
-    var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
+
+	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
 
 
-	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendModel(model);
         //Function call returns a promise
         result.then(function(success){
@@ -1297,12 +1392,13 @@ function sendModelArray(models)
 
 ```javascript
 
-    var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
+
+	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
         return new Employee(elem);
     });
 
 
-	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendModelArray(models);
         //Function call returns a promise
         result.then(function(success){
@@ -1338,10 +1434,11 @@ function sendFile(file)
 
 ```javascript
 
-    var file = data;
+
+	app.controller("testController", function($scope, FormParamsController, $http,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var file = data;
 
 
-	app.controller("testController", function($scope, FormParamsController, $http){
 		$http.get("https://dl.dropboxusercontent.com/u/31838656/binary.png").then(function(successData){
             file = successData;
             var result = FormParamsController.sendFile(file);
@@ -1385,7 +1482,9 @@ function sendMixedArray(input)
 
 ```javascript
 
-    var input = [];
+
+	app.controller("testController", function($scope, FormParamsController, $http,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var input = [];
         input["file"] = data;
         input["integers"] = [1,2,3,4,5];
         input["models"] = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
@@ -1394,7 +1493,6 @@ function sendMixedArray(input)
         input["strings"] = ["abc", "def"];
 
 
-	app.controller("testController", function($scope, FormParamsController, $http){
 		$http.get("https://dl.dropboxusercontent.com/u/31838656/binary.png").then(function(successData){
             input["file"] = successData;
             var result = FormParamsController.sendMixedArray(input);
@@ -1435,10 +1533,11 @@ function sendString(value)
 
 ```javascript
 
-    var value = "TestString";
+
+	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var value = "TestString";
 
 
-	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendString(value);
         //Function call returns a promise
         result.then(function(success){
@@ -1474,10 +1573,11 @@ function sendIntegerEnumArray(suites)
 
 ```javascript
 
-    var suites = [1, 3, 4, 2, 3];
+
+	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var suites = [1, 3, 4, 2, 3];
 
 
-	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendIntegerEnumArray(suites);
         //Function call returns a promise
         result.then(function(success){
@@ -1513,10 +1613,11 @@ function sendStringEnumArray(days)
 
 ```javascript
 
-    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
+
+	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
 
-	app.controller("testController", function($scope, FormParamsController){
 		var result = FormParamsController.sendStringEnumArray(days);
         //Function call returns a promise
         result.then(function(success){
@@ -1541,7 +1642,7 @@ function sendStringEnumArray(days)
 The singleton instance of the ``` EchoController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, EchoController){
+	app.controller("testController", function($scope, EchoController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
 	});
 ```
 
@@ -1565,10 +1666,11 @@ function jsonEcho(input)
 
 ```javascript
 
-    var input = {"uid": "1123213", "name": "Shahid"};
+
+	app.controller("testController", function($scope, EchoController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var input = {"uid": "1123213", "name": "Shahid"};
 
 
-	app.controller("testController", function($scope, EchoController){
 		var result = EchoController.jsonEcho(input);
         //Function call returns a promise
         result.then(function(success){
@@ -1604,10 +1706,11 @@ function formEcho(input)
 
 ```javascript
 
-    var input = {"uid": "1123213", "name": "Shahid"};
+
+	app.controller("testController", function($scope, EchoController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var input = {"uid": "1123213", "name": "Shahid"};
 
 
-	app.controller("testController", function($scope, EchoController){
 		var result = EchoController.formEcho(input);
         //Function call returns a promise
         result.then(function(success){
@@ -1644,11 +1747,12 @@ function queryEcho(queryParameters)
 ```javascript
 
 
+	app.controller("testController", function($scope, EchoController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
     // key-value map for optional query parameters
     var queryParameters = [];
 
 
-	app.controller("testController", function($scope, EchoController){
 		var result = EchoController.queryEcho(queryParameters);
         //Function call returns a promise
         result.then(function(success){
@@ -1673,7 +1777,7 @@ function queryEcho(queryParameters)
 The singleton instance of the ``` HeaderController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, HeaderController){
+	app.controller("testController", function($scope, HeaderController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
 	});
 ```
 
@@ -1698,11 +1802,12 @@ function sendHeaders(customHeader, value)
 
 ```javascript
 
-    var customHeader = "TestString";
+
+	app.controller("testController", function($scope, HeaderController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var customHeader = "TestString";
     var value = "TestString";
 
 
-	app.controller("testController", function($scope, HeaderController){
 		var result = HeaderController.sendHeaders(customHeader, value);
         //Function call returns a promise
         result.then(function(success){
@@ -1727,7 +1832,7 @@ function sendHeaders(customHeader, value)
 The singleton instance of the ``` QueryParamController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, QueryParamController){
+	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
 	});
 ```
 
@@ -1754,7 +1859,9 @@ function simpleQuery(mboolean, number, string, queryParameters)
 
 ```javascript
 
-    var mboolean = true;
+
+	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var mboolean = true;
     var number = 4;
     var string = "TestString";
 
@@ -1762,7 +1869,6 @@ function simpleQuery(mboolean, number, string, queryParameters)
     var queryParameters = [];
 
 
-	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.simpleQuery(mboolean, number, string, queryParameters);
         //Function call returns a promise
         result.then(function(success){
@@ -1792,8 +1898,9 @@ function noParams()
 ```javascript
 
 
+	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	
 
-	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.noParams();
         //Function call returns a promise
         result.then(function(success){
@@ -1829,10 +1936,11 @@ function stringParam(string)
 
 ```javascript
 
-    var string = "l;asd;asdwe[2304&&;'.d??\\a\\\\\\;sd//";
+
+	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var string = "l;asd;asdwe[2304&&;'.d??\\a\\\\\\;sd//";
 
 
-	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.stringParam(string);
         //Function call returns a promise
         result.then(function(success){
@@ -1868,10 +1976,11 @@ function urlParam(url)
 
 ```javascript
 
-    var url = "https://www.shahidisawesome.com/and/also/a/narcissist?thisis=aparameter&another=one";
+
+	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var url = "https://www.shahidisawesome.com/and/also/a/narcissist?thisis=aparameter&another=one";
 
 
-	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.urlParam(url);
         //Function call returns a promise
         result.then(function(success){
@@ -1910,13 +2019,14 @@ function multipleParams(number, precision, string, url)
 
 ```javascript
 
-    var number = 123412312;
+
+	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var number = 123412312;
     var precision = 1112.34;
     var string = "\"\"test./;\";12&&3asl\"\";\"qw1&34\"///..//.";
     var url = "http://www.abc.com/test?a=b&c=\"http://lolol.com?param=no&another=lol\"";
 
 
-	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.multipleParams(number, precision, string, url);
         //Function call returns a promise
         result.then(function(success){
@@ -1952,10 +2062,11 @@ function numberArray(integers)
 
 ```javascript
 
-    var integers = [1,2,3,4,5];
+
+	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var integers = [1,2,3,4,5];
 
 
-	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.numberArray(integers);
         //Function call returns a promise
         result.then(function(success){
@@ -1991,10 +2102,11 @@ function stringArray(strings)
 
 ```javascript
 
-    var strings = ["abc", "def"];
+
+	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var strings = ["abc", "def"];
 
 
-	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.stringArray(strings);
         //Function call returns a promise
         result.then(function(success){
@@ -2030,10 +2142,11 @@ function stringEnumArray(days)
 
 ```javascript
 
-    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
+
+	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 
 
-	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.stringEnumArray(days);
         //Function call returns a promise
         result.then(function(success){
@@ -2069,10 +2182,11 @@ function integerEnumArray(suites)
 
 ```javascript
 
-    var suites = [1, 3, 4, 2, 3];
+
+	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var suites = [1, 3, 4, 2, 3];
 
 
-	app.controller("testController", function($scope, QueryParamController){
 		var result = QueryParamController.integerEnumArray(suites);
         //Function call returns a promise
         result.then(function(success){
@@ -2097,7 +2211,7 @@ function integerEnumArray(suites)
 The singleton instance of the ``` TemplateParamsController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, TemplateParamsController){
+	app.controller("testController", function($scope, TemplateParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
 	});
 ```
 
@@ -2121,10 +2235,11 @@ function sendStringArray(strings)
 
 ```javascript
 
-    var strings = ["abc", "def"];
+
+	app.controller("testController", function($scope, TemplateParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var strings = ["abc", "def"];
 
 
-	app.controller("testController", function($scope, TemplateParamsController){
 		var result = TemplateParamsController.sendStringArray(strings);
         //Function call returns a promise
         result.then(function(success){
@@ -2160,10 +2275,11 @@ function sendIntegerArray(integers)
 
 ```javascript
 
-    var integers = [1,2,3,4,5];
+
+	app.controller("testController", function($scope, TemplateParamsController,ServerResponse,EchoResponse,QueryParameter,Person,Days,SuiteCode,Employee){
+	    var integers = [1,2,3,4,5];
 
 
-	app.controller("testController", function($scope, TemplateParamsController){
 		var result = TemplateParamsController.sendIntegerArray(integers);
         //Function call returns a promise
         result.then(function(success){

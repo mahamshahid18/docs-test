@@ -46,7 +46,7 @@ Skip to the next step if you are working with an existing project and already ha
 + Save it with an appropriate name such as `index.html` in the root of your project folder.
 `index.html` should look like this:
 ```html
-	<!DOCTYPE>
+	<!DOCTYPE html>
 	<html>
 	<head>
 		<title>Angular Project</title>
@@ -81,19 +81,17 @@ Import the reference to the generated SDK files inside your html file like:
 		<script src="scripts/calclib/Http/Response/HttpResponse.js"></script>
 
 		<!-- API Controllers -->
-    <script src="scripts/calclib/Controllers/SimpleCalculatorController.js"></script>
+        <script src="scripts/calclib/Controllers/SimpleCalculatorController.js"></script>
 
 
 		<!-- Models -->
-    <script src="scripts/calclib/Models/BaseModel.js"></script>
-    <script src="scripts/calclib/Models/OperationTypeEnum.js"></script>
+        <script src="scripts/calclib/Models/BaseModel.js"></script>
+        <script src="scripts/calclib/Models/OperationTypeEnum.js"></script>
 
 		...
 	</head>
 ```
 > The Configuration.js file should be imported before the other files.
-
-![example-html-code-image](example-html-code-image.PNG)
 
 ### 7. Including link to `app.js` in HTML file
 Link your `app.js` file to your `index.html` file like:
@@ -180,8 +178,8 @@ function getCalculate(input)
 	app.controller("testController", function($scope, SimpleCalculatorController,OperationTypeEnum){
 	    var input = [];
         input["operation"] = Object.keys(OperationTypeEnum)[0];
-        input["x"] = 150.872003487717;
-        input["y"] = 150.872003487717;
+        input["x"] = 151.895940125406;
+        input["y"] = 151.895940125406;
 
 
 		var result = SimpleCalculatorController.getCalculate(input);
