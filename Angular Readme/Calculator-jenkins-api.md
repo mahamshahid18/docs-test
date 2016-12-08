@@ -70,22 +70,26 @@ Your HTML file needs to have a link to `angular.min.js` file to use Angular-JS. 
 ### 6. Include SDK references in HTML file
 Import the reference to the generated SDK files inside your html file like:
 ```html
-    <!-- Helper files -->
-    <script src="scripts/calclib/Configuration.js"></script>
-    <script src="scripts/calclib/APIHelper.js"></script>
-    <script src="scripts/calclib/Http/Client/HttpContext.js"></script>
-    <script src="scripts/calclib/Http/Client/RequestClient.js"></script>
-    <script src="scripts/calclib/Http/Request/HttpRequest.js"></script>
-    <script src="scripts/calclib/Http/Response/HttpResponse.js"></script>
+	<head>
+		...
+		<!-- Helper files -->
+		<script src="scripts/calclib/Configuration.js"></script>
+		<script src="scripts/calclib/APIHelper.js"></script>
+		<script src="scripts/calclib/Http/Client/HttpContext.js"></script>
+		<script src="scripts/calclib/Http/Client/RequestClient.js"></script>
+		<script src="scripts/calclib/Http/Request/HttpRequest.js"></script>
+		<script src="scripts/calclib/Http/Response/HttpResponse.js"></script>
 
-    <!-- API Controllers -->
+		<!-- API Controllers -->
     <script src="scripts/calclib/Controllers/SimpleCalculatorController.js"></script>
 
 
-    <!-- Models -->
+		<!-- Models -->
     <script src="scripts/calclib/Models/BaseModel.js"></script>
     <script src="scripts/calclib/Models/OperationTypeEnum.js"></script>
 
+		...
+	</head>
 ```
 > The Configuration.js file should be imported before the other files.
 
@@ -127,9 +131,6 @@ Add the dependency like this:
     var app = angular.module('myApp', ['CalcLib']);
 ```
 At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the generated SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
-You can also see an example use case in the screenshot below:  
-
-![example-app-code-image](example-app-code-image.PNG)
 
 ### 10. Running The App
 To run the app, simply open up the `index.html` file in a browser.
@@ -179,8 +180,8 @@ function getCalculate(input)
 	app.controller("testController", function($scope, SimpleCalculatorController,OperationTypeEnum){
 	    var input = [];
         input["operation"] = Object.keys(OperationTypeEnum)[0];
-        input["x"] = 231.809546436094;
-        input["y"] = 231.809546436094;
+        input["x"] = 150.872003487717;
+        input["y"] = 150.872003487717;
 
 
 		var result = SimpleCalculatorController.getCalculate(input);
