@@ -14,7 +14,7 @@ Perform the following steps to configure angular and the SDK:
 + Move the `angular.min.js` file inside the scripts folder. 
 + Move the `testerlib` folder inside the scripts folder.
 
-![folder-structure-image](folder-structure-image.PNG)
+![folder-structure-image](http://apidocs.io/illustration/angularjs?step=folderStructure&workspaceFolder=Tester-Angular&projectName=TesterLib)
 
 ### 2. Open Project Folder
 Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.  
@@ -22,7 +22,7 @@ Click on `File` and select `Open Folder`
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 
-![open-folder-image](open-folder-image.PNG)
+![open-folder-image](http://apidocs.io/illustration/angularjs?step=openFolder&workspaceFolder=Tester-Angular)
 
 ### 3. Create an Angular Application
 Since Angular JS is used for client-side web development, in order to use the generated library, you will have to develop an application first.
@@ -59,7 +59,7 @@ Skip to the next step if you are working with an existing project and already ha
 	</html>
 ```
 
-![initial-html-code-image](initial-html-code-image.PNG)
+![initial-html-code-image](http://apidocs.io/illustration/angularjs?step=initialCode&workspaceFolder=Tester-Angular)
 
 ### 5. Including links to Angular in HTML file
 Your HTML file needs to have a link to `angular.min.js` file to use Angular-JS. Add the link using `script` tags inside the `head` section of `index.html` like:
@@ -145,7 +145,7 @@ At this point, the SDK has been successfully included in your project. Further s
 ### 10. Running The App
 To run the app, simply open up the `index.html` file in a browser.
 
-![app-running](app-running.PNG)
+![app-running](http://apidocs.io/illustration/angularjs?step=appRunning)
 
 ## Class Reference
 
@@ -867,7 +867,7 @@ function sendIntegerArray(integers)
 
 
 	app.controller("testController", function($scope, BodyParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var integers = [161];
+	    var integers = [156];
 
 
 		var result = BodyParamsController.sendIntegerArray(integers);
@@ -1164,7 +1164,7 @@ function sendLong(value)
 
 
 	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var value = 161;
+	    var value = 156;
 
 
 		var result = FormParamsController.sendLong(value);
@@ -1204,7 +1204,7 @@ function sendIntegerArray(integers)
 
 
 	app.controller("testController", function($scope, FormParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var integers = [161];
+	    var integers = [156];
 
 
 		var result = FormParamsController.sendIntegerArray(integers);
@@ -1416,7 +1416,7 @@ function sendMixedArray(input)
 	app.controller("testController", function($scope, FormParamsController, $http,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
 	    var input = [];
         input["file"] = "";
-        input["integers"] = [161];
+        input["integers"] = [156];
         input["models"] = [{"key":"value"}].map(function(elem) {
         return new Employee(elem);
     });
@@ -1683,7 +1683,7 @@ function queryEcho(queryParameters)
 
 	app.controller("testController", function($scope, EchoController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
 	
-    // key-value map for optional query parameters
+        // key-value map for optional query parameters
         var queryParameters = [];
 
 
@@ -1796,10 +1796,10 @@ function simpleQuery(mboolean, number, string, queryParameters)
 
 	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
 	    var mboolean = true;
-    var number = 252;
+    var number = 156;
     var string = "string";
 
-    // key-value map for optional query parameters
+        // key-value map for optional query parameters
         var queryParameters = [];
 
 
@@ -1840,7 +1840,7 @@ function numberArray(integers)
 
 
 	app.controller("testController", function($scope, QueryParamController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var integers = [252];
+	    var integers = [156];
 
 
 		var result = QueryParamController.numberArray(integers);
@@ -2053,7 +2053,7 @@ function sendIntegerArray(integers)
 
 
 	app.controller("testController", function($scope, TemplateParamsController,ServerResponse,EchoResponse,Person,Days,SuiteCode,Employee){
-	    var integers = [252];
+	    var integers = [156];
 
 
 		var result = TemplateParamsController.sendIntegerArray(integers);
