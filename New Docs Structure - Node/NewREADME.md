@@ -13,7 +13,7 @@ The following section explains how to use the TesterLib library in a new project
 The API client can be initialized as following.
 
 ```js
-var lib = require('lib'));
+var lib = require('lib');
 ```
 
 ## API Reference
@@ -34,8 +34,7 @@ var lib = require('lib'));
 #### `multipleParams`
 
 ```js
-function multipleParams(function(error, response, context){
-     })
+function multipleParams(callback)
 ```
 
 ##### Parameters
@@ -55,13 +54,14 @@ var number = 123412312;
     var string = "\"\"test./;\";12&&3asl\"\";\"qw1&34\"///..//.";
     var url = "http://www.abc.com/test?a=b&c=\"http://lolol.com?param=no&another=lol\"";
 controller.multipleParams(number, precision, string, url, function(error, response, context) {
+
+}
 ```
 
 #### `simpleQuery`
 
 ```js
-function simpleQuery(function(error, response, context){
-     })
+function simpleQuery(callback)
 ```
 
 ##### Parameters
@@ -82,13 +82,14 @@ var mboolean = true;
     // key-value map for optional query parameters
     var queryParams = [];
 controller.simpleQuery(mboolean, number, string, queryParams, function(error, response, context) {
+
+}
 ```
 
 #### `stringEnumArray`
 
 ```js
-function stringEnumArray(function(error, response, context){
-     })
+function stringEnumArray(callback)
 ```
 
 ##### Parameters
@@ -102,13 +103,14 @@ function stringEnumArray(function(error, response, context){
 ```js
 var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 controller.stringEnumArray(days, function(error, response, context) {
+
+}
 ```
 
 #### `stringArray`
 
 ```js
-function stringArray(function(error, response, context){
-     })
+function stringArray(callback)
 ```
 
 ##### Parameters
@@ -122,13 +124,14 @@ function stringArray(function(error, response, context){
 ```js
 var strings = ["abc", "def"];
 controller.stringArray(strings, function(error, response, context) {
+
+}
 ```
 
 #### `numberArray`
 
 ```js
-function numberArray(function(error, response, context){
-     })
+function numberArray(callback)
 ```
 
 ##### Parameters
@@ -142,13 +145,14 @@ function numberArray(function(error, response, context){
 ```js
 var integers = [1,2,3,4,5];
 controller.numberArray(integers, function(error, response, context) {
+
+}
 ```
 
 #### `integerEnumArray`
 
 ```js
-function integerEnumArray(function(error, response, context){
-     })
+function integerEnumArray(callback)
 ```
 
 ##### Parameters
@@ -162,13 +166,14 @@ function integerEnumArray(function(error, response, context){
 ```js
 var suites = [1, 3, 4, 2, 3];
 controller.integerEnumArray(suites, function(error, response, context) {
+
+}
 ```
 
 #### `urlParam`
 
 ```js
-function urlParam(function(error, response, context){
-     })
+function urlParam(callback)
 ```
 
 ##### Parameters
@@ -182,13 +187,14 @@ function urlParam(function(error, response, context){
 ```js
 var url = "https://www.shahidisawesome.com/and/also/a/narcissist?thisis=aparameter&another=one";
 controller.urlParam(url, function(error, response, context) {
+
+}
 ```
 
 #### `stringParam`
 
 ```js
-function stringParam(function(error, response, context){
-     })
+function stringParam(callback)
 ```
 
 ##### Parameters
@@ -202,19 +208,22 @@ function stringParam(function(error, response, context){
 ```js
 var string = "l;asd;asdwe[2304&&;'.d??\\a\\\\\\;sd//";
 controller.stringParam(string, function(error, response, context) {
+
+}
 ```
 
 #### `noParams`
 
 ```js
-function noParams(function(error, response, context){
-     })
+function noParams(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.noParams(function(error, response, context) {
+
+}
 ```
 
 ### `HeaderController`
@@ -224,8 +233,7 @@ controller.noParams(function(error, response, context) {
 Sends a single header params
 
 ```js
-function sendHeaders(function(error, response, context){
-     })
+function sendHeaders(callback)
 ```
 
 ##### Parameters
@@ -241,6 +249,8 @@ function sendHeaders(function(error, response, context){
 var customHeader = "TestString";
     var value = "TestString";
 controller.sendHeaders(customHeader, value, function(error, response, context) {
+
+}
 ```
 
 ### `FormParamsController`
@@ -250,8 +260,7 @@ controller.sendHeaders(customHeader, value, function(error, response, context) {
 Send a variety for form params. Returns file count and body params
 
 ```js
-function sendMixedArray(function(error, response, context){
-     })
+function sendMixedArray(callback)
 ```
 
 ##### Parameters
@@ -275,13 +284,14 @@ TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png"
     });
         input["strings"] = ["abc", "def"];
     controller.sendMixedArray(input, function(error, response, context) {
+
+}
 ```
 
 #### `sendFile`
 
 ```js
-function sendFile(function(error, response, context){
-     })
+function sendFile(callback)
 ```
 
 ##### Parameters
@@ -296,13 +306,14 @@ function sendFile(function(error, response, context){
 TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
         var file = data;
     controller.sendFile(file, function(error, response, context) {
+
+}
 ```
 
 #### `sendModelArray`
 
 ```js
-function sendModelArray(function(error, response, context){
-     })
+function sendModelArray(callback)
 ```
 
 ##### Parameters
@@ -318,13 +329,14 @@ var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 2
         return new Employee(elem);
     });
 controller.sendModelArray(models, function(error, response, context) {
+
+}
 ```
 
 #### `sendModel`
 
 ```js
-function sendModel(function(error, response, context){
-     })
+function sendModel(callback)
 ```
 
 ##### Parameters
@@ -338,13 +350,14 @@ function sendModel(function(error, response, context){
 ```js
 var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
 controller.sendModel(model, function(error, response, context) {
+
+}
 ```
 
 #### `sendStringEnumArray`
 
 ```js
-function sendStringEnumArray(function(error, response, context){
-     })
+function sendStringEnumArray(callback)
 ```
 
 ##### Parameters
@@ -358,13 +371,14 @@ function sendStringEnumArray(function(error, response, context){
 ```js
 var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 controller.sendStringEnumArray(days, function(error, response, context) {
+
+}
 ```
 
 #### `sendIntegerEnumArray`
 
 ```js
-function sendIntegerEnumArray(function(error, response, context){
-     })
+function sendIntegerEnumArray(callback)
 ```
 
 ##### Parameters
@@ -378,13 +392,14 @@ function sendIntegerEnumArray(function(error, response, context){
 ```js
 var suites = [1, 3, 4, 2, 3];
 controller.sendIntegerEnumArray(suites, function(error, response, context) {
+
+}
 ```
 
 #### `sendStringArray`
 
 ```js
-function sendStringArray(function(error, response, context){
-     })
+function sendStringArray(callback)
 ```
 
 ##### Parameters
@@ -398,13 +413,14 @@ function sendStringArray(function(error, response, context){
 ```js
 var strings = ["abc", "def"];
 controller.sendStringArray(strings, function(error, response, context) {
+
+}
 ```
 
 #### `sendIntegerArray`
 
 ```js
-function sendIntegerArray(function(error, response, context){
-     })
+function sendIntegerArray(callback)
 ```
 
 ##### Parameters
@@ -418,13 +434,14 @@ function sendIntegerArray(function(error, response, context){
 ```js
 var integers = [1,2,3,4,5];
 controller.sendIntegerArray(integers, function(error, response, context) {
+
+}
 ```
 
 #### `sendString`
 
 ```js
-function sendString(function(error, response, context){
-     })
+function sendString(callback)
 ```
 
 ##### Parameters
@@ -438,13 +455,14 @@ function sendString(function(error, response, context){
 ```js
 var value = "TestString";
 controller.sendString(value, function(error, response, context) {
+
+}
 ```
 
 #### `sendLong`
 
 ```js
-function sendLong(function(error, response, context){
-     })
+function sendLong(callback)
 ```
 
 ##### Parameters
@@ -458,6 +476,8 @@ function sendLong(function(error, response, context){
 ```js
 var value = 5147483647;
 controller.sendLong(value, function(error, response, context) {
+
+}
 ```
 
 ### `ErrorCodesController`
@@ -465,14 +485,15 @@ controller.sendLong(value, function(error, response, context) {
 #### `get401`
 
 ```js
-function get401(function(error, response, context){
-     })
+function get401(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.get401(function(error, response, context) {
+
+}
 ```
 
 ##### Errors
@@ -489,27 +510,29 @@ controller.get401(function(error, response, context) {
 #### `get500`
 
 ```js
-function get500(function(error, response, context){
-     })
+function get500(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.get500(function(error, response, context) {
+
+}
 ```
 
 #### `get400`
 
 ```js
-function get400(function(error, response, context){
-     })
+function get400(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.get400(function(error, response, context) {
+
+}
 ```
 
 ### `ResponseTypesController`
@@ -519,209 +542,225 @@ controller.get400(function(error, response, context) {
 gets a binary object
 
 ```js
-function getBinary(function(error, response, context){
-     })
+function getBinary(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getBinary(function(error, response, context) {
+
+}
 ```
 
 #### `getPrecision`
 
 ```js
-function getPrecision(function(error, response, context){
-     })
+function getPrecision(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getPrecision(function(error, response, context) {
+
+}
 ```
 
 #### `getIntEnumArray`
 
 ```js
-function getIntEnumArray(function(error, response, context){
-     })
+function getIntEnumArray(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getIntEnumArray(function(error, response, context) {
+
+}
 ```
 
 #### `getIntEnum`
 
 ```js
-function getIntEnum(function(error, response, context){
-     })
+function getIntEnum(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getIntEnum(function(error, response, context) {
+
+}
 ```
 
 #### `getModelArray`
 
 ```js
-function getModelArray(function(error, response, context){
-     })
+function getModelArray(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getModelArray(function(error, response, context) {
+
+}
 ```
 
 #### `getStringEnum`
 
 ```js
-function getStringEnum(function(error, response, context){
-     })
+function getStringEnum(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getStringEnum(function(error, response, context) {
+
+}
 ```
 
 #### `getStringEnumArray`
 
 ```js
-function getStringEnumArray(function(error, response, context){
-     })
+function getStringEnumArray(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getStringEnumArray(function(error, response, context) {
+
+}
 ```
 
 #### `getModel`
 
 ```js
-function getModel(function(error, response, context){
-     })
+function getModel(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getModel(function(error, response, context) {
+
+}
 ```
 
 #### `getLong`
 
 ```js
-function getLong(function(error, response, context){
-     })
+function getLong(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getLong(function(error, response, context) {
+
+}
 ```
 
 #### `getHeaders`
 
 ```js
-function getHeaders(function(error, response, context){
-     })
+function getHeaders(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getHeaders(function(error, response, context) {
+
+}
 ```
 
 #### `getBooleanArray`
 
 ```js
-function getBooleanArray(function(error, response, context){
-     })
+function getBooleanArray(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getBooleanArray(function(error, response, context) {
+
+}
 ```
 
 #### `getBoolean`
 
 ```js
-function getBoolean(function(error, response, context){
-     })
+function getBoolean(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getBoolean(function(error, response, context) {
+
+}
 ```
 
 #### `getDatetimeArray`
 
 ```js
-function getDatetimeArray(function(error, response, context){
-     })
+function getDatetimeArray(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getDatetimeArray(function(error, response, context) {
+
+}
 ```
 
 #### `getDatetime`
 
 ```js
-function getDatetime(function(error, response, context){
-     })
+function getDatetime(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getDatetime(function(error, response, context) {
+
+}
 ```
 
 #### `getDynamicArray`
 
 ```js
-function getDynamicArray(function(error, response, context){
-     })
+function getDynamicArray(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getDynamicArray(function(error, response, context) {
+
+}
 ```
 
 #### `getDynamic`
 
 ```js
-function getDynamic(function(error, response, context){
-     })
+function getDynamic(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getDynamic(function(error, response, context) {
+
+}
 ```
 
 #### `getIntegerArray`
@@ -729,14 +768,15 @@ controller.getDynamic(function(error, response, context) {
 Get an array of integers.
 
 ```js
-function getIntegerArray(function(error, response, context){
-     })
+function getIntegerArray(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getIntegerArray(function(error, response, context) {
+
+}
 ```
 
 #### `getInteger`
@@ -744,14 +784,15 @@ controller.getIntegerArray(function(error, response, context) {
 Gets a integer response
 
 ```js
-function getInteger(function(error, response, context){
-     })
+function getInteger(callback)
 ```
 
 ##### Example Usage
 
 ```js
 controller.getInteger(function(error, response, context) {
+
+}
 ```
 
 ### `TemplateParamsController`
@@ -759,8 +800,7 @@ controller.getInteger(function(error, response, context) {
 #### `sendIntegerArray`
 
 ```js
-function sendIntegerArray(function(error, response, context){
-     })
+function sendIntegerArray(callback)
 ```
 
 ##### Parameters
@@ -774,13 +814,14 @@ function sendIntegerArray(function(error, response, context){
 ```js
 var integers = [1,2,3,4,5];
 controller.sendIntegerArray(integers, function(error, response, context) {
+
+}
 ```
 
 #### `sendStringArray`
 
 ```js
-function sendStringArray(function(error, response, context){
-     })
+function sendStringArray(callback)
 ```
 
 ##### Parameters
@@ -794,6 +835,8 @@ function sendStringArray(function(error, response, context){
 ```js
 var strings = ["abc", "def"];
 controller.sendStringArray(strings, function(error, response, context) {
+
+}
 ```
 
 ### `EchoController`
@@ -801,8 +844,7 @@ controller.sendStringArray(strings, function(error, response, context) {
 #### `queryEcho`
 
 ```js
-function queryEcho(function(error, response, context){
-     })
+function queryEcho(callback)
 ```
 
 ##### Example Usage
@@ -811,6 +853,8 @@ function queryEcho(function(error, response, context){
 // key-value map for optional query parameters
     var queryParams = [];
 controller.queryEcho(queryParams, function(error, response, context) {
+
+}
 ```
 
 #### `formEcho`
@@ -818,8 +862,7 @@ controller.queryEcho(queryParams, function(error, response, context) {
 Sends the request including any form params as JSON
 
 ```js
-function formEcho(function(error, response, context){
-     })
+function formEcho(callback)
 ```
 
 ##### Parameters
@@ -833,6 +876,8 @@ function formEcho(function(error, response, context){
 ```js
 var input = {"uid": "1123213", "name": "Shahid"};
 controller.formEcho(input, function(error, response, context) {
+
+}
 ```
 
 #### `jsonEcho`
@@ -840,8 +885,7 @@ controller.formEcho(input, function(error, response, context) {
 Echo's back the request
 
 ```js
-function jsonEcho(function(error, response, context){
-     })
+function jsonEcho(callback)
 ```
 
 ##### Parameters
@@ -855,6 +899,8 @@ function jsonEcho(function(error, response, context){
 ```js
 var input = {"uid": "1123213", "name": "Shahid"};
 controller.jsonEcho(input, function(error, response, context) {
+
+}
 ```
 
 ### `BodyParamsController`
@@ -862,8 +908,7 @@ controller.jsonEcho(input, function(error, response, context) {
 #### `sendIntegerEnumArray`
 
 ```js
-function sendIntegerEnumArray(function(error, response, context){
-     })
+function sendIntegerEnumArray(callback)
 ```
 
 ##### Parameters
@@ -877,13 +922,14 @@ function sendIntegerEnumArray(function(error, response, context){
 ```js
 var suites = [1, 3, 4, 2, 3];
 controller.sendIntegerEnumArray(suites, function(error, response, context) {
+
+}
 ```
 
 #### `sendStringEnumArray`
 
 ```js
-function sendStringEnumArray(function(error, response, context){
-     })
+function sendStringEnumArray(callback)
 ```
 
 ##### Parameters
@@ -897,13 +943,14 @@ function sendStringEnumArray(function(error, response, context){
 ```js
 var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
 controller.sendStringEnumArray(days, function(error, response, context) {
+
+}
 ```
 
 #### `sendString`
 
 ```js
-function sendString(function(error, response, context){
-     })
+function sendString(callback)
 ```
 
 ##### Parameters
@@ -917,13 +964,14 @@ function sendString(function(error, response, context){
 ```js
 var value = "TestString";
 controller.sendString(value, function(error, response, context) {
+
+}
 ```
 
 #### `sendDynamic`
 
 ```js
-function sendDynamic(function(error, response, context){
-     })
+function sendDynamic(callback)
 ```
 
 ##### Parameters
@@ -937,13 +985,14 @@ function sendDynamic(function(error, response, context){
 ```js
 var dynamic = {"uid": "1123213", "name": "Shahid"};
 controller.sendDynamic(dynamic, function(error, response, context) {
+
+}
 ```
 
 #### `sendModelArray`
 
 ```js
-function sendModelArray(function(error, response, context){
-     })
+function sendModelArray(callback)
 ```
 
 ##### Parameters
@@ -959,13 +1008,14 @@ var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 2
         return new Employee(elem);
     });
 controller.sendModelArray(models, function(error, response, context) {
+
+}
 ```
 
 #### `sendModel`
 
 ```js
-function sendModel(function(error, response, context){
-     })
+function sendModel(callback)
 ```
 
 ##### Parameters
@@ -979,13 +1029,14 @@ function sendModel(function(error, response, context){
 ```js
 var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
 controller.sendModel(model, function(error, response, context) {
+
+}
 ```
 
 #### `sendIntegerArray`
 
 ```js
-function sendIntegerArray(function(error, response, context){
-     })
+function sendIntegerArray(callback)
 ```
 
 ##### Parameters
@@ -999,6 +1050,8 @@ function sendIntegerArray(function(error, response, context){
 ```js
 var integers = [1,2,3,4,5];
 controller.sendIntegerArray(integers, function(error, response, context) {
+
+}
 ```
 
 #### `sendStringArray`
@@ -1006,8 +1059,7 @@ controller.sendIntegerArray(integers, function(error, response, context) {
 sends a string body param
 
 ```js
-function sendStringArray(function(error, response, context){
-     })
+function sendStringArray(callback)
 ```
 
 ##### Parameters
@@ -1021,6 +1073,8 @@ function sendStringArray(function(error, response, context){
 ```js
 var sarray = ["abc", "def"];
 controller.sendStringArray(sarray, function(error, response, context) {
+
+}
 ```
 
 ## Model Reference
