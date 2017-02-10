@@ -34,7 +34,7 @@ var lib = require('lib');
 #### `multipleParams`
 
 ```js
-function multipleParams(    number,    precision,    string,    url, callback)
+function multipleParams( number, precision, string, url, callback)
 ```
 
 ##### Parameters
@@ -61,7 +61,7 @@ controller.multipleParams(number, precision, string, url, function(error, respon
 #### `simpleQuery`
 
 ```js
-function simpleQuery(    mboolean,    number,    string,    queryParameters,, callback)
+function simpleQuery( mboolean, number, string, queryParameters, callback)
 ```
 
 ##### Parameters
@@ -89,7 +89,7 @@ controller.simpleQuery(mboolean, number, string, queryParameters, function(error
 #### `stringEnumArray`
 
 ```js
-function stringEnumArray(    days, callback)
+function stringEnumArray( days, callback)
 ```
 
 ##### Parameters
@@ -110,7 +110,7 @@ controller.stringEnumArray(days, function(error, response, context) {
 #### `stringArray`
 
 ```js
-function stringArray(    strings, callback)
+function stringArray( strings, callback)
 ```
 
 ##### Parameters
@@ -131,7 +131,7 @@ controller.stringArray(strings, function(error, response, context) {
 #### `numberArray`
 
 ```js
-function numberArray(    integers, callback)
+function numberArray( integers, callback)
 ```
 
 ##### Parameters
@@ -152,7 +152,7 @@ controller.numberArray(integers, function(error, response, context) {
 #### `integerEnumArray`
 
 ```js
-function integerEnumArray(    suites, callback)
+function integerEnumArray( suites, callback)
 ```
 
 ##### Parameters
@@ -173,7 +173,7 @@ controller.integerEnumArray(suites, function(error, response, context) {
 #### `urlParam`
 
 ```js
-function urlParam(    url, callback)
+function urlParam( url, callback)
 ```
 
 ##### Parameters
@@ -194,7 +194,7 @@ controller.urlParam(url, function(error, response, context) {
 #### `stringParam`
 
 ```js
-function stringParam(    string, callback)
+function stringParam( string, callback)
 ```
 
 ##### Parameters
@@ -233,7 +233,7 @@ controller.noParams(function(error, response, context) {
 Sends a single header params
 
 ```js
-function sendHeaders(    customHeader,    value, callback)
+function sendHeaders( customHeader, value, callback)
 ```
 
 ##### Parameters
@@ -260,7 +260,7 @@ controller.sendHeaders(customHeader, value, function(error, response, context) {
 Send a variety for form params. Returns file count and body params
 
 ```js
-function sendMixedArray(    options, callback)
+function sendMixedArray( options, callback)
 ```
 
 ##### Parameters
@@ -291,7 +291,7 @@ TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png"
 #### `sendFile`
 
 ```js
-function sendFile(    file, callback)
+function sendFile( file, callback)
 ```
 
 ##### Parameters
@@ -313,7 +313,7 @@ TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png"
 #### `sendModelArray`
 
 ```js
-function sendModelArray(    models, callback)
+function sendModelArray( models, callback)
 ```
 
 ##### Parameters
@@ -336,7 +336,7 @@ controller.sendModelArray(models, function(error, response, context) {
 #### `sendModel`
 
 ```js
-function sendModel(    model, callback)
+function sendModel( model, callback)
 ```
 
 ##### Parameters
@@ -357,7 +357,7 @@ controller.sendModel(model, function(error, response, context) {
 #### `sendStringEnumArray`
 
 ```js
-function sendStringEnumArray(    days, callback)
+function sendStringEnumArray( days, callback)
 ```
 
 ##### Parameters
@@ -378,7 +378,7 @@ controller.sendStringEnumArray(days, function(error, response, context) {
 #### `sendIntegerEnumArray`
 
 ```js
-function sendIntegerEnumArray(    suites, callback)
+function sendIntegerEnumArray( suites, callback)
 ```
 
 ##### Parameters
@@ -399,7 +399,7 @@ controller.sendIntegerEnumArray(suites, function(error, response, context) {
 #### `sendStringArray`
 
 ```js
-function sendStringArray(    strings, callback)
+function sendStringArray( strings, callback)
 ```
 
 ##### Parameters
@@ -420,7 +420,7 @@ controller.sendStringArray(strings, function(error, response, context) {
 #### `sendIntegerArray`
 
 ```js
-function sendIntegerArray(    integers, callback)
+function sendIntegerArray( integers, callback)
 ```
 
 ##### Parameters
@@ -441,7 +441,7 @@ controller.sendIntegerArray(integers, function(error, response, context) {
 #### `sendString`
 
 ```js
-function sendString(    value, callback)
+function sendString( value, callback)
 ```
 
 ##### Parameters
@@ -462,7 +462,7 @@ controller.sendString(value, function(error, response, context) {
 #### `sendLong`
 
 ```js
-function sendLong(    value, callback)
+function sendLong( value, callback)
 ```
 
 ##### Parameters
@@ -800,7 +800,7 @@ controller.getInteger(function(error, response, context) {
 #### `sendIntegerArray`
 
 ```js
-function sendIntegerArray(    integers, callback)
+function sendIntegerArray( integers, callback)
 ```
 
 ##### Parameters
@@ -821,7 +821,7 @@ controller.sendIntegerArray(integers, function(error, response, context) {
 #### `sendStringArray`
 
 ```js
-function sendStringArray(    strings, callback)
+function sendStringArray( strings, callback)
 ```
 
 ##### Parameters
@@ -844,7 +844,7 @@ controller.sendStringArray(strings, function(error, response, context) {
 #### `queryEcho`
 
 ```js
-function queryEcho(    queryParameters,, callback)
+function queryEcho( queryParameters, callback)
 ```
 
 ##### Example Usage
@@ -862,7 +862,7 @@ controller.queryEcho(queryParameters, function(error, response, context) {
 Sends the request including any form params as JSON
 
 ```js
-function formEcho(    input, callback)
+function formEcho( input, callback)
 ```
 
 ##### Parameters
@@ -885,7 +885,7 @@ controller.formEcho(input, function(error, response, context) {
 Echo's back the request
 
 ```js
-function jsonEcho(    input, callback)
+function jsonEcho( input, callback)
 ```
 
 ##### Parameters
@@ -908,7 +908,7 @@ controller.jsonEcho(input, function(error, response, context) {
 #### `sendIntegerEnumArray`
 
 ```js
-function sendIntegerEnumArray(    suites, callback)
+function sendIntegerEnumArray( suites, callback)
 ```
 
 ##### Parameters
@@ -929,7 +929,7 @@ controller.sendIntegerEnumArray(suites, function(error, response, context) {
 #### `sendStringEnumArray`
 
 ```js
-function sendStringEnumArray(    days, callback)
+function sendStringEnumArray( days, callback)
 ```
 
 ##### Parameters
@@ -950,7 +950,7 @@ controller.sendStringEnumArray(days, function(error, response, context) {
 #### `sendString`
 
 ```js
-function sendString(    value, callback)
+function sendString( value, callback)
 ```
 
 ##### Parameters
@@ -971,7 +971,7 @@ controller.sendString(value, function(error, response, context) {
 #### `sendDynamic`
 
 ```js
-function sendDynamic(    dynamic, callback)
+function sendDynamic( dynamic, callback)
 ```
 
 ##### Parameters
@@ -992,7 +992,7 @@ controller.sendDynamic(dynamic, function(error, response, context) {
 #### `sendModelArray`
 
 ```js
-function sendModelArray(    models, callback)
+function sendModelArray( models, callback)
 ```
 
 ##### Parameters
@@ -1015,7 +1015,7 @@ controller.sendModelArray(models, function(error, response, context) {
 #### `sendModel`
 
 ```js
-function sendModel(    model, callback)
+function sendModel( model, callback)
 ```
 
 ##### Parameters
@@ -1036,7 +1036,7 @@ controller.sendModel(model, function(error, response, context) {
 #### `sendIntegerArray`
 
 ```js
-function sendIntegerArray(    integers, callback)
+function sendIntegerArray( integers, callback)
 ```
 
 ##### Parameters
@@ -1059,7 +1059,7 @@ controller.sendIntegerArray(integers, function(error, response, context) {
 sends a string body param
 
 ```js
-function sendStringArray(    sarray, callback)
+function sendStringArray( sarray, callback)
 ```
 
 ##### Parameters
