@@ -53,9 +53,10 @@ var number = 123412312;
 var precision = 1112.34;
 var string = "\"\"test./;\";12&&3asl\"\";\"qw1&34\"///..//.";
 var url = "http://www.abc.com/test?a=b&c=\"http://lolol.com?param=no&another=lol\"";
+
 controller.multipleParams(number, precision, string, url, function(error, response, context) {
 
-}
+});
 ```
 
 #### `simpleQuery`
@@ -81,9 +82,10 @@ var string = "TestString";
 
     // key-value map for optional query parameters
 var queryParameters = [];
+
 controller.simpleQuery(mboolean, number, string, queryParameters, function(error, response, context) {
 
-}
+});
 ```
 
 #### `stringEnumArray`
@@ -102,9 +104,10 @@ function stringEnumArray( days, callback)
 
 ```js
 var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
+
 controller.stringEnumArray(days, function(error, response, context) {
 
-}
+});
 ```
 
 #### `stringArray`
@@ -123,9 +126,10 @@ function stringArray( strings, callback)
 
 ```js
 var strings = ["abc", "def"];
+
 controller.stringArray(strings, function(error, response, context) {
 
-}
+});
 ```
 
 #### `numberArray`
@@ -144,9 +148,10 @@ function numberArray( integers, callback)
 
 ```js
 var integers = [1,2,3,4,5];
+
 controller.numberArray(integers, function(error, response, context) {
 
-}
+});
 ```
 
 #### `integerEnumArray`
@@ -165,9 +170,10 @@ function integerEnumArray( suites, callback)
 
 ```js
 var suites = [1, 3, 4, 2, 3];
+
 controller.integerEnumArray(suites, function(error, response, context) {
 
-}
+});
 ```
 
 #### `urlParam`
@@ -186,9 +192,10 @@ function urlParam( url, callback)
 
 ```js
 var url = "https://www.shahidisawesome.com/and/also/a/narcissist?thisis=aparameter&another=one";
+
 controller.urlParam(url, function(error, response, context) {
 
-}
+});
 ```
 
 #### `stringParam`
@@ -207,9 +214,10 @@ function stringParam( string, callback)
 
 ```js
 var string = "l;asd;asdwe[2304&&;'.d??\\a\\\\\\;sd//";
+
 controller.stringParam(string, function(error, response, context) {
 
-}
+});
 ```
 
 #### `noParams`
@@ -223,7 +231,7 @@ function noParams(callback)
 ```js
 controller.noParams(function(error, response, context) {
 
-}
+});
 ```
 
 ### `HeaderController`
@@ -248,9 +256,10 @@ function sendHeaders( customHeader, value, callback)
 ```js
 var customHeader = "TestString";
 var value = "TestString";
+
 controller.sendHeaders(customHeader, value, function(error, response, context) {
 
-}
+});
 ```
 
 ### `FormParamsController`
@@ -283,9 +292,10 @@ TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png"
         return new Employee(elem);
     });
         input["strings"] = ["abc", "def"];
+
     controller.sendMixedArray(input, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendFile`
@@ -305,9 +315,10 @@ function sendFile( file, callback)
 ```js
 TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
     var file = data;
+
     controller.sendFile(file, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendModelArray`
@@ -328,9 +339,10 @@ function sendModelArray( models, callback)
 var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
         return new Employee(elem);
     });
+
 controller.sendModelArray(models, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendModel`
@@ -349,9 +361,10 @@ function sendModel( model, callback)
 
 ```js
 var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
+
 controller.sendModel(model, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendStringEnumArray`
@@ -370,9 +383,10 @@ function sendStringEnumArray( days, callback)
 
 ```js
 var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
+
 controller.sendStringEnumArray(days, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendIntegerEnumArray`
@@ -391,9 +405,10 @@ function sendIntegerEnumArray( suites, callback)
 
 ```js
 var suites = [1, 3, 4, 2, 3];
+
 controller.sendIntegerEnumArray(suites, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendStringArray`
@@ -412,9 +427,10 @@ function sendStringArray( strings, callback)
 
 ```js
 var strings = ["abc", "def"];
+
 controller.sendStringArray(strings, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendIntegerArray`
@@ -433,9 +449,10 @@ function sendIntegerArray( integers, callback)
 
 ```js
 var integers = [1,2,3,4,5];
+
 controller.sendIntegerArray(integers, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendString`
@@ -454,9 +471,10 @@ function sendString( value, callback)
 
 ```js
 var value = "TestString";
+
 controller.sendString(value, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendLong`
@@ -475,9 +493,10 @@ function sendLong( value, callback)
 
 ```js
 var value = 5147483647;
+
 controller.sendLong(value, function(error, response, context) {
 
-}
+});
 ```
 
 ### `ErrorCodesController`
@@ -493,7 +512,7 @@ function get401(callback)
 ```js
 controller.get401(function(error, response, context) {
 
-}
+});
 ```
 
 ##### Errors
@@ -518,7 +537,7 @@ function get500(callback)
 ```js
 controller.get500(function(error, response, context) {
 
-}
+});
 ```
 
 #### `get400`
@@ -532,7 +551,7 @@ function get400(callback)
 ```js
 controller.get400(function(error, response, context) {
 
-}
+});
 ```
 
 ### `ResponseTypesController`
@@ -550,7 +569,7 @@ function getBinary(callback)
 ```js
 controller.getBinary(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getPrecision`
@@ -564,7 +583,7 @@ function getPrecision(callback)
 ```js
 controller.getPrecision(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getIntEnumArray`
@@ -578,7 +597,7 @@ function getIntEnumArray(callback)
 ```js
 controller.getIntEnumArray(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getIntEnum`
@@ -592,7 +611,7 @@ function getIntEnum(callback)
 ```js
 controller.getIntEnum(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getModelArray`
@@ -606,7 +625,7 @@ function getModelArray(callback)
 ```js
 controller.getModelArray(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getStringEnum`
@@ -620,7 +639,7 @@ function getStringEnum(callback)
 ```js
 controller.getStringEnum(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getStringEnumArray`
@@ -634,7 +653,7 @@ function getStringEnumArray(callback)
 ```js
 controller.getStringEnumArray(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getModel`
@@ -648,7 +667,7 @@ function getModel(callback)
 ```js
 controller.getModel(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getLong`
@@ -662,7 +681,7 @@ function getLong(callback)
 ```js
 controller.getLong(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getHeaders`
@@ -676,7 +695,7 @@ function getHeaders(callback)
 ```js
 controller.getHeaders(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getBooleanArray`
@@ -690,7 +709,7 @@ function getBooleanArray(callback)
 ```js
 controller.getBooleanArray(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getBoolean`
@@ -704,7 +723,7 @@ function getBoolean(callback)
 ```js
 controller.getBoolean(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getDatetimeArray`
@@ -718,7 +737,7 @@ function getDatetimeArray(callback)
 ```js
 controller.getDatetimeArray(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getDatetime`
@@ -732,7 +751,7 @@ function getDatetime(callback)
 ```js
 controller.getDatetime(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getDynamicArray`
@@ -746,7 +765,7 @@ function getDynamicArray(callback)
 ```js
 controller.getDynamicArray(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getDynamic`
@@ -760,7 +779,7 @@ function getDynamic(callback)
 ```js
 controller.getDynamic(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getIntegerArray`
@@ -776,7 +795,7 @@ function getIntegerArray(callback)
 ```js
 controller.getIntegerArray(function(error, response, context) {
 
-}
+});
 ```
 
 #### `getInteger`
@@ -792,7 +811,7 @@ function getInteger(callback)
 ```js
 controller.getInteger(function(error, response, context) {
 
-}
+});
 ```
 
 ### `TemplateParamsController`
@@ -813,9 +832,10 @@ function sendIntegerArray( integers, callback)
 
 ```js
 var integers = [1,2,3,4,5];
+
 controller.sendIntegerArray(integers, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendStringArray`
@@ -834,9 +854,10 @@ function sendStringArray( strings, callback)
 
 ```js
 var strings = ["abc", "def"];
+
 controller.sendStringArray(strings, function(error, response, context) {
 
-}
+});
 ```
 
 ### `EchoController`
@@ -852,9 +873,10 @@ function queryEcho( queryParameters, callback)
 ```js
 // key-value map for optional query parameters
 var queryParameters = [];
+
 controller.queryEcho(queryParameters, function(error, response, context) {
 
-}
+});
 ```
 
 #### `formEcho`
@@ -875,9 +897,10 @@ function formEcho( input, callback)
 
 ```js
 var input = {"uid": "1123213", "name": "Shahid"};
+
 controller.formEcho(input, function(error, response, context) {
 
-}
+});
 ```
 
 #### `jsonEcho`
@@ -898,9 +921,10 @@ function jsonEcho( input, callback)
 
 ```js
 var input = {"uid": "1123213", "name": "Shahid"};
+
 controller.jsonEcho(input, function(error, response, context) {
 
-}
+});
 ```
 
 ### `BodyParamsController`
@@ -921,9 +945,10 @@ function sendIntegerEnumArray( suites, callback)
 
 ```js
 var suites = [1, 3, 4, 2, 3];
+
 controller.sendIntegerEnumArray(suites, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendStringEnumArray`
@@ -942,9 +967,10 @@ function sendStringEnumArray( days, callback)
 
 ```js
 var days = ["Tuesday", "Saturday", "Wednesday", "Monday", "Sunday"];
+
 controller.sendStringEnumArray(days, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendString`
@@ -963,9 +989,10 @@ function sendString( value, callback)
 
 ```js
 var value = "TestString";
+
 controller.sendString(value, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendDynamic`
@@ -984,9 +1011,10 @@ function sendDynamic( dynamic, callback)
 
 ```js
 var dynamic = {"uid": "1123213", "name": "Shahid"};
+
 controller.sendDynamic(dynamic, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendModelArray`
@@ -1007,9 +1035,10 @@ function sendModelArray( models, callback)
 var models = [{"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}, {"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]}].map(function(elem) {
         return new Employee(elem);
     });
+
 controller.sendModelArray(models, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendModel`
@@ -1028,9 +1057,10 @@ function sendModel( model, callback)
 
 ```js
 var model = new Employee({"name":"Shahid Khaliq","age":5147483645,"address":"H # 531, S # 20","uid":"123321","salary":20000,"department":"Software Development","joiningDay":"Saturday","workingDays":["Monday","Tuesday","Friday"],"boss":{"name":"Zeeshan Ejaz","age":5147483647,"address":"I-9/1","uid":"241123"},"dependents":[{"name":"Future Wife","age":5147483649,"address":"H # 531, S # 20","uid":"123412"},{"name":"Future Kid","age":5147483648,"address":"H # 531, S # 20","uid":"312341"}]});
+
 controller.sendModel(model, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendIntegerArray`
@@ -1049,9 +1079,10 @@ function sendIntegerArray( integers, callback)
 
 ```js
 var integers = [1,2,3,4,5];
+
 controller.sendIntegerArray(integers, function(error, response, context) {
 
-}
+});
 ```
 
 #### `sendStringArray`
@@ -1072,9 +1103,10 @@ function sendStringArray( sarray, callback)
 
 ```js
 var sarray = ["abc", "def"];
+
 controller.sendStringArray(sarray, function(error, response, context) {
 
-}
+});
 ```
 
 ## Model Reference
