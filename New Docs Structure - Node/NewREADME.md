@@ -50,9 +50,9 @@ function multipleParams( number, precision, string, url, callback)
 
 ```js
 var number = 123412312;
-    var precision = 1112.34;
-    var string = "\"\"test./;\";12&&3asl\"\";\"qw1&34\"///..//.";
-    var url = "http://www.abc.com/test?a=b&c=\"http://lolol.com?param=no&another=lol\"";
+var precision = 1112.34;
+var string = "\"\"test./;\";12&&3asl\"\";\"qw1&34\"///..//.";
+var url = "http://www.abc.com/test?a=b&c=\"http://lolol.com?param=no&another=lol\"";
 controller.multipleParams(number, precision, string, url, function(error, response, context) {
 
 }
@@ -76,11 +76,11 @@ function simpleQuery( mboolean, number, string, queryParameters, callback)
 
 ```js
 var mboolean = true;
-    var number = 4;
-    var string = "TestString";
+var number = 4;
+var string = "TestString";
 
     // key-value map for optional query parameters
-    var queryParameters = [];
+var queryParameters = [];
 controller.simpleQuery(mboolean, number, string, queryParameters, function(error, response, context) {
 
 }
@@ -247,7 +247,7 @@ function sendHeaders( customHeader, value, callback)
 
 ```js
 var customHeader = "TestString";
-    var value = "TestString";
+var value = "TestString";
 controller.sendHeaders(customHeader, value, function(error, response, context) {
 
 }
@@ -260,7 +260,7 @@ controller.sendHeaders(customHeader, value, function(error, response, context) {
 Send a variety for form params. Returns file count and body params
 
 ```js
-function sendMixedArray( options, callback)
+function sendMixedArray( input, callback)
 ```
 
 ##### Parameters
@@ -304,7 +304,7 @@ function sendFile( file, callback)
 
 ```js
 TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png", function(data) {
-        var file = data;
+    var file = data;
     controller.sendFile(file, function(error, response, context) {
 
 }
@@ -851,7 +851,7 @@ function queryEcho( queryParameters, callback)
 
 ```js
 // key-value map for optional query parameters
-    var queryParameters = [];
+var queryParameters = [];
 controller.queryEcho(queryParameters, function(error, response, context) {
 
 }
