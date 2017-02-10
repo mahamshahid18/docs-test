@@ -295,7 +295,8 @@ TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png"
 
     controller.sendMixedArray(input, function(error, response, context) {
 
-    });}
+    });
+}
 ```
 
 #### `sendFile`
@@ -318,7 +319,8 @@ TestHelper.getFilePath("https://dl.dropboxusercontent.com/u/31838656/binary.png"
 
     controller.sendFile(file, function(error, response, context) {
 
-    });}
+    });
+}
 ```
 
 #### `sendModelArray`
