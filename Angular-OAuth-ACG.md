@@ -330,8 +330,8 @@ var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
 
 app.controller('oauthClientController', function($scope, $http, OAuthClient, Configuration, OAuthScopeEnum) {
     Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
-Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
-Configuration.oAuthRedirectUri = 'http://localhost:1800/callback'; // OAuth 2 Redirection endpoint or Callback Uri
+    Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
+    Configuration.oAuthRedirectUri = 'http://localhost:1800/callback'; // OAuth 2 Redirection endpoint or Callback Uri
 
     var scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
     var authUrl = OAuthClient.buildAuthorizationUrl(scopes);
@@ -530,7 +530,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 109;
+        var id = 250;
         var title = 'title';
         var body = 'body';
 
@@ -572,7 +572,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 109;
+        var id = 250;
 
 
 		var result = NoteController.deleteNote(id);
@@ -612,7 +612,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 109;
+        var id = 250;
 
 
 		var result = NoteController.getNote(id);
