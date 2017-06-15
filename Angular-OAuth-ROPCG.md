@@ -205,7 +205,7 @@ The access token is an object containing information for authorizing client requ
 ```JavaScript
 var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
 
-app.controller('oauthClientController', function($scope, OAuthClient, [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]) {
+app.controller('oauthClientController', function($scope, OAuthClient, OAuthScopeEnum) {
     var scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
     var promise = OAuthClient.authorize(scopes);
     promise.then(function(success) {
@@ -299,7 +299,7 @@ After authorization, endpoint calls can be made.
 ```JavaScript
 var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
 
-app.controller('oauthClientController', function($scope, OAuthClient, Configuration, [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]) {
+app.controller('oauthClientController', function($scope, OAuthClient, Configuration, OAuthScopeEnum) {
     Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
     Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
     Configuration.oAuthUsername = 'oAuthUsername'; // OAuth 2 Resource Owner Username
@@ -501,7 +501,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 104;
+        var id = 137;
         var title = 'title';
         var body = 'body';
 
@@ -543,7 +543,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 104;
+        var id = 137;
 
 
 		var result = NoteController.deleteNote(id);
@@ -583,7 +583,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 104;
+        var id = 137;
 
 
 		var result = NoteController.getNote(id);
