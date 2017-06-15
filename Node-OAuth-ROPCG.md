@@ -164,7 +164,7 @@ You can store the access token in a variable.
 
 ```JavaScript
 // store token
-const token = lib.Configuration.oAuthToken.accessToken.accessToken;
+const _token = lib.Configuration.oAuthToken.accessToken.accessToken;
 ```
 However, since the the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a **token update callback** to detect any change to the access token.
 
@@ -203,7 +203,7 @@ lib.Configuration.oAuthUsername = 'oAuthUsername'; // OAuth 2 Resource Owner Use
 lib.Configuration.oAuthPassword = 'oAuthPassword'; // OAuth 2 Resource Owner Password
 
 const isTokenSet = oAuthClient.checkTokenSet();
-if (!isTokenSet) {
+if (isTokenSet !== true) {
     // since token is not set, client needs to obtain
     // an access token first
     const scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
@@ -328,7 +328,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 98;
+    var id = 4;
     var title = 'title';
     var body = 'body';
 
@@ -360,7 +360,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 98;
+    var id = 4;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -390,7 +390,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 98;
+    var id = 4;
 
     controller.getNote(id, function(error, response, context) {
 
