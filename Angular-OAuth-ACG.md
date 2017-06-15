@@ -205,7 +205,7 @@ app.controller('oauthClientController', function($scope, OAuthClient, OAuthScope
 
     var scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
     var authUrl = OAuthClient.buildAuthorizationUrl(scopes);
-    $window.location(authUrl);
+    $window.open(authUrl, '_blank');
 });
 ```
 
@@ -268,7 +268,7 @@ app.controller('oauthClientController', function($scope, OAuthClient) {
     var refreshPromise = OAuthClient.checkTokenExpiry();
     promise.then(function(success) {
         // token refreshed if it had expired
-        // token already valid it had not expired
+        // token already valid if it had not expired
     });
 });
 ```
@@ -297,7 +297,7 @@ var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
 
 app.controller('oauthClientController', function($scope, $rootScope, OAuthClient, Configuration) {
     Configuration.oAuthTokenUpdateCallback = function() {
-        // use root scope, setting service or any other way to store the token
+        // use root scope, a service or any other way to store the token
         $rootScope.token = Configuration.oAuthToken.accessToken.accesstoken;
     }
 });
@@ -328,7 +328,7 @@ The controller exposes a function which is bound to a button (in the `index.html
 ```JavaScript
 var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
 
-app.controller('oauthClientController', function($scope, $http, OAuthClient, Configuration, [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]) {
+app.controller('oauthClientController', function($scope, $http, OAuthClient, Configuration, OAuthScopeEnum) {
     Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
 Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
 Configuration.oAuthRedirectUri = 'http://localhost:1800/callback'; // OAuth 2 Redirection endpoint or Callback Uri
@@ -349,6 +349,7 @@ Configuration.oAuthRedirectUri = 'http://localhost:1800/callback'; // OAuth 2 Re
         });
     }
 });
+```
 
 #### `index.html`
 ```html
@@ -529,7 +530,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 0;
+        var id = 109;
         var title = 'title';
         var body = 'body';
 
@@ -571,7 +572,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 0;
+        var id = 109;
 
 
 		var result = NoteController.deleteNote(id);
@@ -611,7 +612,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 0;
+        var id = 109;
 
 
 		var result = NoteController.getNote(id);
