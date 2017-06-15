@@ -190,7 +190,7 @@ However, since the the SDK will attempt to automatically refresh the token when 
 ```JavaScript
 Configuration.oAuthTokenUpdateCallback = function() {
     // use a global variable or any other way to store the token
-    _TOKEN = lib.Configuration.oAuthToken.accessToken.accesstoken;
+    _token = lib.Configuration.oAuthToken.accessToken.accesstoken;
 }
 ```
 
@@ -203,7 +203,7 @@ To authorize a client from a stored access token, just set the access token in `
 ```JavaScript
 // load token later...
 const lib = require('lib');
-lib.Configuration.oAuthToken = _TOKEN;
+lib.Configuration.oAuthToken = _token;
 ```
 ### Complete example
 
@@ -369,7 +369,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 144;
+    var id = 21;
     var title = 'title';
     var body = 'body';
 
@@ -401,7 +401,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 144;
+    var id = 21;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -431,7 +431,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 144;
+    var id = 21;
 
     controller.getNote(id, function(error, response, context) {
 
