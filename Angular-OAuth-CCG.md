@@ -214,7 +214,7 @@ The client can now make authorized endpoint calls.
 
 ### Scopes
 
-Scopes enable your application to only request access to the resources it needs while enabling users to control the amount of access they grant to your application. Available scopes are defined in the `lib/Models/OAuthScopeEnum` enumeration.
+Scopes enable your application to only request access to the resources it needs while enabling users to control the amount of access they grant to your application. Available scopes are defined in the `MarkdownNotesLib/Models/OAuthScopeEnum` enumeration.
 
 | Scope Name | Description |
 | --- | --- |
@@ -457,7 +457,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 50;
+        var id = 239;
         var title = 'title';
         var body = 'body';
 
@@ -499,7 +499,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 50;
+        var id = 239;
 
 
 		var result = NoteController.deleteNote(id);
@@ -539,7 +539,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 50;
+        var id = 239;
 
 
 		var result = NoteController.getNote(id);
