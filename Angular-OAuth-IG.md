@@ -249,6 +249,7 @@ app.controller('oauthClientController', function($scope, $rootScope, OAuthClient
     // store token
     $rootScope.token = Configuration.oAuthToken.accessToken.accessToken;
 });
+```
 
 ### Complete Example
 
@@ -467,7 +468,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 17;
+        var id = 41;
         var title = 'title';
         var body = 'body';
 
@@ -509,7 +510,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 17;
+        var id = 0;
 
 
 		var result = NoteController.deleteNote(id);
@@ -549,7 +550,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 17;
+        var id = 0;
 
 
 		var result = NoteController.getNote(id);
