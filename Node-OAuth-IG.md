@@ -100,7 +100,7 @@ lib.Configuration.oAuthRedirectUri = "oAuthRedirectUri"; // OAuth 2 Redirection 
 ```
 
 
-You must authorize now authorize the client.
+You must now authorize the client.
 
 ### Authorizing your client
 
@@ -117,7 +117,7 @@ The `buildAuthorizationUrl()` method creates the URL to the authorization page.
  You must pass the *[scopes](#scopes)* for which you need permission to access.
 ```JavaScript
 const oAuthClient = lib.OAuthClient;
-const authUrl = oAuthClient.buildAuthorizationUrl([[OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]]);
+const authUrl = oAuthClient.buildAuthorizationUrl([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]);
 // open up the authUrl in the browser
 ```
 
@@ -252,7 +252,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 67;
+    var id = 5;
     var title = 'title';
     var body = 'body';
 
@@ -284,7 +284,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 67;
+    var id = 5;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -314,7 +314,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 67;
+    var id = 5;
 
     controller.getNote(id, function(error, response, context) {
 
