@@ -105,6 +105,7 @@ You must now authorize the client.
 
 ### Authorizing your client
 
+
 Your application must obtain user authorization before it can execute an endpoint call. The SDK uses OAuth 2.0 authorization to obtain a user's consent to perform an API request on user's behalf.
 
 #### 1. Obtaining user consent
@@ -113,7 +114,7 @@ To obtain user's consent, you must redirect the user to the authorization page. 
 the **[scopes](#scopes)** for which you need permission to access.
 ```JavaScript
 const oAuthClient = lib.OAuthClient;
-const authUrl = oAuthClient.buildAuthorizationUrl([READ_NOTE]);
+const authUrl = oAuthClient.buildAuthorizationUrl([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]);
 // open up the authUrl in the browser
 ```
 
@@ -138,9 +139,10 @@ https://example.com/oauth/callback?error=access_denied
 After the server receives the code, it can exchange this for an *access token*. The access token is an object containing information for authorizing the client and refreshing the token itself.
 
 ```JavaScript
-const token = oAuthClient.authorize(code, additionalParams, callback);
+const tokenPromise = oAuthClient.authorize(code, additionalParams, callback);
 ```
 The Node.js SDK supports both callbacks and promises. So, the authorize call returns a promise and also returns response back in the callback (if one is provided)
+
 
 
 ### Scopes
@@ -172,6 +174,7 @@ tokenExpiryPromise.then(() => {}, () => {
 
 If a token expires, the SDK will attempt to automatically refresh the token before the next endpoint call which requires authentication.
 
+
 ### Storing an access token for reuse
 
 It is recommended that you store the access token for reuse.
@@ -180,15 +183,14 @@ You can store the access token in a variable.
 
 ```JavaScript
 // store token
-const token = lib.Configuration.OAuthToken.accessToken.accessToken;
+const token = lib.//Configuration.$oAuthToken.accessToken.accessToken;
 ```
-
 However, since the the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a **token update callback** to detect any change to the access token.
 
 ```JavaScript
 Configuration.oAuthTokenUpdateCallback = function() {
     // use a global variable or any other way to store the token
-    _TOKEN = lib.Configuration.OAuthToken.accessToken.accesstoken;
+    _TOKEN = lib.//Configuration.$oAuthToken.accessToken.accesstoken;
 }
 ```
 
@@ -201,9 +203,8 @@ To authorize a client from a stored access token, just set the access token in `
 ```JavaScript
 // load token later...
 const lib = require('lib');
-lib.Configuration.OAuthToken = _TOKEN;
+lib.//Configuration.$oAuthToken = _TOKEN;
 ```
-
 ### Complete example
 
 In this example, the `app.js` will first check if an access token is available for the user. If so, endpoint calls can be made as required. However, if the access token is not available, the client will have to be authorized first. For this purpose, the `server.js` file is used.  
@@ -227,7 +228,7 @@ if (isTokenSet) {
     // since token is not set, client needs to obtain
     // an access token first
     const scopes = [];
-    scopes.push(READ_NOTE);
+    scopes.push([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]);
     const authUrl = oAuthClient.buildAuthorizationUrl(scopes);
     // open up the authUrl in the browser
 }
@@ -368,7 +369,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 98;
+    var id = 206;
     var title = 'title';
     var body = 'body';
 
@@ -400,7 +401,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 98;
+    var id = 206;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -430,7 +431,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 98;
+    var id = 206;
 
     controller.getNote(id, function(error, response, context) {
 
