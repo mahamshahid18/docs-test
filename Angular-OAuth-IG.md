@@ -81,31 +81,31 @@ Import the reference to the generated SDK files inside your html file like:
 <head>
     ...
     <!-- Helper files -->
-    <script src="scripts/markdownnoteslib/Module.js"></script>
-    <script src="scripts/markdownnoteslib/Configuration.js"></script>
-    <script src="scripts/markdownnoteslib/ModelFactory.js"></script>
-    <script src="scripts/markdownnoteslib/ObjectMapper.js"></script>
-    <script src="scripts/markdownnoteslib/APIHelper.js"></script>
-    <script src="scripts/markdownnoteslib/Http/Client/HttpContext.js"></script>
-    <script src="scripts/markdownnoteslib/Http/Client/RequestClient.js"></script>
-    <script src="scripts/markdownnoteslib/Http/Request/HttpRequest.js"></script>
-    <script src="scripts/markdownnoteslib/Http/Response/HttpResponse.js"></script>
+    <script src="scripts/MarkdownNotesLib/Module.js"></script>
+    <script src="scripts/MarkdownNotesLib/Configuration.js"></script>
+    <script src="scripts/MarkdownNotesLib/ModelFactory.js"></script>
+    <script src="scripts/MarkdownNotesLib/ObjectMapper.js"></script>
+    <script src="scripts/MarkdownNotesLib/APIHelper.js"></script>
+    <script src="scripts/MarkdownNotesLib/Http/Client/HttpContext.js"></script>
+    <script src="scripts/MarkdownNotesLib/Http/Client/RequestClient.js"></script>
+    <script src="scripts/MarkdownNotesLib/Http/Request/HttpRequest.js"></script>
+    <script src="scripts/MarkdownNotesLib/Http/Response/HttpResponse.js"></script>
 
     <!-- API Controllers -->
-    <script src="scripts/markdownnoteslib/Controllers/BaseController.js"></script>
-    <script src="scripts/markdownnoteslib/Controllers/UserController.js"></script>
-    <script src="scripts/markdownnoteslib/Controllers/ServiceController.js"></script>
-    <script src="scripts/markdownnoteslib/Controllers/NoteController.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/BaseController.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/UserController.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/ServiceController.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/NoteController.js"></script>
 
 
     <!-- Models -->
-    <script src="scripts/markdownnoteslib/Models/BaseModel.js"></script>
-    <script src="scripts/markdownnoteslib/Models/Note.js"></script>
-    <script src="scripts/markdownnoteslib/Models/User.js"></script>
-    <script src="scripts/markdownnoteslib/Models/ServiceStatus.js"></script>
-    <script src="scripts/markdownnoteslib/Models/OAuthScopeEnum.js"></script>
-    <script src="scripts/markdownnoteslib/Models/OAuthToken.js"></script>
-    <script src="scripts/markdownnoteslib/Models/OAuthProviderErrorEnum.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/BaseModel.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/Note.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/User.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/ServiceStatus.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/OAuthScopeEnum.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/OAuthToken.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/OAuthProviderErrorEnum.js"></script>
 
     ...
 </head>
@@ -504,7 +504,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 77;
+        var id = 8;
         var title = 'title';
         var body = 'body';
 
@@ -546,7 +546,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 77;
+        var id = 8;
 
 
 		var result = NoteController.deleteNote(id);
@@ -586,7 +586,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 77;
+        var id = 8;
 
 
 		var result = NoteController.getNote(id);
