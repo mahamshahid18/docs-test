@@ -91,23 +91,23 @@ Import the reference to the generated SDK files inside your html file like:
 	<script src="scripts/markdownnoteslib/Http/Request/HttpRequest.js"></script>
 	<script src="scripts/markdownnoteslib/Http/Response/HttpResponse.js"></script>
 
-		<!-- API Controllers -->
-        <script src="scripts/markdownnoteslib/Controllers/BaseController.js"></script>
-        <script src="scripts/markdownnoteslib/Controllers/UserController.js"></script>
-        <script src="scripts/markdownnoteslib/Controllers/ServiceController.js"></script>
-        <script src="scripts/markdownnoteslib/Controllers/NoteController.js"></script>
+	<!-- API Controllers -->
+    <script src="scripts/markdownnoteslib/Controllers/BaseController.js"></script>
+    <script src="scripts/markdownnoteslib/Controllers/UserController.js"></script>
+    <script src="scripts/markdownnoteslib/Controllers/ServiceController.js"></script>
+    <script src="scripts/markdownnoteslib/Controllers/NoteController.js"></script>
 
 
-		<!-- Models -->
-        <script src="scripts/markdownnoteslib/Models/BaseModel.js"></script>
-        <script src="scripts/markdownnoteslib/Models/Note.js"></script>
-        <script src="scripts/markdownnoteslib/Models/User.js"></script>
-        <script src="scripts/markdownnoteslib/Models/ServiceStatus.js"></script>
-        <script src="scripts/markdownnoteslib/Models/OAuthScopeEnum.js"></script>
-        <script src="scripts/markdownnoteslib/Models/OAuthToken.js"></script>
-        <script src="scripts/markdownnoteslib/Models/OAuthProviderErrorEnum.js"></script>
+	<!-- Models -->
+    <script src="scripts/markdownnoteslib/Models/BaseModel.js"></script>
+    <script src="scripts/markdownnoteslib/Models/Note.js"></script>
+    <script src="scripts/markdownnoteslib/Models/User.js"></script>
+    <script src="scripts/markdownnoteslib/Models/ServiceStatus.js"></script>
+    <script src="scripts/markdownnoteslib/Models/OAuthScopeEnum.js"></script>
+    <script src="scripts/markdownnoteslib/Models/OAuthToken.js"></script>
+    <script src="scripts/markdownnoteslib/Models/OAuthProviderErrorEnum.js"></script>
 
-		...
+	...
 </head>
 ```
 > The `Module.js` file should be imported before the other files. After `Module.js`, `Configuration.js` should be imported.
@@ -505,7 +505,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 248;
+        var id = 156;
         var title = 'title';
         var body = 'body';
 
@@ -547,7 +547,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 248;
+        var id = 156;
 
 
 		var result = NoteController.deleteNote(id);
@@ -587,7 +587,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 248;
+        var id = 156;
 
 
 		var result = NoteController.getNote(id);
