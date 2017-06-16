@@ -505,7 +505,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 156;
+        var id = 114;
         var title = 'title';
         var body = 'body';
 
@@ -547,7 +547,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 156;
+        var id = 114;
 
 
 		var result = NoteController.deleteNote(id);
@@ -587,7 +587,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 156;
+        var id = 114;
 
 
 		var result = NoteController.getNote(id);
