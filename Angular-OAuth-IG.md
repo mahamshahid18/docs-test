@@ -33,11 +33,11 @@ If you already have an angular application, [skip to Step 6](#6-include-sdk-refe
 + In the IDE, click on `File` and choose `New File` to create a new file.
 + Add the following starting code in the file:
 ```js
-    var app = angular.module('myApp', []);
-    app.controller('testController', function($scope) 
-    {
+var app = angular.module('myApp', []);
+app.controller('testController', function($scope) 
+{
 
-    });
+});
 ```
 + Save it with the name `app.js` in the `scripts` folder.
 
@@ -48,17 +48,17 @@ Skip to the next step if you are working with an existing project and already ha
 + Save it with an appropriate name such as `index.html` in the root of your project folder.
 `index.html` should look like this:
 ```html
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<title>Angular Project</title>
-		<script></script>
-	</head>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Project</title>
+	<script></script>
+</head>
 
-	<body>
-	</body>
+<body>
+</body>
 
-	</html>
+</html>
 ```
 
 ![initial-html-code-image](https://apidocs.io/illustration/angularjs?step=initialCode&workspaceFolder=Markdown%20Notes-Angular)
@@ -66,30 +66,30 @@ Skip to the next step if you are working with an existing project and already ha
 ### 5. Including links to Angular in HTML file
 Your HTML file needs to have a link to `angular.min.js` file to use Angular-JS. Add the link using `script` tags inside the `head` section of `index.html` like:
 ```html
-	<script src="scripts/angular.min.js" ></script>
+<script src="scripts/angular.min.js" ></script>
 ```
 If any of the Custom Types that you have defined have `Date`/`Datetime` type fields or any endpoint has `Date`/`Datetime` response, you will also need to link to angular-moment and moment.js like:
 ```html
-	<script src="scripts/angular.min.js" ></script>
-	<script src="scripts/moment.min.js" ></script>
-	<script src="scripts/angular-moment.min.js" ></script>
+<script src="scripts/angular.min.js" ></script>
+<script src="scripts/moment.min.js" ></script>
+<script src="scripts/angular-moment.min.js" ></script>
 ```
 
 ### 6. Include SDK references in HTML file
 Import the reference to the generated SDK files inside your html file like:
 ```html
-	<head>
-		...
-		<!-- Helper files -->
-		<script src="scripts/markdownnoteslib/Module.js"></script>
-		<script src="scripts/markdownnoteslib/Configuration.js"></script>
-		<script src="scripts/markdownnoteslib/ModelFactory.js"></script>
-		<script src="scripts/markdownnoteslib/ObjectMapper.js"></script>
-		<script src="scripts/markdownnoteslib/APIHelper.js"></script>
-		<script src="scripts/markdownnoteslib/Http/Client/HttpContext.js"></script>
-		<script src="scripts/markdownnoteslib/Http/Client/RequestClient.js"></script>
-		<script src="scripts/markdownnoteslib/Http/Request/HttpRequest.js"></script>
-		<script src="scripts/markdownnoteslib/Http/Response/HttpResponse.js"></script>
+<head>
+	...
+	<!-- Helper files -->
+	<script src="scripts/markdownnoteslib/Module.js"></script>
+	<script src="scripts/markdownnoteslib/Configuration.js"></script>
+	<script src="scripts/markdownnoteslib/ModelFactory.js"></script>
+	<script src="scripts/markdownnoteslib/ObjectMapper.js"></script>
+	<script src="scripts/markdownnoteslib/APIHelper.js"></script>
+	<script src="scripts/markdownnoteslib/Http/Client/HttpContext.js"></script>
+	<script src="scripts/markdownnoteslib/Http/Client/RequestClient.js"></script>
+	<script src="scripts/markdownnoteslib/Http/Request/HttpRequest.js"></script>
+	<script src="scripts/markdownnoteslib/Http/Response/HttpResponse.js"></script>
 
 		<!-- API Controllers -->
         <script src="scripts/markdownnoteslib/Controllers/BaseController.js"></script>
@@ -108,7 +108,7 @@ Import the reference to the generated SDK files inside your html file like:
         <script src="scripts/markdownnoteslib/Models/OAuthProviderErrorEnum.js"></script>
 
 		...
-	</head>
+</head>
 ```
 > The `Module.js` file should be imported before the other files. After `Module.js`, `Configuration.js` should be imported.
 > The `ModelFactory.js` file is needed by `ObjectMapper.js` file. The `ObjectMapper` in turn, is needed by `BaseController.js`.
@@ -116,10 +116,10 @@ Import the reference to the generated SDK files inside your html file like:
 ### 7. Including link to `app.js` in HTML file
 Link your `app.js` file to your `index.html` file like:
 ```html
-	<head>
-		...
-		<script src="scripts/app.js"></script>
-	</head>
+<head>
+	...
+	<script src="scripts/app.js"></script>
+</head>
 ```
 > The link to app.js needs to be included at the very end of the head tag, after the SDK references have been added
 
@@ -127,18 +127,18 @@ Link your `app.js` file to your `index.html` file like:
 You need to initialize your app and the controller associated with your view inside your `index.html` file. Do so like:
 + Add ng-app directive to initialize your app inside the `body` tag.
 ```html
-	<body ng-app="myApp">
+<body ng-app="myApp">
 ```
 + Add ng-controller directive to initialize your controller and bind it with your view (`index.html` file).
 ```html
-	...
-	<body ng-app="myApp">
-		<div ng-controller="testController">
-			...
-		</div>
+...
+<body ng-app="myApp">
+	<div ng-controller="testController">
 		...
-	</body>
+	</div>
 	...
+</body>
+...
 ```
 
 ### 9. Consuming the SDK 
@@ -146,7 +146,7 @@ In order to use the generated SDK's modules, controllers and factories, the proj
 Add the dependency like this:
 
 ```js
-    var app = angular.module('myApp', ['MarkdownNotesLib']);
+var app = angular.module('myApp', ['MarkdownNotesLib']);
 ```
 At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the generated SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
 
@@ -189,43 +189,39 @@ You must now authorize the client.
 
 ### Authorizing your client
 
-Your application must obtain user authorization before it can execute an endpoint call.
-The SDK uses *OAuth 2.0 Implicit Grant* to obtain a user's consent to perform an API request on user's behalf.
+Your application must obtain user authorization before it can execute an endpoint call. The SDK uses OAuth 2.0 Implicit Grant to obtain a user's consent to perform an API request on user's behalf.
+The entire flow of building the authorization URL, obtaining consent from the user and storing the access token is handled by the SDK itself.
 
-This process requires the presence of a client-side JavaScript code on the redirect URI page to 
-receive the *access token* after the consent step is completed.
-The script for receiving the access token is generated with the SDK. However, it has to be linked with a
-html file which is served at the registered redirect_uri.
+The steps involved in obtaining an access token are as follows:
 
-#### 1. Obtain consent
++ Build the authorization URL.
++ Navigate to the authorization URL to obtain user's consent to perform API requests.
++ If the user authorized the application, the user-agent will redirect to the application's registered redirect_uri with an access token embedded in the uri.
++ The application must present a JavaScript script at the redirect_uri that parses the uri and obtains the access token.
++ The access token can then be stored in the application for further use.
 
-To obtain user's consent, you must redirect the user to the authorization page.
-The `buildAuthorizationUrl()` method creates the URL to the authorization page.
- You must pass the *[scopes](#scopes)* for which you need permission to access.
-```JavaScript
-var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
+These are the steps that this SDK performs to fetch the access token.  
+The `buildAuthorizationUrl()` function constructs the authorization URL for obtaining user's consent. The `getToken()` function opens up the authorization url in a new tab (or a popup if the `popup` bool is true).  
+It also waits for an event passed from the window/popup which was opened. That event basically contains the parsed access token. So, the `getToken()` function passes this access token to its calling function.  
+`retrieveAndSetAccessToken()` calls the `getToken()` method. This is the function that you will call in order to obtain and set the access token in the `Configuration`.  You must pass
+the **[scopes](#scopes)** (for which you need permission to access) in this function.
+Once the user responds to the consent request, the OAuth 2.0 server responds to your application's access request by redirecting the user to the redirect URI specified set in Configuration.
 
-app.controller('oauthClientController', function($scope, OAuthClient, OAuthScopeEnum) {
-
-    var scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
-    var authUrl = OAuthClient.buildAuthorizationUrl(scopes);
-});
-```
-
-The SDK manages building the authorization URL, opening the consent screen, parsing the access token from the response and storing it in the Configuration.
-You don't need to call the `buildAuthorizationUrl()` or open it in a new window. Skip to the complete example to see how you can use this feature.
-
-#### 2. Handle the OAuth server response
-
-Once the user responds to the consent request, the OAuth 2.0 server responds to your application's access request by redirecting the user to the redirect URI specified set in `Configuration`.
-
-The redirect URI will receive the *access token* as the `token` argument in the URL fragment.
+The redirect URI will receive the access token as the token argument in the URL fragment. This is how it will look
 
 ```
 https://example.com/oauth/callback#token=XXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 The access token must be extracted by the client-side JavaScript code. The access token can be used to authorize any further endpoint calls by the JavaScript code.
+
+`OAuthCallbackScript.js` file is also generated with the SDK. This is the script which retrieves the access token and passes it as an event data to the window which actually opened up the consent screen (authorization url).
+You will have to link it with an `html` file which will be served at the redirect_uri which your application has been registered with.
+
+
+
+
+
 
 ### Scopes
 
@@ -253,7 +249,8 @@ app.controller('oauthClientController', function($scope, $rootScope, OAuthClient
 
 ### Complete Example
 
-Firstly, move the `OAuthCallbackScript.js` in the scripts folder. Link it to the html file which is served at the registered redirect_uri for the application.
+In order to set up the client side script which extracts the access token from the uri, perform the following steps:
+Link the `OAuthCallbackScript.js` to the html file which is served at the registered redirect_uri for the application.
 For example, if the redirect_uri is `http://localhost/callback.html`, create the `callback.html` in the root of the project folder. And add the following content:
 
 #### `callback.html`
@@ -274,6 +271,46 @@ For example, if the redirect_uri is `http://localhost/callback.html`, create the
 
 </html>
 ```
+
+This will ensure that the access token which will be received at `http://localhost/callback.html` will be retrieved by the `OAuthCallbackScript.js`.
+
+#### `OAuthCallbackScript.js`
+
+```JavaScript
+(function () {
+    function parseKeyValue(keyValue) {
+        // parse the url
+        var obj = {};
+        var key_value;
+        var key;
+
+        keyValue = (keyValue || '').split('&');
+
+        keyValue.forEach(function (kv) {
+            if (kv) {
+                key_value = kv.split('=');
+                key = decodeURIComponent(key_value[0]);
+                obj[key] = (key_value[1]) ? decodeURIComponent(key_value[1]) : true;
+            }
+        });
+        return obj;
+    }
+
+    function returnParams() {
+        var queryString = window.location.hash.substring(1);
+        var params = parseKeyValue(queryString);
+
+        // send back parsed data to calling window
+        window.opener.postMessage(params, '*');
+        window.close();
+    }
+
+    returnParams();
+
+})();
+```
+
+After setting up as above, here's how the Implicit Grant flow can be executed.
 
 #### `app.js`
 
@@ -468,7 +505,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 41;
+        var id = 248;
         var title = 'title';
         var body = 'body';
 
@@ -510,7 +547,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 0;
+        var id = 248;
 
 
 		var result = NoteController.deleteNote(id);
@@ -550,7 +587,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 0;
+        var id = 248;
 
 
 		var result = NoteController.getNote(id);
