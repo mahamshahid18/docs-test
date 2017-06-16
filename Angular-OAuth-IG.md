@@ -13,7 +13,7 @@ The following section describes how to use the generated SDK in an existing/new 
 Perform the following steps to configure angular and the SDK:
 + Make a `scripts` folder inside the root folder of the project. If you already have a `scripts` folder, skip to the next step.
 + Move the `angular.min.js` file inside the scripts folder. 
-+ Move the `markdownnoteslib` folder inside the scripts folder.
++ Move the `MarkdownNotesLib` folder inside the scripts folder.
 + If any of the Custom Types in your API have `Date`/`Datetime` type fields or any endpoint has `Date`/`Datetime` response, you will need to download angular-moment and moment.js. Move these 2 files into the `scripts` folder as well.
 
 ![folder-structure-image](https://apidocs.io/illustration/angularjs?step=folderStructure&workspaceFolder=Markdown%20Notes-Angular&projectName=MarkdownNotesLib)
@@ -504,7 +504,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 8;
+        var id = 185;
         var title = 'title';
         var body = 'body';
 
@@ -546,7 +546,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 8;
+        var id = 185;
 
 
 		var result = NoteController.deleteNote(id);
@@ -586,7 +586,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 8;
+        var id = 185;
 
 
 		var result = NoteController.getNote(id);
