@@ -79,26 +79,26 @@ If any of the Custom Types that you have defined have `Date`/`Datetime` type fie
 Import the reference to the generated SDK files inside your html file like:
 ```html
 <head>
-	...
-	<!-- Helper files -->
-	<script src="scripts/markdownnoteslib/Module.js"></script>
-	<script src="scripts/markdownnoteslib/Configuration.js"></script>
-	<script src="scripts/markdownnoteslib/ModelFactory.js"></script>
-	<script src="scripts/markdownnoteslib/ObjectMapper.js"></script>
-	<script src="scripts/markdownnoteslib/APIHelper.js"></script>
-	<script src="scripts/markdownnoteslib/Http/Client/HttpContext.js"></script>
-	<script src="scripts/markdownnoteslib/Http/Client/RequestClient.js"></script>
-	<script src="scripts/markdownnoteslib/Http/Request/HttpRequest.js"></script>
-	<script src="scripts/markdownnoteslib/Http/Response/HttpResponse.js"></script>
+    ...
+    <!-- Helper files -->
+    <script src="scripts/markdownnoteslib/Module.js"></script>
+    <script src="scripts/markdownnoteslib/Configuration.js"></script>
+    <script src="scripts/markdownnoteslib/ModelFactory.js"></script>
+    <script src="scripts/markdownnoteslib/ObjectMapper.js"></script>
+    <script src="scripts/markdownnoteslib/APIHelper.js"></script>
+    <script src="scripts/markdownnoteslib/Http/Client/HttpContext.js"></script>
+    <script src="scripts/markdownnoteslib/Http/Client/RequestClient.js"></script>
+    <script src="scripts/markdownnoteslib/Http/Request/HttpRequest.js"></script>
+    <script src="scripts/markdownnoteslib/Http/Response/HttpResponse.js"></script>
 
-	<!-- API Controllers -->
+    <!-- API Controllers -->
     <script src="scripts/markdownnoteslib/Controllers/BaseController.js"></script>
     <script src="scripts/markdownnoteslib/Controllers/UserController.js"></script>
     <script src="scripts/markdownnoteslib/Controllers/ServiceController.js"></script>
     <script src="scripts/markdownnoteslib/Controllers/NoteController.js"></script>
 
 
-	<!-- Models -->
+    <!-- Models -->
     <script src="scripts/markdownnoteslib/Models/BaseModel.js"></script>
     <script src="scripts/markdownnoteslib/Models/Note.js"></script>
     <script src="scripts/markdownnoteslib/Models/User.js"></script>
@@ -107,7 +107,7 @@ Import the reference to the generated SDK files inside your html file like:
     <script src="scripts/markdownnoteslib/Models/OAuthToken.js"></script>
     <script src="scripts/markdownnoteslib/Models/OAuthProviderErrorEnum.js"></script>
 
-	...
+    ...
 </head>
 ```
 > The `Module.js` file should be imported before the other files. After `Module.js`, `Configuration.js` should be imported.
@@ -200,11 +200,12 @@ The steps involved in obtaining an access token are as follows:
 + The application must present a JavaScript script at the redirect_uri that parses the uri and obtains the access token.
 + The access token can then be stored in the application for further use.
 
-These are the steps that this SDK performs to fetch the access token.  
-The `buildAuthorizationUrl()` function constructs the authorization URL for obtaining user's consent. The `getToken()` function opens up the authorization url in a new tab (or a popup if the `popup` bool is true).  
-It also waits for an event passed from the window/popup which was opened. That event basically contains the parsed access token. So, the `getToken()` function passes this access token to its calling function.  
-`retrieveAndSetAccessToken()` calls the `getToken()` method. This is the function that you will call in order to obtain and set the access token in the `Configuration`.  You must pass
-the **[scopes](#scopes)** (for which you need permission to access) in this function.
+These are the steps that this SDK performs to fetch the access token
++ The `buildAuthorizationUrl()` function constructs the authorization URL for obtaining user's consent.
++ The `getToken()` function opens up the authorization url in a new tab (or a popup if the `popup` bool is true). It also waits for an event passed from the window/popup which was opened. That event basically contains the parsed access token. So, the `getToken()` function passes this access token to its calling function.
++ `retrieveAndSetAccessToken()` calls the `getToken()` method. This is the function that you will call in order to obtain and set the access token in the `Configuration`.  You must pass the **[scopes](#scopes)** (for which you need permission to access) in this function.
+### Consent screen and access token retrieval
+
 Once the user responds to the consent request, the OAuth 2.0 server responds to your application's access request by redirecting the user to the redirect URI specified set in Configuration.
 
 The redirect URI will receive the access token as the token argument in the URL fragment. This is how it will look
@@ -217,8 +218,6 @@ The access token must be extracted by the client-side JavaScript code. The acces
 
 `OAuthCallbackScript.js` file is also generated with the SDK. This is the script which retrieves the access token and passes it as an event data to the window which actually opened up the consent screen (authorization url).
 You will have to link it with an `html` file which will be served at the redirect_uri which your application has been registered with.
-
-
 
 
 
@@ -505,7 +504,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 114;
+        var id = 77;
         var title = 'title';
         var body = 'body';
 
@@ -547,7 +546,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 114;
+        var id = 77;
 
 
 		var result = NoteController.deleteNote(id);
@@ -587,7 +586,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 114;
+        var id = 77;
 
 
 		var result = NoteController.getNote(id);
