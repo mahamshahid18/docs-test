@@ -1,4 +1,4 @@
-# 
+# Getting started
 
 ## How to Build
 
@@ -117,7 +117,7 @@ The access token is an object containing information for authorizing client requ
  You must pass the *[scopes](#scopes)* for which you need permission to access.
 
 ```JavaScript
-const tokenPromise = oAuthClient.authorize([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE], additionalParams, callback);
+const tokenPromise = oAuthManager.authorize([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]);
 ```
 The Node.js SDK supports both callbacks and promises. So, the authorize call returns a promise and also returns response back in the callback (if one is provided)
 
@@ -140,16 +140,11 @@ Scopes enable your application to only request access to the resources it needs 
 Access tokens may expire after sometime. To extend its lifetime, you must refresh the token.
 
 ```JavaScript
-const tokenExpiryPromise = oAuthClient.checkTokenExpiry();
-// if token has expired, a rejected promise will be returned
-tokenExpiryPromise.then(() => {}, () => {
-    // token has expired
-    const refreshPromise = oAuthClient.refreshToken();
-    refreshPromise.then(() => {
-        // token has been refreshed
-    } , () => {
-        // error occurred, handle exception
-    });
+const refreshPromise = oAuthManager.refreshToken();
+refreshPromise.then(() => {
+    // token has been refreshed
+} , (exception) => {
+    // error occurred, exception will be of type lib/Exceptions/OAuthProviderException
 });
 ```
 
@@ -160,18 +155,29 @@ If a token expires, the SDK will attempt to automatically refresh the token befo
 
 It is recommended that you store the access token for reuse.
 
-You can store the access token in a variable.
 
+This code snippet stores the access token in a session for an express application. It uses the [node-persist](https://www.npmjs.com/package/node-persist) npm package for storing the access token.
 ```JavaScript
+var session = require('node-persist');
+...
 // store token
-const _token = lib.Configuration.oAuthToken.accessToken.accessToken;
+session.init(/* options */)
+.then(function() {
+    // storage initialized
+    session.setItem('token', lib.Configuration.oAuthToken)
+    .then(function() {
+        // token successfully stored
+    });
+});
 ```
 However, since the the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a **token update callback** to detect any change to the access token.
 
 ```JavaScript
 Configuration.oAuthTokenUpdateCallback = function() {
-    // use a global variable or any other way to store the token
-    _token = lib.Configuration.oAuthToken.accessToken.accesstoken;
+    session.setItem('token', lib.Configuration.oAuthToken)
+    .then(function(success) {
+        // token stored
+    });
 }
 ```
 
@@ -184,38 +190,66 @@ To authorize a client from a stored access token, just set the access token in `
 ```JavaScript
 // load token later...
 const lib = require('lib');
-lib.Configuration.oAuthToken = _token;
+lib.Configuration.oAuthToken = 'access_token'; // the access token
 ```
 
 ### Complete example
 In this example, `app.js` will check if the access token has been obtained. If it hasn't been, the client needs to be authorized first.
 After authorization, endpoint calls can be made.
 
-
 #### `app.js`
 
 ```JavaScript
+const express = require('express');
+const session = require('node-persist');
+session.init();
+
+const app = express();
+const PORT = 1800;
+
 const lib = require('lib');
-const oAuthClient = lib.OAuthClient;
+const oAuthManager = lib.OAuthManager;
 lib.Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
 lib.Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
 lib.Configuration.oAuthUsername = 'oAuthUsername'; // OAuth 2 Resource Owner Username
 lib.Configuration.oAuthPassword = 'oAuthPassword'; // OAuth 2 Resource Owner Password
 
-const isTokenSet = oAuthClient.checkTokenSet();
-if (isTokenSet !== true) {
-    // since token is not set, client needs to obtain
-    // an access token first
-    const scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
-    const promise = oAuthClient.authorize(scopes);
-    promise.then((success) => {
-        // the client is now authorized and access token has been set
-        // make endpoint calls as required
-        // client will automatically refresh the token when it expires and
-        // call the token update callback
+lib.Configuration.oAuthTokenUpdateCallback = function() {
+    session.setItem('token', lib.Configuration.oAuthToken);
+    .then(function(success) {
+        console.log('token stored in session');
     });
-}
+};
+
+app.listen(PORT, () => {
+    console.log('Listening on port ' + PORT);
+});
+
+app.get('/', (req, res) => {
+    session.getItem('token')
+    .then((value) => {
+        lib.Configuration.oAuthToken = value;
+        // now make endpoint calls as required
+        // client will automatically refresh the token when it expires and call the token update callback
+    }, (err) => {
+        const scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
+        const promise = oAuthManager.authorize(scopes);
+        promise.then((success) => {
+            session.setItem('token', lib.Configuration.oAuthToken)
+            .then(() => {
+                console.log('client authorized, token set in session');
+                // make endpoint calls as required
+                // client will automatically refresh the token when it expires and
+                // call the token update callback
+            });
+        }, (exception) => {
+            // error occurred, exception will be of type lib/Exceptions/OAuthProviderException
+        });
+    });
+});
+
 ```
+
 
 
 
@@ -328,7 +362,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 4;
+    var id = 6;
     var title = 'title';
     var body = 'body';
 
@@ -360,7 +394,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 4;
+    var id = 6;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -390,7 +424,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 4;
+    var id = 6;
 
     controller.getNote(id, function(error, response, context) {
 
