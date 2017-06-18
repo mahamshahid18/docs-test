@@ -163,7 +163,7 @@ const refreshPromise = oAuthManager.refreshToken();
 refreshPromise.then(() => {
     // token has been refreshed
 } , (exception) => {
-    // error occurred, exception will be of type //Exceptions//OAuthProviderException
+    // error occurred, exception will be of type lib/Exceptions/OAuthProviderException
 });
 ```
 
@@ -222,8 +222,11 @@ This example demonstrates an express application (which uses [node-persist](http
 ```JavaScript
 const express = require('express');
 const session = require('node-persist');
+session.init();
+
 const app = express();
 const PORT = 1800;
+
 const lib = require('lib');
 const oAuthManager = lib.OAuthManager;
 lib.Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
@@ -265,7 +268,7 @@ app.get('/callback', (req, res) => {
             res.redirect('/');
         });
     }, (exception) => {
-        // error occurred, exception will be of type //Exceptions//OAuthProviderException
+        // error occurred, exception will be of type lib/Exceptions/OAuthProviderException
     });
 });
 
@@ -383,7 +386,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 63;
+    var id = 183;
     var title = 'title';
     var body = 'body';
 
@@ -415,7 +418,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 63;
+    var id = 183;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -445,7 +448,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 63;
+    var id = 183;
 
     controller.getNote(id, function(error, response, context) {
 
