@@ -161,7 +161,7 @@ lib.Configuration.oAuthToken = 'access_token'; // the access token
 
 ### Complete example
 In this example, `app.js` will check if the access token has been set in the session. If it has been, endpoint calls can be made. Otherwise, client has to be authorized first.  
-The example demonstrated an express app which uses [node-persist](https://www.npmjs.com/package/node-persist) npm package to handle data persistence.
+The example demonstrates an express app which uses [node-persist](https://www.npmjs.com/package/node-persist) npm package to handle data persistence.
 
 #### `app.js`
 
