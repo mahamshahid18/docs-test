@@ -1,4 +1,4 @@
-# 
+# Getting started
 
 ## How to Build
 
@@ -113,8 +113,8 @@ Your application must obtain user authorization before it can execute an endpoin
 To obtain user's consent, you must redirect the user to the authorization page. The `buildAuthorizationUrl()` method creates the URL to the authorization page. You must pass
 the **[scopes](#scopes)** for which you need permission to access.
 ```JavaScript
-const oAuthClient = lib.OAuthClient;
-const authUrl = oAuthClient.buildAuthorizationUrl([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]);
+const oAuthManager = lib.OAuthManager;
+const authUrl = oAuthManager.buildAuthorizationUrl([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]);
 // open up the authUrl in the browser
 ```
 
@@ -139,7 +139,7 @@ https://example.com/oauth/callback?error=access_denied
 After the server receives the code, it can exchange this for an *access token*. The access token is an object containing information for authorizing the client and refreshing the token itself.
 
 ```JavaScript
-const tokenPromise = oAuthClient.authorize(code, additionalParams, callback);
+const tokenPromise = oAuthManager.authorize(code);
 ```
 The Node.js SDK supports both callbacks and promises. So, the authorize call returns a promise and also returns response back in the callback (if one is provided)
 
@@ -159,16 +159,11 @@ Scopes enable your application to only request access to the resources it needs 
 Access tokens may expire after sometime. To extend its lifetime, you must refresh the token.
 
 ```JavaScript
-const tokenExpiryPromise = oAuthClient.checkTokenExpiry();
-// if token has expired, a rejected promise will be returned
-tokenExpiryPromise.then(() => {}, () => {
-    // token has expired
-    const refreshPromise = oAuthClient.refreshToken();
-    refreshPromise.then(() => {
-        // token has been refreshed
-    } , () => {
-        // error occurred, handle exception
-    });
+const refreshPromise = oAuthManager.refreshToken();
+refreshPromise.then(() => {
+    // token has been refreshed
+} , (exception) => {
+    // error occurred, exception will be of type //Exceptions//OAuthProviderException
 });
 ```
 
@@ -179,18 +174,29 @@ If a token expires, the SDK will attempt to automatically refresh the token befo
 
 It is recommended that you store the access token for reuse.
 
-You can store the access token in a variable.
 
+This code snippet stores the access token in a session for an express application. It uses the [node-persist](https://www.npmjs.com/package/node-persist) npm package for storing the access token.
 ```JavaScript
+var session = require('node-persist');
+...
 // store token
-const token = lib.Configuration.oAuthToken.accessToken.accessToken;
+session.init(/* options */)
+.then(function() {
+    // storage initialized
+    session.setItem('token', lib.Configuration.oAuthToken)
+    .then(function() {
+        // token successfully stored
+    });
+});
 ```
 However, since the the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a **token update callback** to detect any change to the access token.
 
 ```JavaScript
 Configuration.oAuthTokenUpdateCallback = function() {
-    // use a global variable or any other way to store the token
-    _token = lib.Configuration.oAuthToken.accessToken.accesstoken;
+    session.setItem('token', lib.Configuration.oAuthToken)
+    .then(function(success) {
+        // token stored
+    });
 }
 ```
 
@@ -203,60 +209,68 @@ To authorize a client from a stored access token, just set the access token in `
 ```JavaScript
 // load token later...
 const lib = require('lib');
-lib.Configuration.oAuthToken = _token;
+lib.Configuration.oAuthToken = 'access_token'; // the access token
 ```
 ### Complete example
 
-In this example, the `app.js` will first check if an access token is available for the user. If so, endpoint calls can be made as required. However, if the access token is not available, the client will have to be authorized first. For this purpose, the `server.js` file is used.  
-The authorization url will be built and opened in the browser. Now the authorization code will be returned to the `redirect_uri`. In the `server.js` file, you will have to register a route with the same uri as the redirect_uri. Here the authorization code will be obtained and the client will be authorized. Endpoint calls can then be made.
+This example demonstrates an express application (which uses [node-persist](https://www.npmjs.com/package/node-persist) to handle session persistence).
 
 
 
 #### `app.js`
 
 ```JavaScript
+const express = require('express');
+const session = require('node-persist');
+const app = express();
+const PORT = 1800;
 const lib = require('lib');
-const oAuthClient = lib.OAuthClient;
+const oAuthManager = lib.OAuthManager;
 lib.Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
 lib.Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
 lib.Configuration.oAuthRedirectUri = 'http://localhost:1800/callback'; // OAuth 2 Redirection endpoint or Callback Uri
 
-const isTokenSet = oAuthClient.checkTokenSet();
-if (isTokenSet) {
-    // make endpoint calls as required
-} else {
-    // since token is not set, client needs to obtain
-    // an access token first
-    const scopes = [];
-    scopes.push([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]);
-    const authUrl = oAuthClient.buildAuthorizationUrl(scopes);
-    // open up the authUrl in the browser
-}
-```
-
-#### `server.js`
-
-```JavaScript
-const lib = require('lib');
-const oAuthClient = lib.OAuthClient;
-const express = require('express');
-const app = express();
-const PORT = 1800;
+lib.Configuration.oAuthTokenUpdateCallback = function() {
+    session.setItem('token', lib.Configuration.oAuthToken);
+    .then(function(success) {
+        console.log('token stored in session');
+    });
+};
 
 app.listen(PORT, () => {
     console.log('Listening on port ' + PORT);
 });
 
+app.get('/', (req, res) => {
+    session.getItem('token')
+    .then((value) => {
+        lib.Configuration.oAuthToken = value;
+        // now make endpoint calls as required
+        // client will automatically refresh the token when it expires and call the token update callback
+    }, (err) => {
+        const scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
+        const authUrl = oAuthManager.buildAuthorizationUrl(scopes);
+        // open up the authUrl in the browser
+    });
+});
+
 app.get('/callback', (req, res) => {
     const authCode = req.query.code;
 
-    const promise = oAuthClient.authorize(authCode);
+    const promise = oAuthManager.authorize(authCode);
     promise.then((success) => {
-        // client authorized, access token set
-        // make endpoint calls as required
+        session.setItem('token', lib.Configuration.oAuthToken)
+        .then(() => {
+            console.log('client authorized, token set in session');
+            res.redirect('/');
+        });
+    }, (exception) => {
+        // error occurred, exception will be of type //Exceptions//OAuthProviderException
     });
 });
+
 ```
+
 
 
 
@@ -369,7 +383,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 21;
+    var id = 63;
     var title = 'title';
     var body = 'body';
 
@@ -401,7 +415,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 21;
+    var id = 63;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -431,7 +445,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 21;
+    var id = 63;
 
     controller.getNote(id, function(error, response, context) {
 
