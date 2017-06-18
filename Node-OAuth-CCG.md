@@ -160,8 +160,8 @@ lib.Configuration.oAuthToken = 'access_token'; // the access token
 ```
 
 ### Complete example
-In this example, `app.js` will check if the access token has been obtained. If it hasn't been, the client needs to be authorized first.
-After authorization, endpoint calls can be made.
+In this example, `app.js` will check if the access token has been set in the session. If it has been, endpoint calls can be made. Otherwise, client has to be authorized first.
+The examples demonstrated an express app which uses [node-persist](https://www.npmjs.com/package/node-persist) npm package to handle data persistence.
 
 #### `app.js`
 
@@ -318,7 +318,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 67;
+    var id = 112;
     var title = 'title';
     var body = 'body';
 
@@ -350,7 +350,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 67;
+    var id = 112;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -380,7 +380,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 67;
+    var id = 112;
 
     controller.getNote(id, function(error, response, context) {
 
