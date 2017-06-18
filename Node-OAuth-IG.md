@@ -1,4 +1,4 @@
-# 
+# Getting started
 
 ## How to Build
 
@@ -116,8 +116,8 @@ To obtain user's consent, you must redirect the user to the authorization page.
 The `buildAuthorizationUrl()` method creates the URL to the authorization page.
  You must pass the *[scopes](#scopes)* for which you need permission to access.
 ```JavaScript
-const oAuthClient = lib.OAuthClient;
-const authUrl = oAuthClient.buildAuthorizationUrl([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]);
+const oAuthManager = lib.OAuthManager;
+const authUrl = oAuthManager.buildAuthorizationUrl([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]);
 // open up the authUrl in the browser
 ```
 
@@ -252,7 +252,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 5;
+    var id = 241;
     var title = 'title';
     var body = 'body';
 
@@ -284,7 +284,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 5;
+    var id = 241;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -314,7 +314,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 5;
+    var id = 241;
 
     controller.getNote(id, function(error, response, context) {
 
