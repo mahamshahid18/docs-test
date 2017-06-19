@@ -160,7 +160,7 @@ To run the app, simply open up the `index.html` file in a browser.
 
 
 The Angular Application can be initialized as following:
-```html
+```JavaScript
 var app = angular.module('myApp', [MarkdownNotesLib]);
 // now controllers/services can be created which import
 // the factories provided by the sdk
@@ -183,10 +183,10 @@ app.factory('config', function($scope, Configuration)
     return {
         setConfigVars: function() {
             // Configuration parameters and credentials
-Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
-Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
-Configuration.oAuthRedirectUri = 'oAuthRedirectUri'; // OAuth 2 Redirection endpoint or Callback Uri
-
+            Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
+            Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
+            Configuration.oAuthRedirectUri = 'oAuthRedirectUri'; // OAuth 2 Redirection endpoint or Callback Uri
+            
         }
     };
 });
@@ -284,7 +284,7 @@ Since the the SDK will attempt to automatically refresh the token when it expire
 ```JavaScript
 var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
 
-app.controller('oauthClientController', function($scope, $rootScope, OAuthManager, Configuration) {
+app.controller('oauthClientController', function($scope, Configuration) {
     Configuration.oAuthTokenUpdateCallback = function(token) {
         // token passed here is the Configuration.oAuthToken
     }
@@ -516,7 +516,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 187;
+        var id = 164;
         var title = 'title';
         var body = 'body';
 
@@ -558,7 +558,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 187;
+        var id = 164;
 
 
 		var result = NoteController.deleteNote(id);
@@ -598,7 +598,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 187;
+        var id = 164;
 
 
 		var result = NoteController.getNote(id);
