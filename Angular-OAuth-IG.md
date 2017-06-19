@@ -157,6 +157,13 @@ To run the app, simply open up the `index.html` file in a browser.
 
 ## Initialization
 
+
+The Angular Application can be initialized as following:
+```JavaScript
+var app = angular.module('myApp', [MarkdownNotesLib]);
+// now controllers/services can be created which import
+// the factories provided by the sdk
+```
 ### Authentication
 In order to setup authentication and initialization of the Angular App, you need the following information.
 
@@ -168,21 +175,19 @@ In order to setup authentication and initialization of the Angular App, you need
 
 
 ```JavaScript
-// Configuration parameters and credentials
-oAuthClientId = "oAuthClientId"; // OAuth 2 Client ID
-oAuthRedirectUri = "oAuthRedirectUri"; // OAuth 2 Redirection endpoint or Callback Uri
-
+var app = angular.module('myApp', [MarkdownNotesLib]);
+app.factory('config', function($scope, Configuration) 
+{
+    return {
+        setConfigVars: function() {
+            // Configuration parameters and credentials
+            Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
+            Configuration.oAuthRedirectUri = 'oAuthRedirectUri'; // OAuth 2 Redirection endpoint or Callback Uri
+            
+        }
+    };
+});
 ```
-The Angular App can be initialized as following:
-```html
-<body ng-app="myApp">
-    <div ng-controller="testController">
-        ...
-    </div>
-    ...
-</body>
-```
-> The initialization code will be added inside the `index.html` file (which is the view of the app you have created). More detail about this can be found in the [`How to Use`](#how-to-use) section
 
 
 You must now authorize the client.
@@ -192,20 +197,8 @@ You must now authorize the client.
 Your application must obtain user authorization before it can execute an endpoint call. The SDK uses OAuth 2.0 Implicit Grant to obtain a user's consent to perform an API request on user's behalf.
 The entire flow of building the authorization URL, obtaining consent from the user and storing the access token is handled by the SDK itself.
 
-The steps involved in obtaining an access token are as follows:
 
-+ Build the authorization URL.
-+ Navigate to the authorization URL to obtain user's consent to perform API requests.
-+ If the user authorized the application, the user-agent will redirect to the application's registered redirect_uri with an access token embedded in the uri.
-+ The application must present a JavaScript script at the redirect_uri that parses the uri and obtains the access token.
-+ The access token can then be stored in the application for further use.
-
-These are the steps that this SDK performs to fetch the access token
-+ The `buildAuthorizationUrl()` function constructs the authorization URL for obtaining user's consent.
-+ The `getToken()` function opens up the authorization url in a new tab (or a popup if the `popup` bool is true). It also waits for an event passed from the window/popup which was opened. That event basically contains the parsed access token. So, the `getToken()` function passes this access token to its calling function.
-+ `retrieveAndSetAccessToken()` calls the `getToken()` method. This is the function that you will call in order to obtain and set the access token in the `Configuration`.  You must pass the **[scopes](#scopes)** (for which you need permission to access) in this function.
-### Consent screen and access token retrieval
-
+`retrieveAndSetAccessToken()` method will be called in order to obtain and set the access token in the `Configuration`.  You must pass the **[scopes](#scopes)** (for which you need permission to access) in this function.. Calling this method will open up the consent screen.  
 Once the user responds to the consent request, the OAuth 2.0 server responds to your application's access request by redirecting the user to the redirect URI specified set in Configuration.
 
 The redirect URI will receive the access token as the token argument in the URL fragment. This is how it will look
@@ -214,10 +207,12 @@ The redirect URI will receive the access token as the token argument in the URL 
 https://example.com/oauth/callback#token=XXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-The access token must be extracted by the client-side JavaScript code. The access token can be used to authorize any further endpoint calls by the JavaScript code.
+The access token must be extracted by client-side JavaScript code.  
+`OAuthCallbackScript.js` is the script which retrieves the access token and passes it as an event data to the window which actually opened up the consent screen (authorization url). You can simply link this with a html file to handle access token retrieval.
 
-`OAuthCallbackScript.js` file is also generated with the SDK. This is the script which retrieves the access token and passes it as an event data to the window which actually opened up the consent screen (authorization url).
-You will have to link it with an `html` file which will be served at the redirect_uri which your application has been registered with.
+```html
+<script src="OAuthCallbackScript.js"></script>
+```
 
 
 
@@ -231,20 +226,6 @@ Scopes enable your application to only request access to the resources it needs 
 | `READ_NOTE` | Can read all notes. |
 | `WRITE_NOTE` | Can create, update and delete notes. |
 
-### Storing an access token for reuse
-
-It is recommended that you store the access token for reuse.
-
-You can store the access token in a variable.
-
-```JavaScript
-var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
-
-app.controller('oauthClientController', function($scope, $rootScope, OAuthClient, Configuration) {
-    // store token
-    $rootScope.token = Configuration.oAuthToken.accessToken.accessToken;
-});
-```
 
 ### Complete Example
 
@@ -273,42 +254,6 @@ For example, if the redirect_uri is `http://localhost/callback.html`, create the
 
 This will ensure that the access token which will be received at `http://localhost/callback.html` will be retrieved by the `OAuthCallbackScript.js`.
 
-#### `OAuthCallbackScript.js`
-
-```JavaScript
-(function () {
-    function parseKeyValue(keyValue) {
-        // parse the url
-        var obj = {};
-        var key_value;
-        var key;
-
-        keyValue = (keyValue || '').split('&');
-
-        keyValue.forEach(function (kv) {
-            if (kv) {
-                key_value = kv.split('=');
-                key = decodeURIComponent(key_value[0]);
-                obj[key] = (key_value[1]) ? decodeURIComponent(key_value[1]) : true;
-            }
-        });
-        return obj;
-    }
-
-    function returnParams() {
-        var queryString = window.location.hash.substring(1);
-        var params = parseKeyValue(queryString);
-
-        // send back parsed data to calling window
-        window.opener.postMessage(params, '*');
-        window.close();
-    }
-
-    returnParams();
-
-})();
-```
-
 After setting up as above, here's how the Implicit Grant flow can be executed.
 
 #### `app.js`
@@ -316,10 +261,10 @@ After setting up as above, here's how the Implicit Grant flow can be executed.
 ```JavaScript
 var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
 
-app.controller('oauthClientController', function($scope, OAuthClient, OAuthScopeEnum) {
+app.controller('oauthClientController', function($scope, OAuthManager, OAuthScopeEnum) {
 
     var scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
-    var promise = OAuthClient.retrieveAndSetAccessToken(scopes, '', true);
+    var promise = OAuthManager.retrieveAndSetAccessToken(scopes, '', true);
     promise.then(function(success) {
         // client successfully authorized
         // make endpoint calls as required
@@ -354,7 +299,7 @@ app.controller('oauthClientController', function($scope, OAuthClient, OAuthScope
 
     // import models
 
-    <script src="scripts/MarkdownNotesLib/OAuthClient.js"></script>
+    <script src="scripts/MarkdownNotesLib/OAuthManager.js"></script>
     <script src="scripts/app.js"></script>
 
 </head>
@@ -504,7 +449,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 185;
+        var id = 132;
         var title = 'title';
         var body = 'body';
 
@@ -546,7 +491,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 185;
+        var id = 132;
 
 
 		var result = NoteController.deleteNote(id);
@@ -586,7 +531,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 185;
+        var id = 132;
 
 
 		var result = NoteController.getNote(id);
