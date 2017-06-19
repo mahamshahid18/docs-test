@@ -198,7 +198,10 @@ Your application must obtain user authorization before it can execute an endpoin
 The entire flow of building the authorization URL, obtaining consent from the user and storing the access token is handled by the SDK itself.
 
 
-`retrieveAndSetAccessToken()` method will be called in order to obtain and set the access token in the `Configuration`.  You must pass the **[scopes](#scopes)** (for which you need permission to access) in this function.. Calling this method will open up the consent screen.  
+`retrieveAndSetAccessToken()` method will be called in order to obtain and set the access token in the `Configuration`.  You must pass the **[scopes](#scopes)** (for which you need permission to access) in this function.  
+Calling this method will open up the consent screen.
+
+### Consent screen and access token retrieval
 Once the user responds to the consent request, the OAuth 2.0 server responds to your application's access request by redirecting the user to the redirect URI specified set in Configuration.
 
 The redirect URI will receive the access token as the token argument in the URL fragment. This is how it will look
@@ -207,7 +210,8 @@ The redirect URI will receive the access token as the token argument in the URL 
 https://example.com/oauth/callback#token=XXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-The access token must be extracted by client-side JavaScript code.  
+The access token must be extracted by client-side JavaScript code.
+
 `OAuthCallbackScript.js` is the script which retrieves the access token and passes it as an event data to the window which actually opened up the consent screen (authorization url). You can simply link this with a html file to handle access token retrieval.
 
 ```html
@@ -449,7 +453,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 132;
+        var id = 254;
         var title = 'title';
         var body = 'body';
 
@@ -491,7 +495,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 132;
+        var id = 254;
 
 
 		var result = NoteController.deleteNote(id);
@@ -531,7 +535,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 132;
+        var id = 254;
 
 
 		var result = NoteController.getNote(id);
@@ -623,7 +627,4 @@ function listNotes()
 
 
 
-[Back to List of Controllers](#list_of_controllers)
-
-
-
+[Back to L
