@@ -13,7 +13,7 @@ The following section describes how to use the generated SDK in an existing/new 
 Perform the following steps to configure angular and the SDK:
 + Make a `scripts` folder inside the root folder of the project. If you already have a `scripts` folder, skip to the next step.
 + Move the `angular.min.js` file inside the scripts folder. 
-+ Move the `markdownnoteslib` folder inside the scripts folder.
++ Move the `MarkdownNotesLib` folder inside the scripts folder.
 + If any of the Custom Types in your API have `Date`/`Datetime` type fields or any endpoint has `Date`/`Datetime` response, you will need to download angular-moment and moment.js. Move these 2 files into the `scripts` folder as well.
 
 ![folder-structure-image](https://apidocs.io/illustration/angularjs?step=folderStructure&workspaceFolder=Markdown%20Notes-Angular&projectName=MarkdownNotesLib)
@@ -33,11 +33,11 @@ If you already have an angular application, [skip to Step 6](#6-include-sdk-refe
 + In the IDE, click on `File` and choose `New File` to create a new file.
 + Add the following starting code in the file:
 ```js
-    var app = angular.module('myApp', []);
-    app.controller('testController', function($scope) 
-    {
+var app = angular.module('myApp', []);
+app.controller('testController', function($scope) 
+{
 
-    });
+});
 ```
 + Save it with the name `app.js` in the `scripts` folder.
 
@@ -48,17 +48,17 @@ Skip to the next step if you are working with an existing project and already ha
 + Save it with an appropriate name such as `index.html` in the root of your project folder.
 `index.html` should look like this:
 ```html
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<title>Angular Project</title>
-		<script></script>
-	</head>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Project</title>
+	<script></script>
+</head>
 
-	<body>
-	</body>
+<body>
+</body>
 
-	</html>
+</html>
 ```
 
 ![initial-html-code-image](https://apidocs.io/illustration/angularjs?step=initialCode&workspaceFolder=Markdown%20Notes-Angular)
@@ -66,50 +66,50 @@ Skip to the next step if you are working with an existing project and already ha
 ### 5. Including links to Angular in HTML file
 Your HTML file needs to have a link to `angular.min.js` file to use Angular-JS. Add the link using `script` tags inside the `head` section of `index.html` like:
 ```html
-	<script src="scripts/angular.min.js" ></script>
+<script src="scripts/angular.min.js" ></script>
 ```
 If any of the Custom Types that you have defined have `Date`/`Datetime` type fields or any endpoint has `Date`/`Datetime` response, you will also need to link to angular-moment and moment.js like:
 ```html
-	<script src="scripts/angular.min.js" ></script>
-	<script src="scripts/moment.min.js" ></script>
-	<script src="scripts/angular-moment.min.js" ></script>
+<script src="scripts/angular.min.js" ></script>
+<script src="scripts/moment.min.js" ></script>
+<script src="scripts/angular-moment.min.js" ></script>
 ```
 
 ### 6. Include SDK references in HTML file
 Import the reference to the generated SDK files inside your html file like:
 ```html
-	<head>
-		...
-		<!-- Helper files -->
-		<script src="scripts/markdownnoteslib/Module.js"></script>
-		<script src="scripts/markdownnoteslib/Configuration.js"></script>
-		<script src="scripts/markdownnoteslib/ModelFactory.js"></script>
-		<script src="scripts/markdownnoteslib/ObjectMapper.js"></script>
-		<script src="scripts/markdownnoteslib/APIHelper.js"></script>
-		<script src="scripts/markdownnoteslib/Http/Client/HttpContext.js"></script>
-		<script src="scripts/markdownnoteslib/Http/Client/RequestClient.js"></script>
-		<script src="scripts/markdownnoteslib/Http/Request/HttpRequest.js"></script>
-		<script src="scripts/markdownnoteslib/Http/Response/HttpResponse.js"></script>
+<head>
+    ...
+    <!-- Helper files -->
+    <script src="scripts/MarkdownNotesLib/Module.js"></script>
+    <script src="scripts/MarkdownNotesLib/Configuration.js"></script>
+    <script src="scripts/MarkdownNotesLib/ModelFactory.js"></script>
+    <script src="scripts/MarkdownNotesLib/ObjectMapper.js"></script>
+    <script src="scripts/MarkdownNotesLib/APIHelper.js"></script>
+    <script src="scripts/MarkdownNotesLib/Http/Client/HttpContext.js"></script>
+    <script src="scripts/MarkdownNotesLib/Http/Client/RequestClient.js"></script>
+    <script src="scripts/MarkdownNotesLib/Http/Request/HttpRequest.js"></script>
+    <script src="scripts/MarkdownNotesLib/Http/Response/HttpResponse.js"></script>
 
-		<!-- API Controllers -->
-        <script src="scripts/markdownnoteslib/Controllers/BaseController.js"></script>
-        <script src="scripts/markdownnoteslib/Controllers/UserController.js"></script>
-        <script src="scripts/markdownnoteslib/Controllers/ServiceController.js"></script>
-        <script src="scripts/markdownnoteslib/Controllers/NoteController.js"></script>
-        <script src="scripts/markdownnoteslib/Controllers/OAuthAuthorizationController.js"></script>
+    <!-- API Controllers -->
+    <script src="scripts/MarkdownNotesLib/Controllers/BaseController.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/UserController.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/ServiceController.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/NoteController.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/OAuthAuthorizationController.js"></script>
 
 
-		<!-- Models -->
-        <script src="scripts/markdownnoteslib/Models/BaseModel.js"></script>
-        <script src="scripts/markdownnoteslib/Models/Note.js"></script>
-        <script src="scripts/markdownnoteslib/Models/User.js"></script>
-        <script src="scripts/markdownnoteslib/Models/ServiceStatus.js"></script>
-        <script src="scripts/markdownnoteslib/Models/OAuthScopeEnum.js"></script>
-        <script src="scripts/markdownnoteslib/Models/OAuthToken.js"></script>
-        <script src="scripts/markdownnoteslib/Models/OAuthProviderErrorEnum.js"></script>
+    <!-- Models -->
+    <script src="scripts/MarkdownNotesLib/Models/BaseModel.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/Note.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/User.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/ServiceStatus.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/OAuthScopeEnum.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/OAuthToken.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/OAuthProviderErrorEnum.js"></script>
 
-		...
-	</head>
+    ...
+</head>
 ```
 > The `Module.js` file should be imported before the other files. After `Module.js`, `Configuration.js` should be imported.
 > The `ModelFactory.js` file is needed by `ObjectMapper.js` file. The `ObjectMapper` in turn, is needed by `BaseController.js`.
@@ -117,10 +117,10 @@ Import the reference to the generated SDK files inside your html file like:
 ### 7. Including link to `app.js` in HTML file
 Link your `app.js` file to your `index.html` file like:
 ```html
-	<head>
-		...
-		<script src="scripts/app.js"></script>
-	</head>
+<head>
+	...
+	<script src="scripts/app.js"></script>
+</head>
 ```
 > The link to app.js needs to be included at the very end of the head tag, after the SDK references have been added
 
@@ -128,18 +128,18 @@ Link your `app.js` file to your `index.html` file like:
 You need to initialize your app and the controller associated with your view inside your `index.html` file. Do so like:
 + Add ng-app directive to initialize your app inside the `body` tag.
 ```html
-	<body ng-app="myApp">
+<body ng-app="myApp">
 ```
 + Add ng-controller directive to initialize your controller and bind it with your view (`index.html` file).
 ```html
-	...
-	<body ng-app="myApp">
-		<div ng-controller="testController">
-			...
-		</div>
+...
+<body ng-app="myApp">
+	<div ng-controller="testController">
 		...
-	</body>
+	</div>
 	...
+</body>
+...
 ```
 
 ### 9. Consuming the SDK 
@@ -147,7 +147,7 @@ In order to use the generated SDK's modules, controllers and factories, the proj
 Add the dependency like this:
 
 ```js
-    var app = angular.module('myApp', ['MarkdownNotesLib']);
+var app = angular.module('myApp', ['MarkdownNotesLib']);
 ```
 At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the generated SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
 
@@ -158,6 +158,13 @@ To run the app, simply open up the `index.html` file in a browser.
 
 ## Initialization
 
+
+The Angular Application can be initialized as following:
+```JavaScript
+var app = angular.module('myApp', [MarkdownNotesLib]);
+// now controllers/services can be created which import
+// the factories provided by the sdk
+```
 ### Authentication
 In order to setup authentication and initialization of the Angular App, you need the following information.
 
@@ -169,21 +176,19 @@ In order to setup authentication and initialization of the Angular App, you need
 
 
 ```JavaScript
-// Configuration parameters and credentials
-oAuthClientId = "oAuthClientId"; // OAuth 2 Client ID
-oAuthClientSecret = "oAuthClientSecret"; // OAuth 2 Client Secret
-
+var app = angular.module('myApp', [MarkdownNotesLib]);
+app.factory('config', function($scope, Configuration) 
+{
+    return {
+        setConfigVars: function() {
+            // Configuration parameters and credentials
+            Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
+            Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
+            
+        }
+    };
+});
 ```
-The Angular App can be initialized as following:
-```html
-<body ng-app="myApp">
-    <div ng-controller="testController">
-        ...
-    </div>
-    ...
-</body>
-```
-> The initialization code will be added inside the `index.html` file (which is the view of the app you have created). More detail about this can be found in the [`How to Use`](#how-to-use) section
 
 You must now authorize the client.
 
@@ -199,9 +204,9 @@ The access token is an object containing information for authorizing client requ
 ```JavaScript
 var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
 
-app.controller('oauthClientController', function($scope, OAuthClient, OAuthScopeEnum) {
+app.controller('oauthClientController', function($scope, OAuthManager, OAuthScopeEnum) {
     var scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
-    var promise = OAuthClient.authorize(scopes);
+    var promise = OAuthManager.authorize(scopes);
     promise.then(function(success) {
         // client successfully authorized
     });
@@ -222,33 +227,20 @@ Scopes enable your application to only request access to the resources it needs 
 | `WRITE_NOTE` | Can create, update and delete notes. |
 
 
-### Storing an access token for reuse
 
-It is recommended that you store the access token for reuse.
 
-You can store the access token in a variable.
+### Creating a client from an existing token
 
-```JavaScript
-var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
-
-app.controller('oauthClientController', function($scope, $rootScope, OAuthClient, Configuration) {
-    // store token
-    $rootScope.token = Configuration.oAuthToken.accessToken.accessToken;
-});
-```
-
-### Creating a client from a stored token
-
-To authorize a client from a stored access token, just set the access token in `Configuration` along with the other configuration parameters:
+To authorize a client from an existing access token, just set the access token in `Configuration` along with the other configuration parameters:
 
 ```JavaScript
 var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
 
-app.controller('oauthClientController', function($scope, OAuthClient, Configuration) {
-    // ....
-    Configuration.oAuthToken.accessToken.accesstoken = _token;
+app.controller('config', function($scope, Configuration) {
+    Configuration.oAuthToken = token; // the existing token
 });
 ```
+
 
 ### Complete example
 In this example, `app.js` will check if the access token has been obtained. If it hasn't been, the client needs to be authorized first.
@@ -259,17 +251,17 @@ After authorization, endpoint calls can be made.
 ```JavaScript
 var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
 
-app.controller('oauthClientController', function($scope, OAuthClient, Configuration, OAuthScopeEnum) {
+app.controller('oauthClientController', function($scope, OAuthManager, Configuration, OAuthScopeEnum) {
     Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
     Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
 
 
-    var isTokenSet = OAuthClient.checkTokenSet();
-    if (isTokenSet !== true) {
+    var tokenSet = OAuthManager.isTokenSet();
+    if (!tokenSet) {
         // since token is not set, client needs to obtain
         // an access token first
         var scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
-        var promise = OAuthClient.authorize(scopes);
+        var promise = OAuthManager.authorize(scopes);
         promise.then(function(success) {
             // client successfully authorized
             // make endpoint calls as required
@@ -306,7 +298,7 @@ app.controller('oauthClientController', function($scope, OAuthClient, Configurat
 
     // import models
 
-    <script src="scripts/MarkdownNotesLib/OAuthClient.js"></script>
+    <script src="scripts/MarkdownNotesLib/OAuthManager.js"></script>
     <script src="scripts/app.js"></script>
 
 </head>
@@ -457,7 +449,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 239;
+        var id = 128;
         var title = 'title';
         var body = 'body';
 
@@ -499,7 +491,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 239;
+        var id = 128;
 
 
 		var result = NoteController.deleteNote(id);
@@ -539,7 +531,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 239;
+        var id = 128;
 
 
 		var result = NoteController.getNote(id);
