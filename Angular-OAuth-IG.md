@@ -199,6 +199,7 @@ The entire flow of building the authorization URL, obtaining consent from the us
 
 
 `retrieveAndSetAccessToken()` method will be called in order to obtain and set the access token in the `Configuration`.  You must pass the **[scopes](#scopes)** (for which you need permission to access) in this function.  
+
 Calling this method will open up the consent screen.
 
 ### Consent screen and access token retrieval
@@ -212,7 +213,7 @@ https://example.com/oauth/callback#token=XXXXXXXXXXXXXXXXXXXXXXXXX
 
 The access token must be extracted by client-side JavaScript code.
 
-`OAuthCallbackScript.js` is the script which retrieves the access token and passes it as an event data to the window which actually opened up the consent screen (authorization url). You can simply link this with a html file to handle access token retrieval.
+`OAuthCallbackScript.js` is the script which retrieves the access token and passes it as an event data to the window which actually opened up the consent screen. You can simply link this with a html file to handle access token retrieval.
 
 ```html
 <script src="OAuthCallbackScript.js"></script>
@@ -234,7 +235,8 @@ Scopes enable your application to only request access to the resources it needs 
 ### Complete Example
 
 In order to set up the client side script which extracts the access token from the uri, perform the following steps:
-Link the `OAuthCallbackScript.js` to the html file which is served at the registered redirect_uri for the application.
++ Link the `OAuthCallbackScript.js` to the html file which is served at the registered redirect_uri for the application.
+
 For example, if the redirect_uri is `http://localhost/callback.html`, create the `callback.html` in the root of the project folder. And add the following content:
 
 #### `callback.html`
@@ -453,7 +455,7 @@ function updateNote(id, title, body)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 254;
+        var id = 35;
         var title = 'title';
         var body = 'body';
 
@@ -495,7 +497,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, NoteController){
-        var id = 254;
+        var id = 35;
 
 
 		var result = NoteController.deleteNote(id);
@@ -535,7 +537,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, NoteController, Note){
-        var id = 254;
+        var id = 35;
 
 
 		var result = NoteController.getNote(id);
@@ -627,4 +629,4 @@ function listNotes()
 
 
 
-[Back to L
+[Back to List of Controllers]
