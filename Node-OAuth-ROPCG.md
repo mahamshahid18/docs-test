@@ -1,5 +1,7 @@
 # Getting started
 
+API for Markdown Notes app.
+
 ## How to Build
 
 The generated SDK relies on [Node Package Manager](https://www.npmjs.com/) (NPM) being available to resolve dependencies. If you don't already have NPM installed, please go ahead and follow instructions to install NPM from [here](https://nodejs.org/en/download/).
@@ -117,7 +119,7 @@ The access token is an object containing information for authorizing client requ
  You must pass the *[scopes](#scopes)* for which you need permission to access.
 
 ```JavaScript
-const tokenPromise = oAuthManager.authorize([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]);
+const tokenPromise = oAuthManager.authorize([lib.OAuthScopeEnum.READ_NOTE, lib.OAuthScopeEnum.WRITE_NOTE]);
 ```
 The Node.js SDK supports both callbacks and promises. So, the authorize call returns a promise and also returns response back in the callback (if one is provided)
 
@@ -156,28 +158,30 @@ If a token expires, the SDK will attempt to automatically refresh the token befo
 It is recommended that you store the access token for reuse.
 
 
-This code snippet stores the access token in a session for an express application. It uses the [node-persist](https://www.npmjs.com/package/node-persist) npm package for storing the access token.
+This code snippet stores the access token in a session for an express application. It uses the [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session) npm packages for storing the access token.
 ```JavaScript
-var session = require('node-persist');
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
+
+const app = express();
+app.use(cookieParser());
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1']
+}));
 ...
-// store token
-session.init(/* options */)
-.then(function() {
-    // storage initialized
-    session.setItem('token', lib.Configuration.oAuthToken)
-    .then(function() {
-        // token successfully stored
-    });
-});
+// store token in the session
+req.session.token = lib.Configuration.oAuthToken;
 ```
 However, since the the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a **token update callback** to detect any change to the access token.
 
 ```JavaScript
-Configuration.oAuthTokenUpdateCallback = function() {
-    session.setItem('token', lib.Configuration.oAuthToken)
-    .then(function(success) {
-        // token stored
-    });
+Configuration.oAuthTokenUpdateCallback = function(token) {
+    // getting token here, store in session
+    // or in any variables/configurations
+    tokenStore = token;
+    // here tokenStore is any variable which is keeping track of the token
 }
 ```
 
@@ -185,26 +189,45 @@ The token update callback will be fired upon authorization as well as token refr
 
 ### Creating a client from a stored token
 
-To authorize a client from a stored access token, just set the access token in `Configuration` along with the other configuration parameters before creating the client:
+To authorize a client from a stored access token, just set the access token in `Configuration` along with the other configuration parameters before making endpoint calls:
 
 ```JavaScript
 // load token later...
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
+
+const app = express();
+app.use(cookieParser());
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1']
+}));
+
 const lib = require('lib');
-lib.Configuration.oAuthToken = 'access_token'; // the access token
+
+app.get('/', (req, res) => {
+    lib.Configuration.oAuthToken = req.session.token; // the access token stored in the session
+});
 ```
 
 ### Complete example
 In this example, `app.js` will check if the access token has been set in the session. If it has been, endpoint calls can be made. Otherwise, client has to be authorized first.  
-The example demonstrates an express app which uses [node-persist](https://www.npmjs.com/package/node-persist) npm package to handle data persistence.
+The example demonstrates an express app which uses [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session) to handle data persistence.
 
 #### `app.js`
 
 ```JavaScript
 const express = require('express');
-const session = require('node-persist');
-session.init();
-
 const app = express();
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
+
+app.use(cookieParser());
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1']
+}));
 const PORT = 1800;
 
 const lib = require('lib');
@@ -214,38 +237,26 @@ lib.Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Sec
 lib.Configuration.oAuthUsername = 'oAuthUsername'; // OAuth 2 Resource Owner Username
 lib.Configuration.oAuthPassword = 'oAuthPassword'; // OAuth 2 Resource Owner Password
 
-lib.Configuration.oAuthTokenUpdateCallback = function() {
-    session.setItem('token', lib.Configuration.oAuthToken);
-    .then(function(success) {
-        console.log('token stored in session');
-    });
-};
 
 app.listen(PORT, () => {
     console.log('Listening on port ' + PORT);
 });
 
 app.get('/', (req, res) => {
-    session.getItem('token')
-    .then((value) => {
-        lib.Configuration.oAuthToken = value;
+    if (req.session.token !== null &&
+          req.session.token !== undefined) {
+        lib.Configuration.oAuthToken = req.session.token;
         // now make endpoint calls as required
         // client will automatically refresh the token when it expires and call the token update callback
-    }, (err) => {
-        const scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
+    } else {
+        const scopes = [lib.OAuthScopeEnum.READ_NOTE, lib.OAuthScopeEnum.WRITE_NOTE];
         const promise = oAuthManager.authorize(scopes);
         promise.then((success) => {
-            session.setItem('token', lib.Configuration.oAuthToken)
-            .then(() => {
-                console.log('client authorized, token set in session');
-                // make endpoint calls as required
-                // client will automatically refresh the token when it expires and
-                // call the token update callback
-            });
+            req.session.token = lib.Configuration.oAuthToken;
         }, (exception) => {
             // error occurred, exception will be of type lib/Exceptions/OAuthProviderException
         });
-    });
+    }
 });
 
 ```
@@ -362,7 +373,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 147;
+    var id = 202;
     var title = 'title';
     var body = 'body';
 
@@ -394,7 +405,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 147;
+    var id = 202;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -424,7 +435,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 147;
+    var id = 202;
 
     controller.getNote(id, function(error, response, context) {
 
