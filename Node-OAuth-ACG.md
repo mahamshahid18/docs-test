@@ -1,5 +1,7 @@
 # Getting started
 
+API for Markdown Notes app.
+
 ## How to Build
 
 The generated SDK relies on [Node Package Manager](https://www.npmjs.com/) (NPM) being available to resolve dependencies. If you don't already have NPM installed, please go ahead and follow instructions to install NPM from [here](https://nodejs.org/en/download/).
@@ -114,7 +116,7 @@ To obtain user's consent, you must redirect the user to the authorization page. 
 the **[scopes](#scopes)** for which you need permission to access.
 ```JavaScript
 const oAuthManager = lib.OAuthManager;
-const authUrl = oAuthManager.buildAuthorizationUrl([OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE]);
+const authUrl = oAuthManager.buildAuthorizationUrl([lib.OAuthScopeEnum.READ_NOTE, lib.OAuthScopeEnum.WRITE_NOTE]);
 // open up the authUrl in the browser
 ```
 
@@ -177,26 +179,26 @@ It is recommended that you store the access token for reuse.
 
 This code snippet stores the access token in a session for an express application. It uses the [node-persist](https://www.npmjs.com/package/node-persist) npm package for storing the access token.
 ```JavaScript
-var session = require('node-persist');
+const express = require('express');
+const app = express();
+app.use(express.cookieParser('appSecret'));
+app.use(express.cookieSession());
 ...
 // store token
-session.init(/* options */)
-.then(function() {
-    // storage initialized
-    session.setItem('token', lib.Configuration.oAuthToken)
-    .then(function() {
-        // token successfully stored
-    });
-});
+req.session.token = lib.Configuration.oAuthToken;
 ```
 However, since the the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a **token update callback** to detect any change to the access token.
 
 ```JavaScript
-Configuration.oAuthTokenUpdateCallback = function() {
-    session.setItem('token', lib.Configuration.oAuthToken)
-    .then(function(success) {
-        // token stored
-    });
+const express = require('express');
+const app = express();
+app.use(express.cookieParser('appSecret'));
+app.use(express.cookieSession());
+...
+...
+Configuration.oAuthTokenUpdateCallback = function(token) {
+    req.session.token = token;
+    // token stored
 }
 ```
 
@@ -208,12 +210,19 @@ To authorize a client from a stored access token, just set the access token in `
 
 ```JavaScript
 // load token later...
+const express = require('express');
+const app = express();
+app.use(express.cookieParser('appSecret'));
+app.use(express.cookieSession());
+
 const lib = require('lib');
-lib.Configuration.oAuthToken = 'access_token'; // the access token
+lib.Configuration.oAuthToken = req.session.token; // the access token stored in the session
 ```
 ### Complete example
 
-This example demonstrates an express application (which uses [node-persist](https://www.npmjs.com/package/node-persist) to handle session persistence).
+This example demonstrates an express application (which uses express's built in cookieParser to handle session persistence).
+In this example, there are 2 endpoints. The base endpoint `'/'` first checks if the token is stored in the session. If it is, sdk endpoints can be called.
+However, if the token is not set in the session, then authorization url is built and opened up. The response comes back at the `'/callback' endpoint, which uses the code to authorize the client and store the token in the session. It then redirects back to the base endpoint for calling endpoints from the SDK.
 
 
 
@@ -221,10 +230,9 @@ This example demonstrates an express application (which uses [node-persist](http
 
 ```JavaScript
 const express = require('express');
-const session = require('node-persist');
-session.init();
-
 const app = express();
+app.use(express.cookieParser('appSecret'));
+app.use(express.cookieSession());
 const PORT = 1800;
 
 const lib = require('lib');
@@ -233,11 +241,8 @@ lib.Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
 lib.Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
 lib.Configuration.oAuthRedirectUri = 'http://localhost:1800/callback'; // OAuth 2 Redirection endpoint or Callback Uri
 
-lib.Configuration.oAuthTokenUpdateCallback = function() {
-    session.setItem('token', lib.Configuration.oAuthToken);
-    .then(function(success) {
-        console.log('token stored in session');
-    });
+lib.Configuration.oAuthTokenUpdateCallback = function(token) {
+    req.session.token = token;
 };
 
 app.listen(PORT, () => {
@@ -245,16 +250,16 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-    session.getItem('token')
-    .then((value) => {
-        lib.Configuration.oAuthToken = value;
+    if (req.session.token !== null &&
+          req.session.token !== undefined) {
+        // token is already set in the session
         // now make endpoint calls as required
         // client will automatically refresh the token when it expires and call the token update callback
-    }, (err) => {
-        const scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
+    } else {
+        const scopes = [lib.OAuthScopeEnum.READ_NOTE, lib.OAuthScopeEnum.WRITE_NOTE];
         const authUrl = oAuthManager.buildAuthorizationUrl(scopes);
-        // open up the authUrl in the browser
-    });
+        res.redirect(authUrl);
+    }
 });
 
 app.get('/callback', (req, res) => {
@@ -262,11 +267,8 @@ app.get('/callback', (req, res) => {
 
     const promise = oAuthManager.authorize(authCode);
     promise.then((success) => {
-        session.setItem('token', lib.Configuration.oAuthToken)
-        .then(() => {
-            console.log('client authorized, token set in session');
-            res.redirect('/');
-        });
+        req.session.token = lib.Configuration.oAuthToken;
+        res.redirect('/');
     }, (exception) => {
         // error occurred, exception will be of type lib/Exceptions/OAuthProviderException
     });
@@ -386,7 +388,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 183;
+    var id = 88;
     var title = 'title';
     var body = 'body';
 
@@ -418,7 +420,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 183;
+    var id = 88;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -448,7 +450,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 183;
+    var id = 88;
 
     controller.getNote(id, function(error, response, context) {
 
