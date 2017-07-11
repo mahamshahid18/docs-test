@@ -177,28 +177,30 @@ If a token expires, the SDK will attempt to automatically refresh the token befo
 It is recommended that you store the access token for reuse.
 
 
-This code snippet stores the access token in a session for an express application. It uses the [node-persist](https://www.npmjs.com/package/node-persist) npm package for storing the access token.
+This code snippet stores the access token in a session for an express application. It uses the [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session) npm packages for storing the access token.
 ```JavaScript
 const express = require('express');
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
+
 const app = express();
-app.use(express.cookieParser('appSecret'));
-app.use(express.cookieSession());
+app.use(cookieParser());
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1']
+}));
 ...
-// store token
+// store token in the session
 req.session.token = lib.Configuration.oAuthToken;
 ```
 However, since the the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a **token update callback** to detect any change to the access token.
 
 ```JavaScript
-const express = require('express');
-const app = express();
-app.use(express.cookieParser('appSecret'));
-app.use(express.cookieSession());
-...
-...
 Configuration.oAuthTokenUpdateCallback = function(token) {
-    req.session.token = token;
-    // token stored
+    // getting token here, store in session
+    // or in any variables/configurations
+    tokenStore = token;
+    // here tokenStore is any variable which is keeping track of the token
 }
 ```
 
@@ -220,8 +222,10 @@ lib.Configuration.oAuthToken = req.session.token; // the access token stored in 
 ```
 ### Complete example
 
-This example demonstrates an express application (which uses express's built in cookieParser to handle session persistence).
+This example demonstrates an express application (which uses [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session)) for handling session persistence.
+
 In this example, there are 2 endpoints. The base endpoint `'/'` first checks if the token is stored in the session. If it is, sdk endpoints can be called.
+
 However, if the token is not set in the session, then authorization url is built and opened up. The response comes back at the `'/callback' endpoint, which uses the code to authorize the client and store the token in the session. It then redirects back to the base endpoint for calling endpoints from the SDK.
 
 
@@ -231,8 +235,14 @@ However, if the token is not set in the session, then authorization url is built
 ```JavaScript
 const express = require('express');
 const app = express();
-app.use(express.cookieParser('appSecret'));
-app.use(express.cookieSession());
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
+
+app.use(cookieParser());
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1']
+}));
 const PORT = 1800;
 
 const lib = require('lib');
@@ -241,9 +251,6 @@ lib.Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
 lib.Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
 lib.Configuration.oAuthRedirectUri = 'http://localhost:1800/callback'; // OAuth 2 Redirection endpoint or Callback Uri
 
-lib.Configuration.oAuthTokenUpdateCallback = function(token) {
-    req.session.token = token;
-};
 
 app.listen(PORT, () => {
     console.log('Listening on port ' + PORT);
@@ -388,7 +395,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 88;
+    var id = 27;
     var title = 'title';
     var body = 'body';
 
@@ -420,7 +427,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 88;
+    var id = 27;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -450,7 +457,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 88;
+    var id = 27;
 
     controller.getNote(id, function(error, response, context) {
 
