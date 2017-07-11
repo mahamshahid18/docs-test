@@ -245,7 +245,6 @@ app.listen(PORT, () => {
 app.get('/', (req, res) => {
     if (req.session.token !== null &&
           req.session.token !== undefined) {
-        lib.Configuration.oAuthToken = req.session.token;
         // now make endpoint calls as required
         // client will automatically refresh the token when it expires and call the token update callback
     } else {
@@ -373,7 +372,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 202;
+    var id = 203;
     var title = 'title';
     var body = 'body';
 
@@ -405,7 +404,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 202;
+    var id = 203;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -435,7 +434,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 202;
+    var id = 203;
 
     controller.getNote(id, function(error, response, context) {
 
