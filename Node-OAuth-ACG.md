@@ -213,12 +213,21 @@ To authorize a client from a stored access token, just set the access token in `
 ```JavaScript
 // load token later...
 const express = require('express');
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
+
 const app = express();
-app.use(express.cookieParser('appSecret'));
-app.use(express.cookieSession());
+app.use(cookieParser());
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1']
+}));
 
 const lib = require('lib');
-lib.Configuration.oAuthToken = req.session.token; // the access token stored in the session
+
+app.get('/', (req, res) => {
+    lib.Configuration.oAuthToken = req.session.token; // the access token stored in the session
+});
 ```
 ### Complete example
 
@@ -395,7 +404,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 27;
+    var id = 152;
     var title = 'title';
     var body = 'body';
 
@@ -427,7 +436,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 27;
+    var id = 152;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -457,7 +466,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 27;
+    var id = 152;
 
     controller.getNote(id, function(error, response, context) {
 
