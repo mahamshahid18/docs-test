@@ -176,7 +176,6 @@ If a token expires, the SDK will attempt to automatically refresh the token befo
 
 It is recommended that you store the access token for reuse.
 
-
 This code snippet stores the access token in a session for an express application. It uses the [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session) npm packages for storing the access token.
 ```JavaScript
 const express = require('express');
@@ -189,6 +188,8 @@ app.use(cookieSession({
   name: 'session',
   keys: ['key1']
 }));
+
+const lib = require('lib');
 ...
 // store token in the session
 req.session.token = lib.Configuration.oAuthToken;
@@ -196,11 +197,9 @@ req.session.token = lib.Configuration.oAuthToken;
 However, since the the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a **token update callback** to detect any change to the access token.
 
 ```JavaScript
-Configuration.oAuthTokenUpdateCallback = function(token) {
-    // getting token here, store in session
-    // or in any variables/configurations
-    tokenStore = token;
-    // here tokenStore is any variable which is keeping track of the token
+lib.Configuration.oAuthTokenUpdateCallback = function(token) {
+    // getting the updated token
+    req.session.token = token;
 }
 ```
 
@@ -208,7 +207,8 @@ The token update callback will be fired upon authorization as well as token refr
 
 ### Creating a client from a stored token
 
-To authorize a client from a stored access token, just set the access token in `Configuration` along with the other configuration parameters before creating the client:
+To authorize a client from a stored access token, just set the access token in `Configuration` along with the other configuration parameters before making endpoint calls:
+
 
 ```JavaScript
 // load token later...
@@ -235,7 +235,7 @@ This example demonstrates an express application (which uses [cookie-parser](htt
 
 In this example, there are 2 endpoints. The base endpoint `'/'` first checks if the token is stored in the session. If it is, sdk endpoints can be called.
 
-However, if the token is not set in the session, then authorization url is built and opened up. The response comes back at the `'/callback' endpoint, which uses the code to authorize the client and store the token in the session. It then redirects back to the base endpoint for calling endpoints from the SDK.
+However, if the token is not set in the session, then authorization url is built and opened up. The response comes back at the `'/callback'` endpoint, which uses the code to authorize the client and store the token in the session. It then redirects back to the base endpoint for calling endpoints from the SDK.
 
 
 
@@ -269,7 +269,7 @@ app.get('/', (req, res) => {
     if (req.session.token !== null &&
           req.session.token !== undefined) {
         // token is already set in the session
-        // now make endpoint calls as required
+        // now make API calls as required
         // client will automatically refresh the token when it expires and call the token update callback
     } else {
         const scopes = [lib.OAuthScopeEnum.READ_NOTE, lib.OAuthScopeEnum.WRITE_NOTE];
@@ -404,7 +404,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 152;
+    var id = 236;
     var title = 'title';
     var body = 'body';
 
@@ -436,7 +436,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 152;
+    var id = 236;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -466,7 +466,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 152;
+    var id = 236;
 
     controller.getNote(id, function(error, response, context) {
 
@@ -621,6 +621,100 @@ function refreshToken(authorization, refreshToken, scope, formParams, callback)
     var formParams = [];
 
     controller.refreshToken(authorization, refreshToken, scope, formParams, function(error, response, context) {
+
+    
+	});
+```
+
+#### Errors
+
+| Error Code | Error Description |
+|------------|-------------------|
+| 400 | OAuth 2 provider returned an error. |
+| 401 | OAuth 2 provider says client authentication failed. |
+
+
+
+
+### <a name="request_token1"></a>![Method: ](https://apidocs.io/img/method.png ".OAuthAuthorizationController.requestToken1") requestToken1
+
+> *Tags:*  ``` Skips Authentication ``` 
+
+> Create a new OAuth 2 token.
+
+
+```javascript
+function requestToken1(authorization, code, redirectUri, formParams, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| authorization |  ``` Required ```  | Authorization header in Basic auth format |
+| code |  ``` Required ```  | Authorization Code |
+| redirectUri |  ``` Required ```  | Redirect Uri |
+| fieldParameters | ``` Optional ``` | Additional optional form parameters are supported by this method |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var authorization = 'Authorization';
+    var code = 'code';
+    var redirectUri = redirect_uri;
+    // key-value map for optional form parameters
+    var formParams = [];
+
+    controller.requestToken1(authorization, code, redirectUri, formParams, function(error, response, context) {
+
+    
+	});
+```
+
+#### Errors
+
+| Error Code | Error Description |
+|------------|-------------------|
+| 400 | OAuth 2 provider returned an error. |
+| 401 | OAuth 2 provider says client authentication failed. |
+
+
+
+
+### <a name="refresh_token1"></a>![Method: ](https://apidocs.io/img/method.png ".OAuthAuthorizationController.refreshToken1") refreshToken1
+
+> *Tags:*  ``` Skips Authentication ``` 
+
+> Obtain a new access token using a refresh token
+
+
+```javascript
+function refreshToken1(authorization, refreshToken, scope, formParams, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| authorization |  ``` Required ```  | Authorization header in Basic auth format |
+| refreshToken |  ``` Required ```  | Refresh token |
+| scope |  ``` Optional ```  | Requested scopes as a space-delimited list. |
+| fieldParameters | ``` Optional ``` | Additional optional form parameters are supported by this method |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var authorization = 'Authorization';
+    var refreshToken = refresh_token;
+    var scope = 'scope';
+    // key-value map for optional form parameters
+    var formParams = [];
+
+    controller.refreshToken1(authorization, refreshToken, scope, formParams, function(error, response, context) {
 
     
 	});
