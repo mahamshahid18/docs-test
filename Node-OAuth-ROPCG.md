@@ -192,7 +192,6 @@ To authorize a client from a stored access token, just set the access token in `
 
 
 ```JavaScript
-// load token later...
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
@@ -212,7 +211,8 @@ app.get('/', (req, res) => {
 ```
 
 ### Complete example
-In this example, `app.js` will check if the access token has been set in the SDK. If it has been, API calls can be made. Otherwise, client has to be authorized first before calling the API.
+In this example, `app.js` will check if the access token has been set in the SDK. If it has been, API calls can be made. Otherwise, client has to be authorized first before calling the API.  
+This example makes use of [node-localstorage](https://www.npmjs.com/package/node-localstorage) for handling data persistence.
 
 #### `app.js`
 
@@ -220,6 +220,9 @@ In this example, `app.js` will check if the access token has been set in the SDK
 
 const lib = require('lib');
 const oAuthManager = lib.OAuthManager;
+const LocalStorage = require('node-localstorage').LocalStorage;
+const localStorage = new LocalStorage('./scratch');
+
 lib.Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
 lib.Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
 lib.Configuration.oAuthUsername = 'oAuthUsername'; // OAuth 2 Resource Owner Username
@@ -227,6 +230,7 @@ lib.Configuration.oAuthPassword = 'oAuthPassword'; // OAuth 2 Resource Owner Pas
 
 lib.Configuration.oAuthTokenUpdateCallback = function(token) {
     // token is the updated access_token
+    localStorage.setItem('token', token);
 };
 
 if (oAuthManager.isTokenSet()) {
@@ -354,7 +358,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 10;
+    var id = 177;
     var title = 'title';
     var body = 'body';
 
@@ -386,7 +390,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 224;
+    var id = 14;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -416,7 +420,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 224;
+    var id = 14;
 
     controller.getNote(id, function(error, response, context) {
 
@@ -573,102 +577,6 @@ function refreshToken(authorization, refreshToken, scope, formParams, callback)
     var formParams = [];
 
     controller.refreshToken(authorization, refreshToken, scope, formParams, function(error, response, context) {
-
-    
-	});
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 400 | OAuth 2 provider returned an error. |
-| 401 | OAuth 2 provider says client authentication failed. |
-
-
-
-
-### <a name="request_token1"></a>![Method: ](https://apidocs.io/img/method.png ".OAuthAuthorizationController.requestToken1") requestToken1
-
-> *Tags:*  ``` Skips Authentication ``` 
-
-> Create a new OAuth 2 token.
-
-
-```javascript
-function requestToken1(authorization, username, password, scope, formParams, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| authorization |  ``` Required ```  | Authorization header in Basic auth format |
-| username |  ``` Required ```  | Resource owner username |
-| password |  ``` Required ```  | Resource owner password |
-| scope |  ``` Optional ```  | Requested scopes as a space-delimited list. |
-| fieldParameters | ``` Optional ``` | Additional optional form parameters are supported by this method |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var authorization = 'Authorization';
-    var username = 'username';
-    var password = 'password';
-    var scope = 'scope';
-    // key-value map for optional form parameters
-    var formParams = [];
-
-    controller.requestToken1(authorization, username, password, scope, formParams, function(error, response, context) {
-
-    
-	});
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 400 | OAuth 2 provider returned an error. |
-| 401 | OAuth 2 provider says client authentication failed. |
-
-
-
-
-### <a name="refresh_token1"></a>![Method: ](https://apidocs.io/img/method.png ".OAuthAuthorizationController.refreshToken1") refreshToken1
-
-> *Tags:*  ``` Skips Authentication ``` 
-
-> Obtain a new access token using a refresh token
-
-
-```javascript
-function refreshToken1(authorization, refreshToken, scope, formParams, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| authorization |  ``` Required ```  | Authorization header in Basic auth format |
-| refreshToken |  ``` Required ```  | Refresh token |
-| scope |  ``` Optional ```  | Requested scopes as a space-delimited list. |
-| fieldParameters | ``` Optional ``` | Additional optional form parameters are supported by this method |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var authorization = 'Authorization';
-    var refreshToken = refresh_token;
-    var scope = 'scope';
-    // key-value map for optional form parameters
-    var formParams = [];
-
-    controller.refreshToken1(authorization, refreshToken, scope, formParams, function(error, response, context) {
 
     
 	});
