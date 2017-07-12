@@ -135,22 +135,15 @@ Scopes enable your application to only request access to the resources it needs 
 
 It is recommended that you store the access token for reuse.
 
-
-This code snippet stores the access token in a session for an express application. It uses the [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session) npm packages for storing the access token.
+This code snippet stores the access token in a data store. For this example, [node-localstorage](https://www.npmjs.com/package/node-localstorage) is being used as the data store.
 ```JavaScript
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const cookieSession = require('cookie-session');
+const lib = require('lib');
+if (typeof localStorage === "undefined" || localStorage === null) {
+  const LocalStorage = require('node-localstorage').LocalStorage;
+  localStorage = new LocalStorage('./scratch');
+}
 
-const app = express();
-app.use(cookieParser());
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1']
-}));
-...
-// store token in the session
-req.session.token = lib.Configuration.oAuthToken;
+localStorage.setItem('token', lib.Configuration.oAuthToken);
 ```
 
 ### Creating a client from a stored token
@@ -159,22 +152,13 @@ To authorize a client from a stored access token, just set the access token in `
 
 ```JavaScript
 // load token later...
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const cookieSession = require('cookie-session');
-
-const app = express();
-app.use(cookieParser());
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1']
-}));
-
 const lib = require('lib');
+if (typeof localStorage === "undefined" || localStorage === null) {
+  const LocalStorage = require('node-localstorage').LocalStorage;
+  localStorage = new LocalStorage('./scratch');
+}
 
-app.get('/', (req, res) => {
-    lib.Configuration.oAuthToken = req.session.token; // the access token stored in the session
-});
+lib.Configuration.oAuthToken = localStorage.getItem('token');
 ```
 
 ### Complete example
@@ -329,7 +313,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 179;
+    var id = 221;
     var title = 'title';
     var body = 'body';
 
@@ -361,7 +345,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 179;
+    var id = 221;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -391,7 +375,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 179;
+    var id = 221;
 
     controller.getNote(id, function(error, response, context) {
 
@@ -497,6 +481,51 @@ function requestToken(authorization, scope, formParams, callback)
     var formParams = [];
 
     controller.requestToken(authorization, scope, formParams, function(error, response, context) {
+
+    
+	});
+```
+
+#### Errors
+
+| Error Code | Error Description |
+|------------|-------------------|
+| 400 | OAuth 2 provider returned an error. |
+| 401 | OAuth 2 provider says client authentication failed. |
+
+
+
+
+### <a name="request_token1"></a>![Method: ](https://apidocs.io/img/method.png ".OAuthAuthorizationController.requestToken1") requestToken1
+
+> *Tags:*  ``` Skips Authentication ``` 
+
+> Create a new OAuth 2 token.
+
+
+```javascript
+function requestToken1(authorization, scope, formParams, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| authorization |  ``` Required ```  | Authorization header in Basic auth format |
+| scope |  ``` Optional ```  | Requested scopes as a space-delimited list. |
+| fieldParameters | ``` Optional ``` | Additional optional form parameters are supported by this method |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var authorization = 'Authorization';
+    var scope = 'scope';
+    // key-value map for optional form parameters
+    var formParams = [];
+
+    controller.requestToken1(authorization, scope, formParams, function(error, response, context) {
 
     
 	});
