@@ -138,10 +138,8 @@ It is recommended that you store the access token for reuse.
 This code snippet stores the access token in a data store. For this example, [node-localstorage](https://www.npmjs.com/package/node-localstorage) is being used as the data store.
 ```JavaScript
 const lib = require('lib');
-if (typeof localStorage === "undefined" || localStorage === null) {
-  const LocalStorage = require('node-localstorage').LocalStorage;
-  localStorage = new LocalStorage('./scratch');
-}
+const LocalStorage = require('node-localstorage').LocalStorage;
+const localStorage = new LocalStorage('./scratch');
 
 localStorage.setItem('token', lib.Configuration.oAuthToken);
 ```
@@ -153,16 +151,15 @@ To authorize a client from a stored access token, just set the access token in `
 ```JavaScript
 // load token later...
 const lib = require('lib');
-if (typeof localStorage === "undefined" || localStorage === null) {
-  const LocalStorage = require('node-localstorage').LocalStorage;
-  localStorage = new LocalStorage('./scratch');
-}
+const LocalStorage = require('node-localstorage').LocalStorage;
+const localStorage = new LocalStorage('./scratch');
 
 lib.Configuration.oAuthToken = localStorage.getItem('token');
 ```
 
 ### Complete example
-In this example, `app.js` will check if the access token has been set in the SDK. If it has been, API calls can be made. Otherwise, client has to be authorized first before making API calls.
+In this example, `app.js` will check if the access token has been set in the SDK. If it has been, API calls can be made. Otherwise, client has to be authorized first before making API calls.  
+This example makes use of [node-localstorage](https://www.npmjs.com/package/node-localstorage) for handling data persistence.
 
 #### `app.js`
 
@@ -174,11 +171,15 @@ const PORT = 1800;
 
 const lib = require('lib');
 const oAuthManager = lib.OAuthManager;
+const LocalStorage = require('node-localstorage').LocalStorage;
+const localStorage = new LocalStorage('./scratch');
+
 lib.Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
 lib.Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
 
 lib.Configuration.oAuthTokenUpdateCallback = function(token) {
     // token is the updated access_token
+    localStorage.setItem('token', token);
 };
 
 app.listen(PORT, () => {
@@ -187,7 +188,8 @@ app.listen(PORT, () => {
 
 app.get('/', (req, res) => {
     if (oAuthManager.isTokenSet()) {
-        // now make API calls as required
+        // token is already stored in the client
+        // make API calls as required
     } else {
         const scopes = [lib.OAuthScopeEnum.READ_NOTE, lib.OAuthScopeEnum.WRITE_NOTE];
         const promise = oAuthManager.authorize(scopes);
@@ -313,7 +315,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 221;
+    var id = 5;
     var title = 'title';
     var body = 'body';
 
@@ -345,7 +347,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 221;
+    var id = 5;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -375,7 +377,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 221;
+    var id = 5;
 
     controller.getNote(id, function(error, response, context) {
 
@@ -481,51 +483,6 @@ function requestToken(authorization, scope, formParams, callback)
     var formParams = [];
 
     controller.requestToken(authorization, scope, formParams, function(error, response, context) {
-
-    
-	});
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 400 | OAuth 2 provider returned an error. |
-| 401 | OAuth 2 provider says client authentication failed. |
-
-
-
-
-### <a name="request_token1"></a>![Method: ](https://apidocs.io/img/method.png ".OAuthAuthorizationController.requestToken1") requestToken1
-
-> *Tags:*  ``` Skips Authentication ``` 
-
-> Create a new OAuth 2 token.
-
-
-```javascript
-function requestToken1(authorization, scope, formParams, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| authorization |  ``` Required ```  | Authorization header in Basic auth format |
-| scope |  ``` Optional ```  | Requested scopes as a space-delimited list. |
-| fieldParameters | ``` Optional ``` | Additional optional form parameters are supported by this method |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var authorization = 'Authorization';
-    var scope = 'scope';
-    // key-value map for optional form parameters
-    var formParams = [];
-
-    controller.requestToken1(authorization, scope, formParams, function(error, response, context) {
 
     
 	});
