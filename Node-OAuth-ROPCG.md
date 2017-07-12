@@ -157,7 +157,6 @@ If a token expires, the SDK will attempt to automatically refresh the token befo
 
 It is recommended that you store the access token for reuse.
 
-
 This code snippet stores the access token in a session for an express application. It uses the [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session) npm packages for storing the access token.
 ```JavaScript
 const express = require('express');
@@ -170,6 +169,8 @@ app.use(cookieSession({
   name: 'session',
   keys: ['key1']
 }));
+
+const lib = require('lib');
 ...
 // store token in the session
 req.session.token = lib.Configuration.oAuthToken;
@@ -177,11 +178,9 @@ req.session.token = lib.Configuration.oAuthToken;
 However, since the the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a **token update callback** to detect any change to the access token.
 
 ```JavaScript
-Configuration.oAuthTokenUpdateCallback = function(token) {
-    // getting token here, store in session
-    // or in any variables/configurations
-    tokenStore = token;
-    // here tokenStore is any variable which is keeping track of the token
+lib.Configuration.oAuthTokenUpdateCallback = function(token) {
+    // getting the updated token
+    req.session.token = token;
 }
 ```
 
@@ -190,6 +189,7 @@ The token update callback will be fired upon authorization as well as token refr
 ### Creating a client from a stored token
 
 To authorize a client from a stored access token, just set the access token in `Configuration` along with the other configuration parameters before making endpoint calls:
+
 
 ```JavaScript
 // load token later...
@@ -212,23 +212,11 @@ app.get('/', (req, res) => {
 ```
 
 ### Complete example
-In this example, `app.js` will check if the access token has been set in the session. If it has been, endpoint calls can be made. Otherwise, client has to be authorized first.  
-The example demonstrates an express app which uses [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session) to handle data persistence.
+In this example, `app.js` will check if the access token has been set in the SDK. If it has been, API calls can be made. Otherwise, client has to be authorized first before calling the API.
 
 #### `app.js`
 
 ```JavaScript
-const express = require('express');
-const app = express();
-const cookieParser = require('cookie-parser');
-const cookieSession = require('cookie-session');
-
-app.use(cookieParser());
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1']
-}));
-const PORT = 1800;
 
 const lib = require('lib');
 const oAuthManager = lib.OAuthManager;
@@ -237,29 +225,23 @@ lib.Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Sec
 lib.Configuration.oAuthUsername = 'oAuthUsername'; // OAuth 2 Resource Owner Username
 lib.Configuration.oAuthPassword = 'oAuthPassword'; // OAuth 2 Resource Owner Password
 
+lib.Configuration.oAuthTokenUpdateCallback = function(token) {
+    // token is the updated access_token
+};
 
-app.listen(PORT, () => {
-    console.log('Listening on port ' + PORT);
-});
-
-app.get('/', (req, res) => {
-    if (req.session.token !== null &&
-          req.session.token !== undefined) {
-        // now make endpoint calls as required
-        // client will automatically refresh the token when it expires and call the token update callback
-    } else {
-        const scopes = [lib.OAuthScopeEnum.READ_NOTE, lib.OAuthScopeEnum.WRITE_NOTE];
-        const promise = oAuthManager.authorize(scopes);
-        promise.then((success) => {
-            req.session.token = lib.Configuration.oAuthToken;
-        }, (exception) => {
-            // error occurred, exception will be of type lib/Exceptions/OAuthProviderException
-        });
-    }
-});
+if (oAuthManager.isTokenSet()) {
+    // now make API calls as required
+} else {
+    const scopes = [lib.OAuthScopeEnum.READ_NOTE, lib.OAuthScopeEnum.WRITE_NOTE];
+    const promise = oAuthManager.authorize(scopes);
+    promise.then((success) => {
+        // client authorized. API calls can be made
+    }, (exception) => {
+        // error occurred, exception will be of type lib/Exceptions/OAuthProviderException
+    });
+}
 
 ```
-
 
 
 
@@ -372,7 +354,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 203;
+    var id = 10;
     var title = 'title';
     var body = 'body';
 
@@ -404,7 +386,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 203;
+    var id = 224;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -434,7 +416,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 203;
+    var id = 224;
 
     controller.getNote(id, function(error, response, context) {
 
@@ -591,6 +573,102 @@ function refreshToken(authorization, refreshToken, scope, formParams, callback)
     var formParams = [];
 
     controller.refreshToken(authorization, refreshToken, scope, formParams, function(error, response, context) {
+
+    
+	});
+```
+
+#### Errors
+
+| Error Code | Error Description |
+|------------|-------------------|
+| 400 | OAuth 2 provider returned an error. |
+| 401 | OAuth 2 provider says client authentication failed. |
+
+
+
+
+### <a name="request_token1"></a>![Method: ](https://apidocs.io/img/method.png ".OAuthAuthorizationController.requestToken1") requestToken1
+
+> *Tags:*  ``` Skips Authentication ``` 
+
+> Create a new OAuth 2 token.
+
+
+```javascript
+function requestToken1(authorization, username, password, scope, formParams, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| authorization |  ``` Required ```  | Authorization header in Basic auth format |
+| username |  ``` Required ```  | Resource owner username |
+| password |  ``` Required ```  | Resource owner password |
+| scope |  ``` Optional ```  | Requested scopes as a space-delimited list. |
+| fieldParameters | ``` Optional ``` | Additional optional form parameters are supported by this method |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var authorization = 'Authorization';
+    var username = 'username';
+    var password = 'password';
+    var scope = 'scope';
+    // key-value map for optional form parameters
+    var formParams = [];
+
+    controller.requestToken1(authorization, username, password, scope, formParams, function(error, response, context) {
+
+    
+	});
+```
+
+#### Errors
+
+| Error Code | Error Description |
+|------------|-------------------|
+| 400 | OAuth 2 provider returned an error. |
+| 401 | OAuth 2 provider says client authentication failed. |
+
+
+
+
+### <a name="refresh_token1"></a>![Method: ](https://apidocs.io/img/method.png ".OAuthAuthorizationController.refreshToken1") refreshToken1
+
+> *Tags:*  ``` Skips Authentication ``` 
+
+> Obtain a new access token using a refresh token
+
+
+```javascript
+function refreshToken1(authorization, refreshToken, scope, formParams, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| authorization |  ``` Required ```  | Authorization header in Basic auth format |
+| refreshToken |  ``` Required ```  | Refresh token |
+| scope |  ``` Optional ```  | Requested scopes as a space-delimited list. |
+| fieldParameters | ``` Optional ``` | Additional optional form parameters are supported by this method |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var authorization = 'Authorization';
+    var refreshToken = refresh_token;
+    var scope = 'scope';
+    // key-value map for optional form parameters
+    var formParams = [];
+
+    controller.refreshToken1(authorization, refreshToken, scope, formParams, function(error, response, context) {
 
     
 	});
