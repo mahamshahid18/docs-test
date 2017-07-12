@@ -228,6 +228,11 @@ lib.Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Sec
 lib.Configuration.oAuthUsername = 'oAuthUsername'; // OAuth 2 Resource Owner Username
 lib.Configuration.oAuthPassword = 'oAuthPassword'; // OAuth 2 Resource Owner Password
 
+
+const storedToken = localStorage.getItem('token');
+if (storedToken !== null && storedToken !== undefined) {
+    lib.Configuration.oAuthToken = storedToken;
+}
 lib.Configuration.oAuthTokenUpdateCallback = function(token) {
     // token is the updated access_token
     localStorage.setItem('token', token);
@@ -358,7 +363,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 177;
+    var id = 176;
     var title = 'title';
     var body = 'body';
 
@@ -390,7 +395,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 14;
+    var id = 13;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -420,7 +425,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 14;
+    var id = 13;
 
     controller.getNote(id, function(error, response, context) {
 
