@@ -177,6 +177,11 @@ const localStorage = new LocalStorage('./scratch');
 lib.Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
 lib.Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
 
+
+const storedToken = localStorage.getItem('token');
+if (storedToken !== null && storedToken !== undefined) {
+    lib.Configuration.oAuthToken = storedToken;
+}
 lib.Configuration.oAuthTokenUpdateCallback = function(token) {
     // token is the updated access_token
     localStorage.setItem('token', token);
@@ -315,7 +320,7 @@ function updateNote(id, title, body, callback)
 
 ```javascript
 
-    var id = 5;
+    var id = 17;
     var title = 'title';
     var body = 'body';
 
@@ -347,7 +352,7 @@ function deleteNote(id, callback)
 
 ```javascript
 
-    var id = 5;
+    var id = 17;
 
     controller.deleteNote(id, function(error, response, context) {
 
@@ -377,7 +382,7 @@ function getNote(id, callback)
 
 ```javascript
 
-    var id = 5;
+    var id = 17;
 
     controller.getNote(id, function(error, response, context) {
 
