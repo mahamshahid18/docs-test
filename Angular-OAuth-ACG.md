@@ -309,7 +309,7 @@ app.controller('config', function($scope, Configuration) {
 
 ### Complete example
 
-In this example, app.js first checks if the token is already set. If it is, API calls can be made. If not, it builds and opens up the authorization url in a new tab. Afterwards, auth code will be sent to the registered redirect URI.
+In this example, app.js first checks if the token is already set. If it is, API calls can be made. If not, it builds and opens up the authorization url in a new tab. Afterwards, auth code will be sent to the registered redirect URI.  
 The angular controller exposes a function which is bound to a button (in the `index.html` file). This can be called when the code is available and the client has to be authorized.
 
 
@@ -541,7 +541,7 @@ function updateNote(input)
 
 	app.controller("testController", function($scope, Note, NoteModel){
         var input = [];
-        input['id'] = 245;
+        input['id'] = 92;
         input['title'] = 'title';
         input['body'] = 'body';
 
@@ -583,7 +583,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, Note){
-        var id = 245;
+        var id = 92;
 
 
 		var result = Note.deleteNote(id);
@@ -623,7 +623,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, Note, NoteModel){
-        var id = 245;
+        var id = 92;
 
 
 		var result = Note.getNote(id);
