@@ -191,8 +191,6 @@ app.factory('config', function($scope, Configuration)
             Configuration.oAuthUsername = 'oAuthUsername'; // OAuth 2 Resource Owner Username
             Configuration.oAuthPassword = 'oAuthPassword'; // OAuth 2 Resource Owner Password
             
-            Configuration.oAuthTokenUpdateCallback = function(token) {
-            };
         }
     };
 });
