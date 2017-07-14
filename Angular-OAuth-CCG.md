@@ -1,5 +1,7 @@
 # Getting started
 
+API for Markdown Notes app.
+
 ## How to Build
 
 The generated SDK requires AngularJS framework to work. If you do not already have angular downloaded, please go ahead and do it from [here](https://angularjs.org/).
@@ -93,19 +95,19 @@ Import the reference to the generated SDK files inside your html file like:
 
     <!-- API Controllers -->
     <script src="scripts/MarkdownNotesLib/Controllers/BaseController.js"></script>
-    <script src="scripts/MarkdownNotesLib/Controllers/UserController.js"></script>
-    <script src="scripts/MarkdownNotesLib/Controllers/ServiceController.js"></script>
-    <script src="scripts/MarkdownNotesLib/Controllers/NoteController.js"></script>
-    <script src="scripts/MarkdownNotesLib/Controllers/OAuthAuthorizationController.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/User.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/Service.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/Note.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/OAuthAuthorization.js"></script>
 
 
     <!-- Models -->
     <script src="scripts/MarkdownNotesLib/Models/BaseModel.js"></script>
-    <script src="scripts/MarkdownNotesLib/Models/Note.js"></script>
-    <script src="scripts/MarkdownNotesLib/Models/User.js"></script>
-    <script src="scripts/MarkdownNotesLib/Models/ServiceStatus.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/NoteModel.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/UserModel.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/ServiceStatusModel.js"></script>
     <script src="scripts/MarkdownNotesLib/Models/OAuthScopeEnum.js"></script>
-    <script src="scripts/MarkdownNotesLib/Models/OAuthToken.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/OAuthTokenModel.js"></script>
     <script src="scripts/MarkdownNotesLib/Models/OAuthProviderErrorEnum.js"></script>
 
     ...
@@ -237,7 +239,7 @@ To authorize a client from an existing access token, just set the access token i
 var app = angular.module('OAuthTest', ['MarkdownNotesLib']);
 
 app.controller('config', function($scope, Configuration) {
-    Configuration.oAuthToken = token; // the existing token
+    Configuration.oAuthToken = sessionStorage.getItem('token'); // the existing token stored in sessionStorage of browser
 });
 ```
 
@@ -255,9 +257,13 @@ app.controller('oauthClientController', function($scope, OAuthManager, Configura
     Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
     Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
 
+    Configuration.oAuthTokenUpdateCallback = function(token) {
+        sessionStorage.setItem('token', token);
+    }
 
-    var tokenSet = OAuthManager.isTokenSet();
-    if (!tokenSet) {
+    if (OAuthManager.isTokenSet()) {
+        // token was already set, make API calls as required
+    } else {
         // since token is not set, client needs to obtain
         // an access token first
         var scopes = [OAuthScopeEnum.READ_NOTE, OAuthScopeEnum.WRITE_NOTE];
@@ -294,9 +300,23 @@ app.controller('oauthClientController', function($scope, OAuthManager, Configura
     <script src="scripts/MarkdownNotesLib/Http/Response/HttpResponse.js"></script>
     <script src="scripts/MarkdownNotesLib/Http/Client/RequestClient.js"></script>
 
-    // import controllers
+    <!-- API Controllers -->
+    <script src="scripts/MarkdownNotesLib/Controllers/BaseController.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/User.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/Service.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/Note.js"></script>
+    <script src="scripts/MarkdownNotesLib/Controllers/OAuthAuthorization.js"></script>
 
-    // import models
+
+    <!-- Models -->
+    <script src="scripts/MarkdownNotesLib/Models/BaseModel.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/NoteModel.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/UserModel.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/ServiceStatusModel.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/OAuthScopeEnum.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/OAuthTokenModel.js"></script>
+    <script src="scripts/MarkdownNotesLib/Models/OAuthProviderErrorEnum.js"></script>
+
 
     <script src="scripts/MarkdownNotesLib/OAuthManager.js"></script>
     <script src="scripts/app.js"></script>
@@ -319,23 +339,23 @@ app.controller('oauthClientController', function($scope, OAuthManager, Configura
 
 ## <a name="list_of_controllers"></a>List of Controllers
 
-* [UserController](#user_controller)
-* [ServiceController](#service_controller)
-* [NoteController](#note_controller)
-* [OAuthAuthorizationController](#o_auth_authorization_controller)
+* [User](#user)
+* [Service](#service)
+* [Note](#note)
+* [OAuthAuthorization](#o_auth_authorization)
 
-## <a name="user_controller"></a>![Class: ](https://apidocs.io/img/class.png ".UserController") UserController
+## <a name="user"></a>![Class: ](https://apidocs.io/img/class.png ".User") User
 
 ### Get singleton instance
 
-The singleton instance of the ``` UserController ``` class can be accessed via Dependency Injection.
+The singleton instance of the ``` User ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, UserController, User){
+	app.controller("testController", function($scope, User, UserModel){
 	});
 ```
 
-### <a name="get_user"></a>![Method: ](https://apidocs.io/img/method.png ".UserController.getUser") getUser
+### <a name="get_user"></a>![Method: ](https://apidocs.io/img/method.png ".User.getUser") getUser
 
 > TODO: Add a method description
 
@@ -349,10 +369,10 @@ function getUser()
 ```javascript
 
 
-	app.controller("testController", function($scope, UserController, User){
+	app.controller("testController", function($scope, User, UserModel){
 
 
-		var result = UserController.getUser();
+		var result = User.getUser();
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -369,18 +389,18 @@ function getUser()
 
 [Back to List of Controllers](#list_of_controllers)
 
-## <a name="service_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ServiceController") ServiceController
+## <a name="service"></a>![Class: ](https://apidocs.io/img/class.png ".Service") Service
 
 ### Get singleton instance
 
-The singleton instance of the ``` ServiceController ``` class can be accessed via Dependency Injection.
+The singleton instance of the ``` Service ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, ServiceController, ServiceStatus){
+	app.controller("testController", function($scope, Service, ServiceStatusModel){
 	});
 ```
 
-### <a name="get_status"></a>![Method: ](https://apidocs.io/img/method.png ".ServiceController.getStatus") getStatus
+### <a name="get_status"></a>![Method: ](https://apidocs.io/img/method.png ".Service.getStatus") getStatus
 
 > TODO: Add a method description
 
@@ -394,10 +414,10 @@ function getStatus()
 ```javascript
 
 
-	app.controller("testController", function($scope, ServiceController, ServiceStatus){
+	app.controller("testController", function($scope, Service, ServiceStatusModel){
 
 
-		var result = ServiceController.getStatus();
+		var result = Service.getStatus();
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -414,24 +434,24 @@ function getStatus()
 
 [Back to List of Controllers](#list_of_controllers)
 
-## <a name="note_controller"></a>![Class: ](https://apidocs.io/img/class.png ".NoteController") NoteController
+## <a name="note"></a>![Class: ](https://apidocs.io/img/class.png ".Note") Note
 
 ### Get singleton instance
 
-The singleton instance of the ``` NoteController ``` class can be accessed via Dependency Injection.
+The singleton instance of the ``` Note ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, NoteController, Note){
+	app.controller("testController", function($scope, Note, NoteModel){
 	});
 ```
 
-### <a name="update_note"></a>![Method: ](https://apidocs.io/img/method.png ".NoteController.updateNote") updateNote
+### <a name="update_note"></a>![Method: ](https://apidocs.io/img/method.png ".Note.updateNote") updateNote
 
 > TODO: Add a method description
 
 
 ```javascript
-function updateNote(id, title, body)
+function updateNote(input)
 ```
 #### Parameters
 
@@ -448,13 +468,14 @@ function updateNote(id, title, body)
 ```javascript
 
 
-	app.controller("testController", function($scope, NoteController, Note){
-        var id = 128;
-        var title = 'title';
-        var body = 'body';
+	app.controller("testController", function($scope, Note, NoteModel){
+        var input = [];
+        input['id'] = 157;
+        input['title'] = 'title';
+        input['body'] = 'body';
 
 
-		var result = NoteController.updateNote(id, title, body);
+		var result = Note.updateNote(input);
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -469,7 +490,7 @@ function updateNote(id, title, body)
 
 
 
-### <a name="delete_note"></a>![Method: ](https://apidocs.io/img/method.png ".NoteController.deleteNote") deleteNote
+### <a name="delete_note"></a>![Method: ](https://apidocs.io/img/method.png ".Note.deleteNote") deleteNote
 
 > TODO: Add a method description
 
@@ -490,11 +511,11 @@ function deleteNote(id)
 ```javascript
 
 
-	app.controller("testController", function($scope, NoteController){
-        var id = 128;
+	app.controller("testController", function($scope, Note){
+        var id = 157;
 
 
-		var result = NoteController.deleteNote(id);
+		var result = Note.deleteNote(id);
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -509,7 +530,7 @@ function deleteNote(id)
 
 
 
-### <a name="get_note"></a>![Method: ](https://apidocs.io/img/method.png ".NoteController.getNote") getNote
+### <a name="get_note"></a>![Method: ](https://apidocs.io/img/method.png ".Note.getNote") getNote
 
 > TODO: Add a method description
 
@@ -530,11 +551,11 @@ function getNote(id)
 ```javascript
 
 
-	app.controller("testController", function($scope, NoteController, Note){
-        var id = 128;
+	app.controller("testController", function($scope, Note, NoteModel){
+        var id = 157;
 
 
-		var result = NoteController.getNote(id);
+		var result = Note.getNote(id);
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -549,13 +570,13 @@ function getNote(id)
 
 
 
-### <a name="create_note"></a>![Method: ](https://apidocs.io/img/method.png ".NoteController.createNote") createNote
+### <a name="create_note"></a>![Method: ](https://apidocs.io/img/method.png ".Note.createNote") createNote
 
 > TODO: Add a method description
 
 
 ```javascript
-function createNote(title, body)
+function createNote(input)
 ```
 #### Parameters
 
@@ -571,12 +592,13 @@ function createNote(title, body)
 ```javascript
 
 
-	app.controller("testController", function($scope, NoteController, Note){
-        var title = 'title';
-        var body = 'body';
+	app.controller("testController", function($scope, Note, NoteModel){
+        var input = [];
+        input['title'] = 'title';
+        input['body'] = 'body';
 
 
-		var result = NoteController.createNote(title, body);
+		var result = Note.createNote(input);
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -591,7 +613,7 @@ function createNote(title, body)
 
 
 
-### <a name="list_notes"></a>![Method: ](https://apidocs.io/img/method.png ".NoteController.listNotes") listNotes
+### <a name="list_notes"></a>![Method: ](https://apidocs.io/img/method.png ".Note.listNotes") listNotes
 
 > TODO: Add a method description
 
@@ -605,10 +627,10 @@ function listNotes()
 ```javascript
 
 
-	app.controller("testController", function($scope, NoteController, Note){
+	app.controller("testController", function($scope, Note, NoteModel){
 
 
-		var result = NoteController.listNotes();
+		var result = Note.listNotes();
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -625,18 +647,18 @@ function listNotes()
 
 [Back to List of Controllers](#list_of_controllers)
 
-## <a name="o_auth_authorization_controller"></a>![Class: ](https://apidocs.io/img/class.png ".OAuthAuthorizationController") OAuthAuthorizationController
+## <a name="o_auth_authorization"></a>![Class: ](https://apidocs.io/img/class.png ".OAuthAuthorization") OAuthAuthorization
 
 ### Get singleton instance
 
-The singleton instance of the ``` OAuthAuthorizationController ``` class can be accessed via Dependency Injection.
+The singleton instance of the ``` OAuthAuthorization ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, OAuthAuthorizationController, OAuthToken){
+	app.controller("testController", function($scope, OAuthAuthorization, OAuthTokenModel){
 	});
 ```
 
-### <a name="request_token"></a>![Method: ](https://apidocs.io/img/method.png ".OAuthAuthorizationController.requestToken") requestToken
+### <a name="create_request_token"></a>![Method: ](https://apidocs.io/img/method.png ".OAuthAuthorization.createRequestToken") createRequestToken
 
 > *Tags:*  ``` Skips Authentication ``` 
 
@@ -644,7 +666,7 @@ The singleton instance of the ``` OAuthAuthorizationController ``` class can be 
 
 
 ```javascript
-function requestToken(authorization, scope, formParams)
+function createRequestToken(input, formParams)
 ```
 #### Parameters
 
@@ -661,14 +683,15 @@ function requestToken(authorization, scope, formParams)
 ```javascript
 
 
-	app.controller("testController", function($scope, OAuthAuthorizationController, OAuthToken){
-        var authorization = 'Authorization';
-        var scope = 'scope';
+	app.controller("testController", function($scope, OAuthAuthorization, OAuthTokenModel){
+        var input = [];
+        input['authorization'] = 'Authorization';
+        input['scope'] = 'scope';
     // key-value map for optional form parameters
     var formParams = [];
 
 
-		var result = OAuthAuthorizationController.requestToken(authorization, scope, formParams);
+		var result = OAuthAuthorization.createRequestToken(input, formParams);
         //Function call returns a promise
         result.then(function(success){
 			//success case
