@@ -181,7 +181,7 @@ In order to setup authentication and initialization of the Angular App, you need
 
 ```JavaScript
 var app = angular.module('myApp', [MarkdownNotesLib]);
-app.factory('config', function($scope, Configuration) 
+app.factory('config', function($scope, Configuration)
 {
     return {
         setConfigVars: function() {
@@ -191,6 +191,8 @@ app.factory('config', function($scope, Configuration)
             Configuration.oAuthUsername = 'oAuthUsername'; // OAuth 2 Resource Owner Username
             Configuration.oAuthPassword = 'oAuthPassword'; // OAuth 2 Resource Owner Password
             
+            Configuration.oAuthTokenUpdateCallback = function(token) {
+            };
         }
     };
 });
@@ -513,7 +515,7 @@ function updateNote(input)
 
 	app.controller("testController", function($scope, Note, NoteModel){
         var input = [];
-        input['id'] = 142;
+        input['id'] = 81;
         input['title'] = 'title';
         input['body'] = 'body';
 
@@ -555,7 +557,7 @@ function deleteNote(id)
 
 
 	app.controller("testController", function($scope, Note){
-        var id = 142;
+        var id = 81;
 
 
 		var result = Note.deleteNote(id);
@@ -595,7 +597,7 @@ function getNote(id)
 
 
 	app.controller("testController", function($scope, Note, NoteModel){
-        var id = 142;
+        var id = 172;
 
 
 		var result = Note.getNote(id);
